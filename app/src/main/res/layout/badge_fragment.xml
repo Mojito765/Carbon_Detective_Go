@@ -7,6 +7,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.badge_fragment">
 
+
+    <ImageButton
+        android:id="@+id/badge1"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:background="#00FFFFFF"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/badge1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="6dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ImageButton
+        android:id="@+id/badge2"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:background="#00FFFFFF"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/badge2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="84dp"
+        tools:layout_editor_absoluteY="440dp" />
+
+    <ImageButton
+        android:id="@+id/badge3"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:background="#00FFFFFF"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/badge3"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="41dp" />
+
+    <ImageButton
+        android:id="@+id/badge4"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:background="#00FFFFFF"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/badge4"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="191dp" />
+
+    <ImageButton
+        android:id="@+id/badge5"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:background="#00FFFFFF"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/badge5"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="206dp"
+        tools:layout_editor_absoluteY="191dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,5 +84,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
