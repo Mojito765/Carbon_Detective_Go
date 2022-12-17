@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:onClick="floating_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/go"
+        android:src="@drawable/ic_round_rocket_launch_24"
+        app:layout_anchor="@id/button_app_bar"
+        app:maxImageSize="30dp" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/button_app_bar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/white"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        app:fabCradleMargin="6dp"
+        app:fabAlignmentMode="center"
+        app:fabCradleRoundedCornerRadius="60dp"
+        />
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/chip_app_bar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        app:cnb_menuResource="@menu/navigation_menu_with_button"
+        app:cnb_iconSize="30dp"
+        app:cnb_unselectedColor="@color/black"
+        app:cnb_radius="28dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/ic_round_home_24"
+        app:cnb_iconColor="@color/purple_200"
+        app:cnb_backgroundColor="#40BB86FC"
+        />
+
+    <item
+        android:id="@+id/blank"
+        android:title=""
+        android:enabled="false"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/blank2"
+        android:title=""
+        android:enabled="false"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/badge"
+        android:title="@string/badge"
+        android:icon="@drawable/ic_round_stars_24"
+        app:cnb_iconColor="@color/teal_200"
+        app:cnb_backgroundColor="#4003DAC5"
+        />
+
+</menu>
