@@ -17,9 +17,6 @@ import com.doit.detective.R;
 
 public class badge_fragment extends AppCompatActivity {
 
-//    public badge_fragment() {
-//        // Required empty public constructor
-//    }
     ImageButton imageButtonbadge1;
     ImageButton imageButtonbadge2;
     ImageButton imageButtonbadge3;
@@ -100,5 +97,6 @@ public class badge_fragment extends AppCompatActivity {
         });
 
     }
+
 }
 
