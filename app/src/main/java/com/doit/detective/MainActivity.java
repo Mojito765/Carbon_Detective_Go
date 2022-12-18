@@ -1,62 +1,56 @@
 package com.doit.detective;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import android.os.Bundle;
 
-import android.content.ClipData;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import android.os.Bundle;
-import com.ismaeldivita.chipnavigation.ChipNavigationBar;
-import com.doit.detective.databinding.ActivityMainBinding;
-import com.doit.detective.fragment.badge1;
-import com.doit.detective.fragment.badge_fragment;
+
 import com.doit.detective.fragment.go_fragment;
 import com.doit.detective.fragment.home_fragment;
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity {
-
-    BottomAppBar bottomAppBar;
-
-    home_fragment HomeFragment=new home_fragment();
-    go_fragment GoFragment=new go_fragment();
-    badge_fragment BadgeFragment=new badge_fragment();
-
+    ChipNavigationBar chipNavigationBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomAppBar = findViewById(R.id.button_app_bar);
+        FloatingActionButton fab = findViewById(R.id.go_fabtn);
+        fab.setOnClickListener(v ->
+                new AlertDialog.Builder(this)
+                        .setTitle("Oops")
+                        .setMessage("緣份到自然就可以用了")
+                        .setPositiveButton("OK", (dialog, which) -> {})
+                        .show());
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.root_layout,HomeFragment).commit();
-
-        bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, HomeFragment).commit();
-                        return true;
-                    case R.id.badge:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, GoFragment).commit();
-                        return true;
-                }
-                if (item.getItemId() == R.id.badge){getSupportFragmentManager().beginTransaction().replace(R.id.root_layout,GoFragment).commit();}
-                return false;
-            }
-        });
+        chipNavigationBar = findViewById(R.id.chip_app_bar);
+        chipNavigationBar.setItemSelected(R.id.home,
+                true);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.root_layout,
+                        new home_fragment()).commit();
+        bottomMenu();
+    }
+    private void bottomMenu() {
+        chipNavigationBar.setOnItemSelectedListener
+                (new ChipNavigationBar.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(int i) {
+                        Fragment fragment = null;
+                        switch (i){
+                            case R.id.home:
+                                fragment = new home_fragment();
+                                break;
+                            case R.id.badge:
+                                fragment = new go_fragment();
+                                break;
+                        }
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.root_layout, fragment).commit();
+                    }
+                });
     }
 }
