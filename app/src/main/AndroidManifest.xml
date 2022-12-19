@@ -13,35 +13,42 @@
         android:theme="@style/Theme.Detective"
         tools:targetApi="31">
         <activity
-            android:name=".badge5"
+            android:name=".badge6_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".badge4"
+            android:name=".badge5_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".badge3"
+            android:name=".badge4_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".badge2"
+            android:name=".badge3_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".badge1"
+            android:name=".badge2_activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".badge1_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

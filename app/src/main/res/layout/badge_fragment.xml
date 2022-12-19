@@ -1,91 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/honeydew"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
     tools:context=".fragment.badge_fragment">
 
-    <!-- imageButton 01 -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="1dp"
+        android:gravity="center"
+        android:text="@string/badge_fragment_title"
+        android:textColor="@color/teal_200"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/badge1"
-        android:layout_width="122dp"
-        android:layout_height="127dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="108dp"
         android:background="#00FFFFFF"
         android:clickable="true"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/badge1"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        android:contentDescription="@string/badge1" />
 
     <ImageButton
         android:id="@+id/badge2"
-        android:layout_width="122dp"
-        android:layout_height="127dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="26dp"
         android:background="#00FFFFFF"
         android:clickable="true"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/badge2"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="84dp"
-        tools:layout_editor_absoluteY="440dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        android:contentDescription="@string/badge2" />
 
     <ImageButton
         android:id="@+id/badge3"
-        android:layout_width="122dp"
-        android:layout_height="127dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="288dp"
         android:background="#00FFFFFF"
         android:clickable="true"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/badge3"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="41dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        android:contentDescription="@string/badge3" />
 
     <ImageButton
         android:id="@+id/badge4"
-        android:layout_width="122dp"
-        android:layout_height="127dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="468dp"
         android:background="#00FFFFFF"
         android:clickable="true"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/badge4"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="191dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        android:contentDescription="@string/badge4" />
 
     <ImageButton
         android:id="@+id/badge5"
-        android:layout_width="122dp"
-        android:layout_height="127dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="468dp"
+        android:layout_marginEnd="26dp"
         android:background="#00FFFFFF"
         android:clickable="true"
         android:onClick="onClick"
         android:scaleType="centerInside"
         android:src="@drawable/badge5"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="206dp"
-        tools:layout_editor_absoluteY="191dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/badge"
-        android:textSize="24sp"
-        android:textColor="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        android:contentDescription="@string/badge5" />
 
-
+    <ImageButton
+        android:id="@+id/badge6"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="26dp"
+        android:background="#00FFFFFF"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:scaleType="centerInside"
+        android:src="@drawable/badge6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        android:contentDescription="@string/badge6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

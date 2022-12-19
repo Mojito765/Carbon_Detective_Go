@@ -6,7 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import com.doit.detective.fragment.go_fragment;
+import com.doit.detective.fragment.badge_fragment;
 import com.doit.detective.fragment.home_fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                                 fragment = new home_fragment();
                                 break;
                             case R.id.badge:
-                                fragment = new go_fragment();
+                                fragment = new badge_fragment();
                                 break;
                         }
                         getSupportFragmentManager().beginTransaction()
