@@ -7,9 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="coffee_200">#FFCD853F</color>
+    <color name="coffee_200">#FFF5DEB3</color>
     <color name="coffee_500">#FFDEB887</color>
-    <color name="coffee_700">#FFF5DEB3</color>
+    <color name="coffee_700">#FFCD853F</color>
     <color name="lavender">#FFE6E6FA</color>
     <color name="honeydew">#FFF0FFF0</color>
 </resources>
