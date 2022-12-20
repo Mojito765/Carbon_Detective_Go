@@ -77,7 +77,7 @@ public class badge_fragment extends Fragment {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "COMING SOON!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "敬請期待！", Toast.LENGTH_LONG).show();
             }
         });
 

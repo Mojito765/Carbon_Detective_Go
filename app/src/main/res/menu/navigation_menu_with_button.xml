@@ -6,8 +6,8 @@
         android:id="@+id/home"
         android:title="@string/home"
         android:icon="@drawable/ic_round_home_24"
-        app:cnb_iconColor="@color/coffee_700"
-        app:cnb_backgroundColor="#40CD853F"
+        app:cnb_iconColor="@color/grass_700"
+        app:cnb_backgroundColor="#40637240"
         />
 
     <item
@@ -28,8 +28,8 @@
         android:id="@+id/badge"
         android:title="@string/badge"
         android:icon="@drawable/ic_round_stars_24"
-        app:cnb_iconColor="@color/coffee_700"
-        app:cnb_backgroundColor="#40CD853F"
+        app:cnb_iconColor="@color/grass_700"
+        app:cnb_backgroundColor="#40637240"
         />
 
 </menu>

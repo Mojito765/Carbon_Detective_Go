@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Detective</string>
+    <string name="app_name">Carbon Detective Go</string>
     <string name="badge">Badges</string>
     <string name="home">Home</string>
     <string name="go">Go</string>
@@ -12,4 +12,17 @@
     <string name="badge4">百尺竿頭</string>
     <string name="badge5">敬請期待</string>
     <string name="badge6">你累了嗎</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="title_activity_main2">activity_main2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>
