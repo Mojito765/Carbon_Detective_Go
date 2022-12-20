@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="@string/home"
         android:textSize="24sp"
-        android:textColor="@color/purple_700"
+        android:textColor="@color/grass_700"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

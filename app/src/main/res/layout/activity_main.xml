@@ -15,6 +15,51 @@
         android:fitsSystemWindows="true"
         tools:openDrawer="start"
         tools:context=".MainActivity">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            tools:context=".MainActivity">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/go_fabtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#c5cbb9"
+                android:contentDescription="@string/go"
+                android:onClick="floating_button"
+                android:src="@drawable/ic_round_add_location_alt_24"
+                app:layout_anchor="@id/button_app_bar"
+                app:maxImageSize="30dp" />
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/button_app_bar"
+                style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:backgroundTint="@color/white"
+                app:fabAlignmentMode="center"
+                app:fabCradleMargin="6dp"
+                app:fabCradleRoundedCornerRadius="60dp" />
+
+            <com.ismaeldivita.chipnavigation.ChipNavigationBar
+                android:id="@+id/chip_app_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:cnb_iconSize="30dp"
+                app:cnb_menuResource="@menu/nav_menu_with_button"
+                app:cnb_radius="28dp"
+                app:cnb_unselectedColor="#40637240" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -30,61 +75,19 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/fragment_container"/>
+                android:id="@+id/root_layout"
+                android:layout_marginBottom="100dp"/>
         </LinearLayout>
+
         <com.google.android.material.navigation.NavigationView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/nav_view2"
+            android:id="@+id/nav_view"
             android:layout_gravity="start"
             app:headerLayout="@layout/nav_header"
-            app:menu="@menu/navigation_menu"
+            app:menu="@menu/nav_menu"
             app:itemIconTint="@color/grass_700"
             app:itemTextColor="@color/grass_700"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 
-    <FrameLayout
-        android:id="@+id/root_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="100dp"
-        />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/go_fabtn"
-        android:onClick="floating_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#c5cbb9"
-        android:contentDescription="@string/go"
-        android:src="@drawable/ic_round_add_location_alt_24"
-        app:layout_anchor="@id/button_app_bar"
-        app:maxImageSize="30dp" />
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/button_app_bar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@color/white"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-        app:fabCradleMargin="6dp"
-        app:fabAlignmentMode="center"
-        app:fabCradleRoundedCornerRadius="60dp"
-        />
-
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/chip_app_bar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:layout_gravity="bottom"
-        app:cnb_menuResource="@menu/navigation_menu_with_button"
-        app:cnb_iconSize="30dp"
-        app:cnb_unselectedColor="#40637240"
-        app:cnb_radius="28dp"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@android:color/transparent"
-        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

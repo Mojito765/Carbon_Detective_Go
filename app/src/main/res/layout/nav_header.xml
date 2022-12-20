@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:gravity="bottom"
-    android:padding="16dp"
     android:background="@color/grass_700"
+    android:gravity="bottom"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo_s"/>
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="34dp"
+        android:src="@drawable/logo_s"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Team DOiT"
-        android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="76dp"
+        android:text="DOiT_做就隊"
+        android:textColor="@color/grass_200"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test@gmail.com"
-        android:textColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="124dp"
+        android:text="名偵碳走哪裡？/ Carbon Detective Go"
+        android:textColor="@color/grass_200"
         android:textSize="14sp"
-        android:layout_marginBottom="16dp"/>
-</LinearLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

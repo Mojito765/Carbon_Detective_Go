@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
 
     ChipNavigationBar chipNavigationBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,15 +34,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawerLayout= findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view2);
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open,
                 R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new home_fragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new home_fragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
@@ -51,7 +52,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 new AlertDialog.Builder(this)
                         .setTitle("Oops")
                         .setMessage("緣份到自然就可以用了")
-                        .setPositiveButton("OK", (dialog, which) -> {})
+                        .setPositiveButton("OK", (dialog, which) -> {
+                        })
                         .show());
 
         chipNavigationBar = findViewById(R.id.chip_app_bar);
@@ -68,13 +70,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new home_fragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new home_fragment()).commit();
                 break;
             case R.id.nav_detail:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new detail_fragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new detail_fragment()).commit();
                 break;
             case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new about_fragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new about_fragment()).commit();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -89,14 +91,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-//bottom button
+
+    //bottom btn
     private void bottomMenu() {
         chipNavigationBar.setOnItemSelectedListener
                 (new ChipNavigationBar.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(int i) {
                         Fragment fragment = null;
-                        switch (i){
+                        switch (i) {
                             case R.id.home:
                                 fragment = new home_fragment();
                                 break;
