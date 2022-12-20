@@ -16,13 +16,14 @@
         android:scaleType="fitStart"
         android:src="@drawable/badge1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/badge1" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="125dp"
-        android:layout_marginTop="412dp"
+        android:layout_marginTop="424dp"
         android:layout_marginEnd="126dp"
         android:gravity="center"
         android:text="@string/badge1"
@@ -30,15 +31,16 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="472dp"
+        android:layout_marginTop="468dp"
         android:gravity="center"
-        android:text="測試文字"
+        android:text="從零開始的碳世界生活。"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
