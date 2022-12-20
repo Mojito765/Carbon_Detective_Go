@@ -13,7 +13,7 @@
     <color name="grass_200">#FFf0fbcb</color>
     <color name="grass_500">#FFb1ce55</color>
     <color name="grass_700">#FF637240</color>
-<!--    <color name="lavender">#FFE6E6FA</color>-->
+    <color name="lavender">#FFE6E6FA</color>
     <color name="honeydew">#FFF0FFF0</color>
     <color name="dimgray">#FF696969</color>
 </resources>
