@@ -13,15 +13,6 @@
         android:theme="@style/Theme.Detective"
         tools:targetApi="31">
         <activity
-            android:name=".activity_main2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Detective.NoActionBar">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".badge6_activity"
             android:exported="false">
             <meta-data
