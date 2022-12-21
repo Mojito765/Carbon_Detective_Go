@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grass_700"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -14,7 +15,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/grass_700"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
@@ -51,39 +51,41 @@
                 android:textColor="@color/grass_200"
                 android:textSize="16sp" />
 
-            <LinearLayout
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:src="@drawable/carbon_label" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:gravity="center_horizontal"
+                android:paddingTop="15dp"
+                android:text="台灣碳足跡標籤"
+                android:textColor="@color/grass_200"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="20dp"
-                    android:paddingRight="20dp"
-                    android:src="@drawable/carbon_label" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="0dp"
+                android:text="      透過碳標籤制度的施行，能使產品各階段的碳排放來源透明化，促使企業調整其產品碳排放量較大的製程，也能促使消費者正確地使用產品，以達到減低產品碳排放量的最大效益。"
+                android:textColor="@color/grass_200"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="15dp"
-                    android:text="台灣碳足跡標籤"
-                    android:textColor="@color/grass_200"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:text="      透過碳標籤制度的施行，能使產品各階段的碳排放來源透明化，促使企業調整其產品碳排放量較大的製程，也能促使消費者正確地使用產品，以達到減低產品碳排放量的最大效益。\n資料來源：https://cfp-calculate.tw/cfpc/Carbon/WebPage/InstitutionDesc.aspx"
-                    android:textColor="@color/grass_200"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/carbonLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="@string/linkUrl" />
 
         </LinearLayout>
     </ScrollView>
