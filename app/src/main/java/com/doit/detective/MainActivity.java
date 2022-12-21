@@ -2,6 +2,7 @@ package com.doit.detective;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,7 +15,7 @@ import androidx.fragment.app.Fragment;
 
 import com.doit.detective.fragment.about_fragment;
 import com.doit.detective.fragment.badge_fragment;
-import com.doit.detective.fragment.detail_fragment;
+import com.doit.detective.fragment.carbon_fragment;
 import com.doit.detective.fragment.home_fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -34,16 +35,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open,
-                R.string.close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open,
+                R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new home_fragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
+            navigationView.setCheckedItem(R.id.nav_carbon);
         }
 
 //FAB
@@ -69,14 +70,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new home_fragment()).commit();
-                break;
-            case R.id.nav_detail:
-                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new detail_fragment()).commit();
+            case R.id.nav_carbon:
+                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new carbon_fragment()).commit();
                 break;
             case R.id.nav_about:
                 getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new about_fragment()).commit();
+                break;
+            case R.id.nav_support:
+                Toast.makeText(this, "Thanks!", Toast.LENGTH_SHORT).show();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

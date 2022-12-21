@@ -6,21 +6,20 @@
     <group
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_carbon"
             android:icon="@drawable/ic_round_co2_24"
-            android:title="About Carbon Footprint"/>
+            android:title="What's Carbon Footprint"/>
         <item
-            android:id="@+id/nav_detail"
-            android:icon="@drawable/ic_round_rocket_launch_24"
-            android:title="Latest News"/>
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_round_person_24"
+            android:title="About Us"/>
     </group>
-    <item
-        android:title="">
+    <item android:title="Support">
         <menu>
             <item
-                android:id="@+id/nav_about"
-                android:icon="@drawable/ic_round_info_24"
-                android:title="About Us"/>
+                android:id="@+id/nav_support"
+                android:icon="@drawable/ic_round_thumb_up_24"
+                android:title="Like" />
         </menu>
     </item>
 </menu>
