@@ -1,5 +1,6 @@
 package com.doit.detective;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -13,9 +14,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
-import com.doit.detective.fragment.about_fragment;
 import com.doit.detective.fragment.badge_fragment;
-import com.doit.detective.fragment.carbon_fragment;
 import com.doit.detective.fragment.home_fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar); //Ignore red line errors
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new home_fragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_carbon);
+//            navigationView.setCheckedItem(R.id.nav_carbon);
         }
 
 //FAB
@@ -69,12 +68,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //drawer btn
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
+        int id = item.getItemId();
+        switch (id) {
             case R.id.nav_carbon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new carbon_fragment()).commit();
+                Intent i = new Intent(MainActivity.this, about_carbon_footprint_activity.class);
+                startActivity(i);
                 break;
             case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.root_layout, new about_fragment()).commit();
+                Intent j = new Intent(MainActivity.this, about_us_activity.class);
+                startActivity(j);
                 break;
             case R.id.nav_support:
                 Toast.makeText(this, "Thanks!", Toast.LENGTH_SHORT).show();
