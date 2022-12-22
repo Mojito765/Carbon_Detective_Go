@@ -8,6 +8,8 @@
     android:background="@android:color/transparent"
     android:orientation="vertical"
     android:padding="10dp"
+    android:scrollbarSize="10dp"
+    android:scrollbarStyle="insideOverlay"
     tools:context=".fragment.badge_fragment">
 
     <TextView
@@ -22,11 +24,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#40637240">
+        android:background="#40637240"
+        android:scrollIndicators="right">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageButton
                 android:id="@+id/badge1"
                 android:layout_width="180dp"
