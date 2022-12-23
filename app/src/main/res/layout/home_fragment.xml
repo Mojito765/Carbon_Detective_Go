@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+<!--card1-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/c1"
         android:layout_width="match_parent"
         android:layout_height="173dp"
         android:layout_marginStart="20dp"
@@ -36,7 +38,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Assam"
+                        android:text="Taipei"
                         android:textColor="#000000"
                         android:textSize="22sp" />
 
@@ -61,31 +63,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="25"
+                    android:text="Start now!"
                     android:textColor="#000000"
                     android:textSize="28sp" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="o"
-                        android:textColor="#000000"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="18 %"
-                    android:textColor="#000000"
-                    android:textSize="14sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -96,15 +76,16 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="6dp"
-                        android:text="11.25 AM"
+                        android:text="09:25 AM"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
+<!--card2-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/c2"
         android:layout_width="match_parent"
         android:layout_height="173dp"
         android:layout_marginStart="20dp"
@@ -134,14 +115,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Delhi"
+                        android:text="Keep going ~"
                         android:textColor="@color/white"
                         android:textSize="22sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2 days ago"
+                        android:text="3 days ago"
                         android:textColor="@color/white"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -163,25 +144,11 @@
                     android:textColor="@color/white"
                     android:textSize="28sp" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="o"
-                        android:textColor="@color/white"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="35 %"
+                    android:text=" kgCO2 saved"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
@@ -194,15 +161,16 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="6dp"
-                        android:text="01.05 PM"
+                        android:text="10:08 PM"
                         android:textColor="@color/grass_200"
                         android:textSize="14sp" />
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
+<!--card3-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/c3"
         android:layout_width="match_parent"
         android:layout_height="173dp"
         android:layout_marginStart="20dp"
@@ -232,7 +200,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Darjeeling"
+                        android:text="Kaohsiung"
                         android:textColor="#000000"
                         android:textSize="22sp" />
 
@@ -261,25 +229,11 @@
                     android:textColor="#000000"
                     android:textSize="28sp" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
-                        android:text="o"
-                        android:textColor="#000000"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="9 %"
+                    android:text=" km"
                     android:textColor="#000000"
                     android:textSize="14sp" />
 
@@ -292,7 +246,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="6dp"
-                        android:text="05.00 AM"
+                        android:text="08:00 AM"
                         android:textColor="#000000"
                         android:textSize="14sp" />
                 </RelativeLayout>
