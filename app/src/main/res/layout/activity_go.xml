@@ -28,9 +28,6 @@
         android:onClick="redirect"
         android:text="Back to Home "
         android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        android:textSize="16sp" />
 
 </LinearLayout>
