@@ -3,11 +3,11 @@ package com.doit.detective;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -52,14 +52,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 //FAB
-        FloatingActionButton fab = findViewById(R.id.go_fabtn);
-        fab.setOnClickListener(v ->
-                new AlertDialog.Builder(this)
-                        .setTitle("Oops")
-                        .setMessage("緣份到自然就可以用了")
-                        .setPositiveButton("OK", (dialog, which) -> {
-                        })
-                        .show());
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.go_btn);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, go_activity.class));
+            }
+        });
 
         chipNavigationBar = findViewById(R.id.chip_app_bar);
         chipNavigationBar.setItemSelected(R.id.home,
