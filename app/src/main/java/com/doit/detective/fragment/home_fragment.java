@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.doit.detective.R;
 import com.doit.detective.card1_activity;
+import com.doit.detective.go_activity;
 
 public class home_fragment extends Fragment {
 
@@ -33,7 +34,7 @@ public class home_fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), card1_activity.class);
+                intent.setClass(getActivity(), go_activity.class);
                 startActivity(intent);
             }
         });
