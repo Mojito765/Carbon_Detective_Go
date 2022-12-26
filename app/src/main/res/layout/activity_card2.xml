@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
+    android:background="@color/grass_700"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -23,25 +23,44 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:padding="30dp"
-                android:text="Recording..."
-                android:textColor="@color/grass_700"
+                android:text="Last week total"
+                android:textColor="@color/grass_200"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:paddingLeft="20dp"
-                android:paddingTop="0dp"
-                android:paddingRight="20dp"
-                android:src="@drawable/word_cloud" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="39"
+                android:textColor="@color/grass_200"
+                android:textSize="100sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="kgCO2"
+                android:textColor="@color/grass_200"
+                android:textSize="60sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="30dp"
+                android:text="Moving 256 km"
+                android:textColor="@color/grass_200"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="      Start: "
-                android:textColor="@color/grass_700"
+                android:text="      Tips: "
+                android:textColor="@color/grass_200"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -50,8 +69,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:padding="10dp"
-                android:text="No. 89號, Kaixuan 2nd Rd, Lingya District, Kaohsiung City, Taiwan 802"
-                android:textColor="@color/grass_700"
+                android:text="善用大眾交通運輸工具更環保愛地球~"
+                android:textColor="@color/grass_200"
                 android:textSize="16sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -61,9 +80,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="36dp"
                 android:background="@drawable/button_accent"
-                android:drawableEnd="@drawable/ic_round_stop_circle_24"
+                android:drawableEnd="@drawable/ic_round_home_24"
                 android:onClick="redirect"
-                android:text="Stop Record "
+                android:text="back to home "
                 android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>

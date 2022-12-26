@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="    歡迎加入「名偵碳走哪裡」~ 全新的「偵碳」旅程即將展開，隨著你雲遊四海，獲得的徽章也會越來越多，還等什麼？一起 Carbon Detective Go!!!"
+                android:text="    歡迎加入「名偵碳走哪裡？」~ 全新的「偵碳」旅程即將展開，隨著你雲遊四海，獲得的徽章也會越來越多，還等什麼？一起 Carbon Detective Go!!!"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 

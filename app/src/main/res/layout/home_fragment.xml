@@ -133,7 +133,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="3 days ago"
+                                android:text="last week"
                                 android:textColor="@color/white"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -159,7 +159,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=" kgCO2 saved"
+                            android:text=" kgCO2 total"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
 

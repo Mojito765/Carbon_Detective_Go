@@ -19,26 +19,16 @@
     android:textSize="40sp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/gps_go"
+        android:id="@+id/getLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="36dp"
         android:background="@drawable/button_accent"
         android:onClick="redirect"
-        android:text="機率閃退按鈕"
+        android:text="Go"
         android:textColor="@color/black"
         android:textSize="16sp" />
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/black"
-        android:id="@+id/getLocation"
-        android:text="Get Location"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"/>
 
     <TextView
         android:id="@+id/latitude"
