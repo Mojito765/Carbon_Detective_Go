@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(MainActivity.this, go_activity.class));
             }
         });
-
+//chipNavigationBar
         chipNavigationBar = findViewById(R.id.chip_app_bar);
         chipNavigationBar.setItemSelected(R.id.home,
                 true);
