@@ -126,11 +126,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginEnd="7dp"
-                    android:background="@drawable/button_accent"
+                    android:background="@drawable/button_accent2"
                     android:drawableEnd="@drawable/ic_round_home_24"
                     android:onClick="redirect"
                     android:text="Back to Home "
-                    android:textColor="@color/black"
+                    android:textColor="@color/grass_200"
                     android:textSize="16sp" />
             </LinearLayout>
         </ScrollView>
