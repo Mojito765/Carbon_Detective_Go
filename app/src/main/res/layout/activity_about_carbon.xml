@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grass_700"
+    android:background="?colorPrimary"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -16,18 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="30dp">
+            android:padding="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="30dp"
                 android:paddingTop="36dp"
+                android:paddingEnd="30dp"
                 android:text="碳足跡？"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -36,19 +34,17 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="30dp"
                 android:paddingTop="0dp"
+                android:paddingEnd="30dp"
                 android:text="What's Carbon Footprint?"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingTop="30dp"
-                android:paddingRight="30dp"
-                android:paddingBottom="15dp"
-                android:text="      指一活動或產品的生命週期中，直接與間接產生的溫室氣體排放量。"
-                android:textColor="@color/grass_200"
+                android:padding="30dp"
+                android:text="  指一活動或產品的生命週期中，直接與間接產生的溫室氣體排放量。"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 
             <ImageView
@@ -65,33 +61,44 @@
                 android:gravity="center_horizontal"
                 android:paddingTop="15dp"
                 android:text="台灣碳足跡標籤"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
+                android:paddingLeft="30dp"
                 android:paddingTop="20dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="30dp"
-                android:text="      透過碳標籤制度的施行，能使產品各階段的碳排放來源透明化，促使企業調整其產品碳排放量較大的製程，也能促使消費者正確地使用產品，以達到減低產品碳排放量的最大效益。"
-                android:textColor="@color/grass_200"
+                android:paddingRight="30dp"
+                android:paddingBottom="0dp"
+                android:text="  碳標籤制度能使產品各階段的碳排放來源透明化，促使企業調整其產品碳排放量較大的製程，也能促使消費者正確地使用產品。"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
                 android:id="@+id/btn_web"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginBottom="10dp"
+                android:onClick="web"
+                android:text="Learn more"
+                android:textColor="?colorOnPrimary"
+                app:drawableEndCompat="@drawable/ic_round_open_in_new_24"
+                app:drawableTint="?colorOnPrimary" />
+
+            <Button
+                android:id="@+id/btn_home"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginEnd="7dp"
-                android:background="@drawable/button_accent"
-                android:drawableEnd="@drawable/ic_round_open_in_new_24"
+                android:layout_marginBottom="5dp"
                 android:onClick="redirect"
-                android:text="Reference "
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:text="Back to home"
+                app:icon="@drawable/ic_round_home_24" />
 
         </LinearLayout>
 

@@ -91,18 +91,16 @@
                 android:textColor="@color/grass_200"
                 android:textSize="16sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
                 android:id="@+id/btn_home"
+                android:layout_marginTop="36dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="36dp"
-                android:background="@drawable/button_accent"
-                android:drawableEnd="@drawable/ic_round_home_24"
+                app:icon="@drawable/ic_round_home_24"
                 android:onClick="redirect"
-                android:text="back to home "
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:text="Back to home" />
         </LinearLayout>
     </ScrollView>
 

@@ -37,7 +37,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".card1_activity"
+            android:name=".test_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -51,7 +51,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".about_carbon_footprint_activity"
+            android:name=".about_carbon_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_green"
+    android:background="@color/grass_200"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -57,17 +57,15 @@
                 android:textColor="@color/grass_700"
                 android:textSize="18sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
+            <Button
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
                 android:id="@+id/btn_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_accent2"
-                android:drawableEnd="@drawable/ic_round_home_24"
+                app:icon="@drawable/ic_round_home_24"
                 android:onClick="redirect"
-                android:text="Back to Home "
-                android:textColor="@color/grass_200"
-                android:textSize="16sp" />
+                android:text="Back to home" />
         </LinearLayout>
     </ScrollView>
 

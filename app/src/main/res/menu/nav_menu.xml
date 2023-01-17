@@ -3,17 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
-    <group
-        android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_carbon"
-            android:icon="@drawable/ic_round_co2_24"
-            android:title="What's Carbon Footprint"/>
-        <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/ic_round_person_24"
-            android:title="About Us"/>
-    </group>
+    <item android:title="Information">
+        <menu>
+<!--            <group-->
+<!--                android:checkableBehavior="single">-->
+                <item
+                    android:id="@+id/nav_carbon"
+                    android:icon="@drawable/ic_round_co2_24"
+                    android:title="What's Carbon Footprint"/>
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_round_person_24"
+                    android:title="About Us"/>
+<!--            </group>-->
+        </menu>
+    </item>
     <item android:title="Support">
         <menu>
             <item

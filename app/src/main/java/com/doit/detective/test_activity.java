@@ -25,10 +25,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class card1_activity extends AppCompatActivity {
+public class test_activity extends AppCompatActivity {
 
-    private Button btnIntentActivityH;
-
+    Button btnIntentActivityH;
     FusedLocationProviderClient fusedLocationProviderClient;
     TextView latitude, longitude, address, city, country;
     Button getLocation;
@@ -37,105 +36,67 @@ public class card1_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card1);
+        setContentView(R.layout.activity_test);
 
         latitude = findViewById(R.id.latitude);
         longitude = findViewById(R.id.longitude);
         address = findViewById(R.id.address);
         city = findViewById(R.id.city);
         country = findViewById(R.id.country);
-        getLocation = findViewById(R.id.getLocation);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        getLocation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                getLastLocation();
-
-            }
-        });
+        getLastLocation();
 
         btnIntentActivityH = (Button) findViewById(R.id.btn_home);
         btnIntentActivityH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(card1_activity.this,MainActivity.class);
+                intent.setClass(test_activity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
     }
 
     private void getLastLocation() {
-
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-
-
             fusedLocationProviderClient.getLastLocation()
                     .addOnSuccessListener(new OnSuccessListener<Location>() {
                         @Override
                         public void onSuccess(Location location) {
-
                             if (location != null) {
-
-
                                 try {
-                                    Geocoder geocoder = new Geocoder(card1_activity.this, Locale.getDefault());
+                                    Geocoder geocoder = new Geocoder(test_activity.this, Locale.getDefault());
                                     List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
                                     latitude.setText("Latitude: " + addresses.get(0).getLatitude());
                                     longitude.setText("Longitude: " + addresses.get(0).getLongitude());
                                     address.setText("Address: " + addresses.get(0).getAddressLine(0));
-                                    city.setText("City: " + addresses.get(0).getLocality());
+                                    city.setText("City: " + addresses.get(0).getAdminArea());
                                     country.setText("Country: " + addresses.get(0).getCountryName());
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-
-
                             }
-
                         }
                     });
-
-
         } else {
-
             askPermission();
-
-
         }
-
-
     }
 
     private void askPermission() {
-
-        ActivityCompat.requestPermissions(card1_activity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
-
-
+        ActivityCompat.requestPermissions(test_activity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_CODE);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull @org.jetbrains.annotations.NotNull String[] permissions, @NonNull @org.jetbrains.annotations.NotNull int[] grantResults) {
-
         if (requestCode == REQUEST_CODE) {
-
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-
                 getLastLocation();
-
             } else {
-
-
-                Toast.makeText(card1_activity.this, "Please provide the required permission", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(test_activity.this, "Please provide the required permission", Toast.LENGTH_SHORT).show();
             }
-
-
         }
-
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
-
 }

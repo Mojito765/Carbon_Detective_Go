@@ -16,7 +16,7 @@ public class go_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go);
 
-        btnIntentActivityH = (Button) findViewById(R.id.btn_home);
+        btnIntentActivityH = (Button) findViewById(R.id.btn_stop);
         btnIntentActivityH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

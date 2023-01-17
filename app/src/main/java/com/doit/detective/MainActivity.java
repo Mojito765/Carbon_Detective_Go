@@ -21,24 +21,18 @@ import com.google.android.material.navigation.NavigationView;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     private DrawerLayout drawerLayout;
-
     ChipNavigationBar chipNavigationBar;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
 //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+//drawer
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -52,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 //FAB
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.go_btn);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.FAB);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,13 +63,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomMenu();
     }
 
-    //drawer btn
+//drawer btn
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_carbon:
-                Intent i = new Intent(MainActivity.this, about_carbon_footprint_activity.class);
+                Intent i = new Intent(MainActivity.this, about_carbon_activity.class);
                 startActivity(i);
                 break;
             case R.id.nav_about:
@@ -99,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    //bottom btn
+//bottom btn
     private void bottomMenu() {
         chipNavigationBar.setOnItemSelectedListener
                 (new ChipNavigationBar.OnItemSelectedListener() {

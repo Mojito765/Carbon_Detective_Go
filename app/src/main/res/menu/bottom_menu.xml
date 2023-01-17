@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
+<!--    app:cnb_backgroundColor="@color/md_theme_light_secondaryContainer"-->
     <item
         android:id="@+id/home"
         android:title="@string/home"
         android:icon="@drawable/ic_round_home_24"
-        app:cnb_iconColor="@color/grass_700"
-        app:cnb_backgroundColor="#40637240"
+        app:cnb_iconColor="?colorOnSecondaryContainer"
         />
 
     <item
@@ -28,8 +27,7 @@
         android:id="@+id/badge"
         android:title="@string/badge"
         android:icon="@drawable/ic_round_stars_24"
-        app:cnb_iconColor="@color/grass_700"
-        app:cnb_backgroundColor="#40637240"
+        app:cnb_iconColor="?colorOnSecondaryContainer"
         />
 
 </menu>

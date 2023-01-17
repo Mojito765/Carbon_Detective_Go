@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#40637240"/>
-    <stroke android:width="3dp" android:color="@color/grass_700" />
+<!--    <solid android:color="?colorSecondaryContainer"/>-->
+    <stroke android:width="3dp" android:color="?colorSecondaryContainer"/>
     <corners android:radius="28dp"/>
-    <padding android:top="3dp" />
-    <padding android:left="3dp" />
-    <padding android:right="3dp" />
-    <padding android:bottom="3dp" />
+    <padding android:top="3.5dp"/>
+    <padding android:left="3.5dp"/>
+    <padding android:right="3.5dp"/>
+    <padding android:bottom="3.5dp"/>
 </shape>
