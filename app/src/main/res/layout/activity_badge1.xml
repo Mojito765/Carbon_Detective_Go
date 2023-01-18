@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grass_200"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -34,7 +33,6 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/badge1"
-                android:textColor="@color/grass_700"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -44,7 +42,6 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="    歡迎加入「名偵碳走哪裡？」~ 全新的「偵碳」旅程即將展開，隨著你雲遊四海，獲得的徽章也會越來越多，還等什麼？一起 Carbon Detective Go!!!"
-                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
@@ -54,7 +51,6 @@
                 android:paddingTop="20dp"
                 android:paddingBottom="60dp"
                 android:text="徽章獲得日期：2022/12/26"
-                android:textColor="@color/grass_700"
                 android:textSize="18sp" />
 
             <Button

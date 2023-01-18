@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grass_700"
+    android:background="?colorPrimary"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -24,7 +24,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="30dp"
                 android:text="Last week total"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="39"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="100sp"
                 android:textStyle="bold" />
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="kgCO2"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="60sp"
                 android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="30dp"
                 android:text="Moving 256 km"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="      Tips: "
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="10dp"
                 android:text="善用大眾交通運輸工具更環保愛地球~"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 
             <Button

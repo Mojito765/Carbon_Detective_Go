@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grass_200"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -34,7 +33,6 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="@string/badge4"
-                android:textColor="@color/grass_700"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
@@ -44,7 +42,6 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="    一轉眼間，你的累積綠色里程已經達到100公里，真是令人敬佩的地球之友，繼續向前邁進吧！"
-                android:textColor="@color/black"
                 android:textSize="18sp" />
 
             <TextView
@@ -54,7 +51,6 @@
                 android:paddingTop="20dp"
                 android:paddingBottom="60dp"
                 android:text="徽章獲得日期：2022/12/26"
-                android:textColor="@color/grass_700"
                 android:textSize="18sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -62,11 +58,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_accent"
+                android:background="@drawable/bg_accent"
                 android:drawableEnd="@drawable/ic_round_home_24"
                 android:onClick="redirect"
                 android:text="Back to Home "
-                android:textColor="@color/black"
                 android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>

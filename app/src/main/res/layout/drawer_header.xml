@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:background="?colorSecondaryContainer">
+    android:background="@drawable/drawer_accent">
 
     <ImageView
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
         android:layout_marginStart="125dp"
         android:layout_marginTop="70dp"
         android:text="名偵碳走哪裡？"
-        android:textColor="?colorOnSecondaryContainer"
+        android:textColor="?colorOnSurfaceVariant"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +32,7 @@
         android:layout_marginStart="125dp"
         android:layout_marginTop="95dp"
         android:text="Carbon Detective Go"
-        android:textColor="?colorOnSecondaryContainer"
+        android:textColor="?colorOnSurfaceVariant"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

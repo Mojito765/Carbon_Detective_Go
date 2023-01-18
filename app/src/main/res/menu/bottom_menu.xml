@@ -6,7 +6,7 @@
         android:id="@+id/home"
         android:title="@string/home"
         android:icon="@drawable/ic_round_home_24"
-        app:cnb_iconColor="?colorOnSecondaryContainer"
+        app:cnb_iconColor="?colorOnSurface"
         />
 
     <item
@@ -27,7 +27,7 @@
         android:id="@+id/badge"
         android:title="@string/badge"
         android:icon="@drawable/ic_round_stars_24"
-        app:cnb_iconColor="?colorOnSecondaryContainer"
+        app:cnb_iconColor="?colorOnSurface"
         />
 
 </menu>

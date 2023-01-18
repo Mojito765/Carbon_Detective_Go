@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grass_700"
+    android:background="?colorPrimary"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -24,7 +24,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="30dp"
                 android:text="Done!"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="40sp"
                 android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="2.16"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="100sp"
                 android:textStyle="bold" />
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="kgCO2"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="60sp"
                 android:textStyle="bold" />
 
@@ -51,7 +51,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="30dp"
                 android:text="Car / 12 km"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="      Start: "
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -70,7 +70,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="10dp"
                 android:text="No. 89號, Kaixuan 2nd Rd, Lingya District, Kaohsiung City, Taiwan 802"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 
             <TextView
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="      End: "
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                 android:layout_gravity="center_horizontal"
                 android:padding="10dp"
                 android:text="No. 115號, Xuefu Rd, Xiaogang District, Kaohsiung City, Taiwan 812"
-                android:textColor="@color/grass_200"
+                android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 
             <Button

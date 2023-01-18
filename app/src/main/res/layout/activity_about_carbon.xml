@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,100 +9,94 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-        <LinearLayout
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingTop="36dp"
+            android:paddingEnd="30dp"
+            android:text="碳足跡？"
+            android:textColor="?colorOnPrimary"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingTop="0dp"
+            android:paddingEnd="30dp"
+            android:text="What's Carbon Footprint?"
+            android:textColor="?colorOnPrimary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:text="  指一活動或產品的生命週期中，直接與間接產生的溫室氣體排放量。"
+            android:textColor="?colorOnPrimary"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="30dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/carbon_label" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:gravity="center_horizontal"
+            android:paddingTop="15dp"
+            android:text="台灣碳足跡標籤"
+            android:textColor="?colorOnPrimary"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="30dp"
-                android:paddingTop="36dp"
-                android:paddingEnd="30dp"
-                android:text="碳足跡？"
-                android:textColor="?colorOnPrimary"
-                android:textSize="40sp"
-                android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="30dp"
+            android:paddingTop="20dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="0dp"
+            android:text="  碳標籤制度能使產品各階段的碳排放來源透明化，促使企業調整其產品碳排放量較大的製程，也能促使消費者正確地使用產品。"
+            android:textColor="?colorOnPrimary"
+            android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="30dp"
-                android:paddingTop="0dp"
-                android:paddingEnd="30dp"
-                android:text="What's Carbon Footprint?"
-                android:textColor="?colorOnPrimary"
-                android:textSize="16sp" />
+        <Button
+            android:id="@+id/btn_web"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginBottom="10dp"
+            android:onClick="web"
+            android:text="Learn more"
+            android:textColor="?colorOnPrimary"
+            app:drawableEndCompat="@drawable/ic_round_open_in_new_24"
+            app:drawableTint="?colorOnPrimary" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="30dp"
-                android:text="  指一活動或產品的生命週期中，直接與間接產生的溫室氣體排放量。"
-                android:textColor="?colorOnPrimary"
-                android:textSize="16sp" />
+        <Button
+            android:id="@+id/btn_home"
+            style="@style/Widget.Material3.Button.TonalButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="5dp"
+            android:onClick="redirect"
+            android:text="Back to home"
+            app:icon="@drawable/ic_round_home_24" />
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:paddingLeft="20dp"
-                android:paddingTop="30dp"
-                android:paddingRight="20dp"
-                android:src="@drawable/carbon_label" />
+    </LinearLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:paddingTop="15dp"
-                android:text="台灣碳足跡標籤"
-                android:textColor="?colorOnPrimary"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingTop="20dp"
-                android:paddingRight="30dp"
-                android:paddingBottom="0dp"
-                android:text="  碳標籤制度能使產品各階段的碳排放來源透明化，促使企業調整其產品碳排放量較大的製程，也能促使消費者正確地使用產品。"
-                android:textColor="?colorOnPrimary"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/btn_web"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_marginBottom="10dp"
-                android:onClick="web"
-                android:text="Learn more"
-                android:textColor="?colorOnPrimary"
-                app:drawableEndCompat="@drawable/ic_round_open_in_new_24"
-                app:drawableTint="?colorOnPrimary" />
-
-            <Button
-                android:id="@+id/btn_home"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="5dp"
-                android:onClick="redirect"
-                android:text="Back to home"
-                app:icon="@drawable/ic_round_home_24" />
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
+</ScrollView>
