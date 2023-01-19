@@ -12,7 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_accent"
+        android:background="@drawable/text_bg"
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"

@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 fragment = new badge_fragment();
                                 break;
                         }
+                        assert fragment != null;
                         getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.root_layout, fragment).commit();
                     }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    android:background="@drawable/scrollview_bg"
+    android:background="@drawable/layout_bg"
     android:orientation="vertical">
 
     <FrameLayout
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/badge1"
+            android:id="@+id/badge1_img_btn"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="top|start"
@@ -75,8 +75,8 @@
             android:id="@+id/badge5"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:layout_gravity="end|bottom"
-            android:layout_marginTop="382dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="22dp"
             android:layout_marginEnd="8dp"
             android:background="#00FFFFFF"
             android:clickable="true"
@@ -90,8 +90,8 @@
             android:id="@+id/badge6"
             android:layout_width="180dp"
             android:layout_height="180dp"
-            android:layout_gravity="top|end"
-            android:layout_marginTop="22dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginTop="382dp"
             android:layout_marginEnd="8dp"
             android:background="#00FFFFFF"
             android:clickable="true"
@@ -100,5 +100,6 @@
             android:onClick="onClick"
             android:scaleType="centerInside"
             android:src="@drawable/btn_selector6" />
+
     </FrameLayout>
 </ScrollView>

@@ -8,14 +8,14 @@ import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class carbon_webview_activity extends AppCompatActivity {
+public class carbon_web_activity extends AppCompatActivity {
     WebView webview;
     WebSettings webSettings;
     String url="https://cfp-calculate.tw/cfpc/Carbon/WebPage/InstitutionDesc.aspx";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_carbon_webview);
+        setContentView(R.layout.activity_carbon_web);
 
         webview = findViewById(R.id.carbon_webview);
         webSettings=webview.getSettings();

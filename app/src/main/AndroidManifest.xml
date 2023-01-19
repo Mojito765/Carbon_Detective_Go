@@ -44,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".carbon_webview_activity"
+            android:name=".carbon_web_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -59,48 +59,6 @@
         </activity>
         <activity
             android:name=".about_us_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".badge6_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".badge5_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".badge4_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".badge3_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".badge2_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".badge1_activity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

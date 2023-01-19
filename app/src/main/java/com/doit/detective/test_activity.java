@@ -71,7 +71,7 @@ public class test_activity extends AppCompatActivity {
                                     latitude.setText("Latitude: " + addresses.get(0).getLatitude());
                                     longitude.setText("Longitude: " + addresses.get(0).getLongitude());
                                     address.setText("Address: " + addresses.get(0).getAddressLine(0));
-                                    city.setText("City: " + addresses.get(0).getAdminArea());
+                                    city.setText("State: " + addresses.get(0).getAdminArea());
                                     country.setText("Country: " + addresses.get(0).getCountryName());
                                 } catch (IOException e) {
                                     e.printStackTrace();

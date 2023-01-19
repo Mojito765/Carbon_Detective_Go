@@ -20,7 +20,7 @@ public class about_carbon_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(about_carbon_activity.this,carbon_webview_activity.class);
+                intent.setClass(about_carbon_activity.this, carbon_web_activity.class);
                 startActivity(intent);
             }
         });

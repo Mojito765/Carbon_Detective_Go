@@ -29,8 +29,9 @@ public class home_fragment extends Fragment {
         configureCardView();
         return v;
     }
+
     private void configureCardView() {
-        CardView cv1 = (CardView) v.findViewById(R.id.c1);
+        CardView cv1 = v.findViewById(R.id.c1);
         cv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +41,7 @@ public class home_fragment extends Fragment {
             }
         });
 
-        CardView cv2 = (CardView) v.findViewById(R.id.c2);
+        CardView cv2 = v.findViewById(R.id.c2);
         cv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +51,7 @@ public class home_fragment extends Fragment {
             }
         });
 
-        CardView cv3 = (CardView) v.findViewById(R.id.c3);
+        CardView cv3 = v.findViewById(R.id.c3);
         cv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
