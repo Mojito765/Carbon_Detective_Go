@@ -30,7 +30,6 @@ public class test_activity extends AppCompatActivity {
     Button btnIntentActivityH;
     FusedLocationProviderClient fusedLocationProviderClient;
     TextView latitude, longitude, address, city, country;
-    Button getLocation;
     private final static int REQUEST_CODE = 100;
 
     @Override

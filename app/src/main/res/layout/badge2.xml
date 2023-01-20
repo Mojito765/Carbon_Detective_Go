@@ -16,6 +16,7 @@
         android:contentDescription="@string/badge"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:tint="?colorOnSurfaceVariant"
         app:srcCompat="@drawable/round_lock_open_24" />
 
     <!--Headline-->
@@ -84,10 +85,11 @@
             android:id="@+id/badgeTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_gravity="center_horizontal"
+            android:padding="10dp"
             android:text="Unlocked: 2022/12/26"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

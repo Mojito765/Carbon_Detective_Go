@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/badge1_img_btn"
+            android:id="@+id/badge_btn1"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="top|start"
@@ -22,12 +22,11 @@
             android:clickable="true"
             android:contentDescription="@string/badge1"
             android:focusable="true"
-            android:onClick="onClick"
             android:scaleType="centerInside"
             android:src="@drawable/btn_selector1" />
 
         <ImageButton
-            android:id="@+id/badge2"
+            android:id="@+id/badge_btn2"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="end"
@@ -37,12 +36,11 @@
             android:clickable="true"
             android:contentDescription="@string/badge2"
             android:focusable="true"
-            android:onClick="onClick"
             android:scaleType="centerInside"
             android:src="@drawable/btn_selector2" />
 
         <ImageButton
-            android:id="@+id/badge3"
+            android:id="@+id/badge_btn3"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="start"
@@ -52,12 +50,11 @@
             android:clickable="true"
             android:contentDescription="@string/badge3"
             android:focusable="true"
-            android:onClick="onClick"
             android:scaleType="centerInside"
             android:src="@drawable/btn_selector3" />
 
         <ImageButton
-            android:id="@+id/badge4"
+            android:id="@+id/badge_btn4"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="start|bottom"
@@ -67,12 +64,11 @@
             android:clickable="true"
             android:contentDescription="@string/badge4"
             android:focusable="true"
-            android:onClick="onClick"
             android:scaleType="centerInside"
             android:src="@drawable/btn_selector4" />
 
         <ImageButton
-            android:id="@+id/badge5"
+            android:id="@+id/badge_btn5"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="top|end"
@@ -82,12 +78,11 @@
             android:clickable="true"
             android:contentDescription="@string/badge5"
             android:focusable="true"
-            android:onClick="onClick"
             android:scaleType="centerInside"
             android:src="@drawable/btn_selector5" />
 
         <ImageButton
-            android:id="@+id/badge6"
+            android:id="@+id/badge_btn6"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_gravity="end|bottom"
@@ -97,7 +92,6 @@
             android:clickable="true"
             android:contentDescription="@string/badge6"
             android:focusable="true"
-            android:onClick="onClick"
             android:scaleType="centerInside"
             android:src="@drawable/btn_selector6" />
 

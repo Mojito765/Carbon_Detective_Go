@@ -9,7 +9,7 @@
     android:padding="10dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
@@ -37,52 +37,85 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
-                        android:text="09:25 AM"
+                        android:text="00:00"
                         android:textColor="?colorOnPrimaryContainer"
                         android:textSize="14sp" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/location"
+                            android:id="@+id/locationCity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kaohsiung"
+                            android:text="City"
                             android:textColor="?colorOnPrimaryContainer"
                             android:textSize="38sp" />
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Current Location"
-                            android:textColor="?colorOnPrimaryContainer"
-                            android:textSize="14sp" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:paddingStart="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="0dp"
+                                android:paddingBottom="10dp"
+                                app:drawableEndCompat="@drawable/round_my_location_24"
+                                app:drawableTint="?colorOnPrimaryContainer" />
+
+                            <TextView
+                                android:id="@+id/locationState"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="State"
+                                android:textColor="?colorOnPrimaryContainer"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="60dp"
                     android:layout_marginEnd="30dp"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="Go now!"
+                        android:layout_gravity="start"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="0dp"
+                        android:paddingBottom="10dp"
+                        app:drawableEndCompat="@drawable/round_refresh_24"
+                        app:drawableTint="?colorOnPrimaryContainer" />
+
+                    <TextView
+                        android:id="@+id/tvRefresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:text="Tap To Refresh"
                         android:textColor="?colorOnPrimaryContainer"
-                        android:textSize="38sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -104,56 +137,48 @@
                 android:layout_weight="0.5"
                 app:cardCornerRadius="28dp">
 
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="15dp"
+                        android:layout_gravity="center_horizontal"
                         android:orientation="horizontal">
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_gravity="start"
+                            android:text="39"
+                            android:textColor="?colorOnPrimaryContainer"
+                            android:textSize="58sp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="39"
-                                android:textColor="?colorOnPrimaryContainer"
-                                android:textSize="56sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:text="kgCO2"
-                                android:textColor="?colorOnPrimaryContainer"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="0dp"
-                                app:drawableEndCompat="@drawable/round_history_24"
-                                app:drawableTint="?colorOnPrimaryContainer" />
-                        </RelativeLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            app:drawableEndCompat="@drawable/round_history_24"
+                            app:drawableTint="?colorOnPrimaryContainer" />
 
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="kgCO2"
+                        android:textColor="?colorOnPrimaryContainer"
+                        android:textSize="18sp" />
+
                 </LinearLayout>
+
+
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
@@ -170,52 +195,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                    <LinearLayout
+                    <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:orientation="horizontal">
+                        android:layout_height="0dp"
+                        android:layout_weight="0.6"
+                        android:contentDescription="tips"
+                        app:srcCompat="@drawable/round_tips_and_updates_24"
+                        app:tint="?colorOnPrimaryContainer" />
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="^.^"
-                                android:textColor="?colorOnPrimaryContainer"
-                                android:textSize="56sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:text="test"
-                                android:textColor="?colorOnPrimaryContainer"
-                                android:textSize="18sp" />
-
-                        </LinearLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="0dp"
-                                app:drawableEndCompat="@drawable/round_my_location_24"
-                                app:drawableTint="?colorOnPrimaryContainer" />
-                        </RelativeLayout>
-
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.4"
+                        android:padding="10dp"
+                        android:text="Tips"
+                        android:textColor="?colorOnPrimaryContainer"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

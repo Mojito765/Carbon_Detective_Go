@@ -27,7 +27,7 @@ public class badge_fragment extends Fragment {
     }
 
     private void configureImageButton() {
-        ImageButton btn1 = v.findViewById(R.id.badge1_img_btn);
+        ImageButton btn1 = v.findViewById(R.id.badge_btn1);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +36,7 @@ public class badge_fragment extends Fragment {
             }
         });
 
-        ImageButton btn2 = v.findViewById(R.id.badge2);
+        ImageButton btn2 = v.findViewById(R.id.badge_btn2);
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +45,7 @@ public class badge_fragment extends Fragment {
             }
         });
 
-        ImageButton btn3 = v.findViewById(R.id.badge3);
+        ImageButton btn3 = v.findViewById(R.id.badge_btn3);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +54,7 @@ public class badge_fragment extends Fragment {
             }
         });
 
-        ImageButton btn4 = v.findViewById(R.id.badge4);
+        ImageButton btn4 = v.findViewById(R.id.badge_btn4);
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +63,7 @@ public class badge_fragment extends Fragment {
             }
         });
 
-        ImageButton btn5 = v.findViewById(R.id.badge5);
+        ImageButton btn5 = v.findViewById(R.id.badge_btn5);
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +72,7 @@ public class badge_fragment extends Fragment {
             }
         });
 
-        ImageButton btn6 = v.findViewById(R.id.badge6);
+        ImageButton btn6 = v.findViewById(R.id.badge_btn6);
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

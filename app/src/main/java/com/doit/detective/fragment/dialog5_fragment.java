@@ -16,6 +16,7 @@ import com.doit.detective.R;
 public class dialog5_fragment extends DialogFragment {
 
     public dialog5_fragment() {
+        // Required empty public constructor
     }
 
     @NonNull
