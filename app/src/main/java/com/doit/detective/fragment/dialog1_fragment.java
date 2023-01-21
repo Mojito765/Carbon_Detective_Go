@@ -22,7 +22,7 @@ public class dialog1_fragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        View view = requireActivity().getLayoutInflater().inflate(R.layout.badge1, new LinearLayout(getActivity()), false);
+        View view = requireActivity().getLayoutInflater().inflate(R.layout.badge1_dialog, new LinearLayout(getActivity()), false);
         // Build dialog
         Dialog builder = new Dialog(getActivity(), android.R.style.Theme_Material_Dialog_NoActionBar_MinWidth);
         builder.requestWindowFeature(Window.FEATURE_NO_TITLE);

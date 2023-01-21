@@ -58,7 +58,7 @@
             android:onClick="FAB"
             app:layout_anchor="@id/bottomAppBar"
             app:shapeAppearanceOverlay="@style/m3_fab_rounded"
-            app:srcCompat="@drawable/ic_round_add_location_alt_24" />
+            app:srcCompat="@drawable/round_directions_run_24" />
 
         <com.ismaeldivita.chipnavigation.ChipNavigationBar
             android:id="@+id/chip_app_bar"

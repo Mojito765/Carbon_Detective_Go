@@ -60,10 +60,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.root_layout,
                         new home_fragment()).commit();
+//bottomAppBar
         bottomMenu();
     }
 
-//drawer btn
+//drawer
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-//bottom btn
+//bottomAppBar
     private void bottomMenu() {
         chipNavigationBar.setOnItemSelectedListener
                 (new ChipNavigationBar.OnItemSelectedListener() {

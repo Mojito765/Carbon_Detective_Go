@@ -13,16 +13,16 @@ import androidx.fragment.app.DialogFragment;
 
 import com.doit.detective.R;
 
-public class dialog3_fragment extends DialogFragment {
+public class dialog6_fragment extends DialogFragment {
 
-    public dialog3_fragment() {
+    public dialog6_fragment() {
         // Required empty public constructor
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        View view = requireActivity().getLayoutInflater().inflate(R.layout.badge3_dialog, new LinearLayout(getActivity()), false);
+        View view = requireActivity().getLayoutInflater().inflate(R.layout.tips_dialog, new LinearLayout(getActivity()), false);
         // Build dialog
         Dialog builder = new Dialog(getActivity(), android.R.style.Theme_Material_Dialog_NoActionBar_MinWidth);
         builder.requestWindowFeature(Window.FEATURE_NO_TITLE);

@@ -14,6 +14,58 @@
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/c0"
+            style="?attr/materialCardViewOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="28dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="0dp"
+                        android:paddingBottom="10dp"
+                        app:drawableEndCompat="@drawable/round_tips_and_updates_24"
+                        app:drawableTint="?colorOnPrimaryContainer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Tips:"
+                        android:paddingStart="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:textColor="?colorOnPrimaryContainer"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingStart="0dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Go Green!"
+                        android:textColor="?colorOnPrimaryContainer"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/c1"
             style="?attr/materialCardViewFilledStyle"
             android:layout_width="match_parent"
@@ -141,7 +193,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
                     android:orientation="vertical"
                     android:padding="20dp">
 
@@ -199,20 +250,22 @@
                     android:padding="20dp">
 
                     <ImageView
+                        android:id="@+id/modeImg"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.6"
-                        android:contentDescription="tips"
-                        app:srcCompat="@drawable/round_tips_and_updates_24"
+                        android:contentDescription="switch mode"
+                        app:srcCompat="@drawable/round_invert_colors_24"
                         app:tint="?colorOnPrimaryContainer" />
 
                     <TextView
+                        android:id="@+id/modeTv"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="0.4"
                         android:padding="10dp"
-                        android:text="Tips"
+                        android:text="Mode"
                         android:textColor="?colorOnPrimaryContainer"
                         android:textSize="18sp" />
 

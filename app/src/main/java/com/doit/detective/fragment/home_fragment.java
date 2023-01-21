@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -12,15 +13,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.doit.detective.R;
 import com.doit.detective.card2_activity;
-import com.doit.detective.test_activity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -121,11 +124,22 @@ public class home_fragment extends Fragment {
 
     private void configureCardView() {
 
+        CardView cv0 = v.findViewById(R.id.c0);
+        cv0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog6_fragment badgeDialog = new dialog6_fragment();
+                badgeDialog.show(getChildFragmentManager(),"dialog6_fragment");
+            }
+        });
+
         CardView cv1 = v.findViewById(R.id.c1);
         cv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getTime();
+                getMyLocation();
+                Toast.makeText(requireActivity(), "Updated", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -143,10 +157,31 @@ public class home_fragment extends Fragment {
         cv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), test_activity.class);
-                startActivity(intent);
+                switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+                    case Configuration.UI_MODE_NIGHT_YES:
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        switchDark();
+                        break;
+                    case Configuration.UI_MODE_NIGHT_NO:
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        switchLight();
+                        break;
+                }
             }
         });
+    }
+
+    private void switchDark() {
+        ImageView imgMode = v.findViewById(R.id.modeImg);
+        TextView tvMode = v.findViewById(R.id.modeTv);
+        imgMode.setImageResource(R.drawable.round_dark_mode_24);
+        tvMode.setText("Dark");
+    }
+
+    private void switchLight() {
+        ImageView imgMode = v.findViewById(R.id.modeImg);
+        TextView tvMode = v.findViewById(R.id.modeTv);
+        imgMode.setImageResource(R.drawable.round_light_mode_24);
+        tvMode.setText("Light");
     }
 }
