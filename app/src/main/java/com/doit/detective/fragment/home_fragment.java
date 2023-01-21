@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,8 +45,7 @@ public class home_fragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.home_fragment, container, false);
         getTime();
         getMyLocation();
@@ -61,19 +59,15 @@ public class home_fragment extends Fragment {
 
         LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
 
-
         if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-
             return;
         }
 
         try {
-
             gps_loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             network_loc = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -94,7 +88,6 @@ public class home_fragment extends Fragment {
         ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_NETWORK_STATE}, 1);
 
         try {
-
             Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
             List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
             if (addresses != null && addresses.size() > 0) {
@@ -112,7 +105,6 @@ public class home_fragment extends Fragment {
         }
     }
 
-
     private void getTime() {
         TextView tvTime = v.findViewById(R.id.time);
         // HH:mm:ss
@@ -129,7 +121,7 @@ public class home_fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog6_fragment badgeDialog = new dialog6_fragment();
-                badgeDialog.show(getChildFragmentManager(),"dialog6_fragment");
+                badgeDialog.show(getChildFragmentManager(), "dialog6_fragment");
             }
         });
 
@@ -160,28 +152,12 @@ public class home_fragment extends Fragment {
                 switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
                     case Configuration.UI_MODE_NIGHT_YES:
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                        switchDark();
                         break;
                     case Configuration.UI_MODE_NIGHT_NO:
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        switchLight();
                         break;
                 }
             }
         });
-    }
-
-    private void switchDark() {
-        ImageView imgMode = v.findViewById(R.id.modeImg);
-        TextView tvMode = v.findViewById(R.id.modeTv);
-        imgMode.setImageResource(R.drawable.round_dark_mode_24);
-        tvMode.setText("Dark");
-    }
-
-    private void switchLight() {
-        ImageView imgMode = v.findViewById(R.id.modeImg);
-        TextView tvMode = v.findViewById(R.id.modeTv);
-        imgMode.setImageResource(R.drawable.round_light_mode_24);
-        tvMode.setText("Light");
     }
 }

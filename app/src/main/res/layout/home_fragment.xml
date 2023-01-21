@@ -265,7 +265,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="0.4"
                         android:padding="10dp"
-                        android:text="Mode"
+                        android:text="Switch"
                         android:textColor="?colorOnPrimaryContainer"
                         android:textSize="18sp" />
 
