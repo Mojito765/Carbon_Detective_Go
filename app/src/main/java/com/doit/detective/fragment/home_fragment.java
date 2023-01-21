@@ -129,9 +129,9 @@ public class home_fragment extends Fragment {
         cv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(requireActivity(), "Loading", Toast.LENGTH_SHORT).show();
                 getTime();
                 getMyLocation();
-                Toast.makeText(requireActivity(), "Updated", Toast.LENGTH_SHORT).show();
             }
         });
 

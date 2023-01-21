@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
-        android:contentDescription="iconTips"
+        android:contentDescription="iconQ"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/round_tips_and_updates_24"
+        app:srcCompat="@drawable/round_help_outline_24"
         app:tint="?colorOnSurfaceVariant" />
 
     <!--Headline-->
@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="Tips"
+        android:text="Q&amp;A"
         android:textColor="?colorOnSurfaceVariant"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -57,7 +57,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:textColor="?colorOnBackground"
-            android:text="  在地買東西替代網購，方便又環保！"
+            android:text="@string/QA"
             android:textSize="18sp" />
 
         <!--badgeTime-->

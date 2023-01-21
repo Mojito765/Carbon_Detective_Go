@@ -11,4 +11,5 @@
     <string name="badge6">敬請期待</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="QA">Q1：如何開始記錄碳足跡？\nA1：窩也不知道。\n\nQ2：可以中途切換交通工具嗎？\nA2：可以，但前一次記錄會Bang不見。\n\nQ3：沒有我要的交通工具欸？！\nA3：喔是喔。</string>
 </resources>
