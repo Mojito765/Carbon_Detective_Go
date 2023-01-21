@@ -32,7 +32,7 @@
                 android:paddingLeft="20dp"
                 android:paddingTop="0dp"
                 android:paddingRight="20dp"
-                android:src="@drawable/word_cloud" />
+                android:src="@drawable/ic_doit_word_cloud" />
 
             <TextView
                 android:layout_width="wrap_content"
