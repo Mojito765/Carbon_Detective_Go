@@ -56,8 +56,9 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -65,17 +66,13 @@
                 android:id="@+id/toggleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 app:singleSelection="true"
+                android:padding="10dp"
                 app:selectionRequired="false">
 
                 <Button
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="On foot"
-                    app:icon="@drawable/round_directions_run_24" />
-
-                <Button
+                    android:id="@+id/trans1"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,6 +80,7 @@
                     app:icon="@drawable/round_directions_transit_24" />
 
                 <Button
+                    android:id="@+id/trans2"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -90,6 +88,7 @@
                     app:icon="@drawable/round_moped_24"/>
 
                 <Button
+                    android:id="@+id/trans3"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -97,8 +96,24 @@
                     app:icon="@drawable/round_directions_car_24"/>
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
-
-
+            <Button
+                android:id="@+id/start_service_btn"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:text="Start"
+                app:icon="@drawable/ic_round_stop_circle_24" />
+            <Button
+                android:id="@+id/stop_service_btn"
+                style="@style/Widget.Material3.Button.TonalButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="36dp"
+                android:text="Stop"
+                app:icon="@drawable/ic_round_stop_circle_24" />
             <Button
                 android:id="@+id/btn_stop"
                 style="@style/Widget.Material3.Button.TonalButton.Icon"
@@ -106,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="36dp"
-                android:text="Stop record"
+                android:text="test"
                 app:icon="@drawable/ic_round_stop_circle_24" />
         </LinearLayout>
     </ScrollView>

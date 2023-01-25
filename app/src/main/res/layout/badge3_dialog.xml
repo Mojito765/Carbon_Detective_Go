@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:textColor="?colorOnBackground"
-            android:text="  你的步行速度飆破時速20公里啦！不考慮出國比賽？"
+            android:text="  你的行進速度飆破時速500公里啦！超能力者是你？"
             android:textSize="18sp" />
 
         <!--badgeTime-->
