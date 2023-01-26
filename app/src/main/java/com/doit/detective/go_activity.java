@@ -35,6 +35,9 @@ public class go_activity extends AppCompatActivity {
     public static double transportation_weight = 0;
     public static double final_carbon_footprint = 0;
 
+    public static double total_travel = 0;
+    public static double total_travel_carbon_footprint = 0;
+
     LocationService mLocationService = new LocationService();
     Intent mServiceIntent;
 
@@ -145,11 +148,11 @@ public class go_activity extends AppCompatActivity {
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
                 if (isChecked) {
                     if (checkedId == R.id.trans1) {
-                        transportation_weight=0.06;
+                        transportation_weight = 0.06;
                     } else if (checkedId == R.id.trans2) {
-                        transportation_weight=0.046;
+                        transportation_weight = 0.046;
                     } else if (checkedId == R.id.trans3) {
-                        transportation_weight=0.173;
+                        transportation_weight = 0.173;
                     }
                 }
             }
@@ -264,8 +267,8 @@ public class go_activity extends AppCompatActivity {
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("OutOfBounds");
         }
-        Toast.makeText(this,
-                "Distance: " + finalDistance, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this,
+//                "Distance: " + finalDistance, Toast.LENGTH_LONG).show();
         setResultTV();
         myLocationList.clear();
         finalDistance = 0;
@@ -273,11 +276,19 @@ public class go_activity extends AppCompatActivity {
 
     private void setResultTV() {
         TextView tvDistance = findViewById(R.id.carbon_footprint);
-        final_carbon_footprint=finalDistance*transportation_weight;
+
+//        calculate carbon footprint
+        final_carbon_footprint = finalDistance * transportation_weight;
+//        calculate app total
+        total_travel_carbon_footprint += final_carbon_footprint;
+        total_travel += finalDistance;
+//        round off
         final_carbon_footprint = Math.round(final_carbon_footprint * 1000.0) / 1000.0;
         finalDistance = Math.round(finalDistance * 1000.0) / 1000.0;
+//        Double.toString
         String fCF = Double.toString(final_carbon_footprint);
         String fD = Double.toString(finalDistance);
+
         tvDistance.setText(getString(R.string.calculate_result, fD, fCF));
     }
 

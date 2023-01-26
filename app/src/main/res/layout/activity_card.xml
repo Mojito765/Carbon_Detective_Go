@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:padding="30dp"
-                android:text="Last week total"
+                android:text="Total"
                 android:textColor="?colorOnPrimary"
                 android:textSize="40sp"
                 android:textStyle="bold" />

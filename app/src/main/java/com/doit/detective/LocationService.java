@@ -12,7 +12,6 @@ import android.location.Location;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.Looper;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -82,9 +81,9 @@ public class LocationService extends Service {
                 myLocationList.add(location.getLatitude());
                 myLocationList.add(location.getLongitude());
 
-                Toast.makeText(getApplicationContext(),
-                        "Lat: "+ location.getLatitude() + '\n' +
-                                "Long: " + location.getLongitude(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),
+//                        "Lat: "+ location.getLatitude() + '\n' +
+//                                "Long: " + location.getLongitude(), Toast.LENGTH_LONG).show();
             }
         };
         startLocationUpdates();
