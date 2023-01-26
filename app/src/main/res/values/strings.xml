@@ -18,5 +18,7 @@
     <string name="gps_enable">GPS enabled</string>
     <string name="please_turn_on_gps">Please turn on GPS</string>
     <string name="ok">OK</string>
-    <string name="background_location_permission_message">Set permission from -Allow only while using the app- to -Allow all the time-. Allow Carbon Detective Go to get your location updates in the background.</string>
+    <string name="background_location_permission_message">App currently can access location only while you\'re using the app</string>
+
+    <string name="ask_background_location_permission">Allow &lt;b>App&lt;/b> to access this device\'s location &lt;b>all the time&lt;/b>?</string>
 </resources>

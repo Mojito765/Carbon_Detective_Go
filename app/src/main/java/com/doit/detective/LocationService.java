@@ -24,15 +24,14 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
 
 public class LocationService extends Service {
 
-   public static ArrayList<LatLng> locationArrayList = new ArrayList<>();
-
+    public static ArrayList<Double> myLocationList = new ArrayList<>();
+    public static double finalDistance = 0;
     FusedLocationProviderClient fusedLocationClient;
     LocationRequest locationRequest;
     LocationCallback locationCallback;
@@ -53,22 +52,16 @@ public class LocationService extends Service {
                 Looper.getMainLooper());
     }
 
-    protected void createLocationRequest() {
-        LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setInterval(3000);
-        locationRequest.setFastestInterval(5000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
-
     @Override
     public void onCreate() {
+
         super.onCreate();
 
         new Notification();
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) createNotificationChanel() ;
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) createNotificationChanel();
         else startForeground(
                 1,
                 new Notification()
@@ -83,17 +76,15 @@ public class LocationService extends Service {
         locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(@NonNull LocationResult locationResult) {
-                Location location =  locationResult.getLastLocation();
+                Location location = locationResult.getLastLocation();
+
                 assert location != null;
+                myLocationList.add(location.getLatitude());
+                myLocationList.add(location.getLongitude());
+
                 Toast.makeText(getApplicationContext(),
-                      "Lat: "+ location.getLatitude() + '\n' +
-                        "Long: " + location.getLongitude(), Toast.LENGTH_LONG).show();
-
-                //locationArrayList.add(new LatLng(location.getLatitude(), location.getLongitude()));
-
-               /* for (Location location : locationResult.getLocations()) {
-                  location
-                }*/
+                        "Lat: "+ location.getLatitude() + '\n' +
+                                "Long: " + location.getLongitude(), Toast.LENGTH_LONG).show();
             }
         };
         startLocationUpdates();
@@ -118,7 +109,7 @@ public class LocationService extends Service {
         manager.createNotificationChannel(chan);
 
         NotificationCompat.Builder notificationBuilder =
-               new NotificationCompat.Builder(this, notificationChannelId);
+                new NotificationCompat.Builder(this, notificationChannelId);
 
         Notification notification = notificationBuilder.setOngoing(true)
                 .setContentTitle("Location updates:")
@@ -145,8 +136,7 @@ public class LocationService extends Service {
         return null;
     }
 
-    public double GetDistanceFromLatLonInKm(double lat1, double lon1, double lat2, double lon2)
-    {
+    public static double GetDistanceFromLatLonInKm(double lat1, double lon1, double lat2, double lon2) {
         final int R = 6371;
         // Radius of the earth in km
         double dLat = deg2rad(lat2 - lat1);
@@ -154,12 +144,11 @@ public class LocationService extends Service {
         double dLon = deg2rad(lon2 - lon1);
         double a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double d = R * c;
+        return R * c;
         // Distance in km
-        return d;
     }
-    private double deg2rad(double deg)
-    {
+
+    private static double deg2rad(double deg) {
         return deg * (Math.PI / 180);
     }
 }

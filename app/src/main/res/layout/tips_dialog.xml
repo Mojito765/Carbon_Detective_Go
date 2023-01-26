@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/round_tips_and_updates_24"
-        app:tint="?colorOnSurfaceVariant" />
+        app:tint="?colorOnPrimaryContainer" />
 
     <!--Headline-->
     <TextView

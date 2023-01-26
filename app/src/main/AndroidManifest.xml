@@ -21,17 +21,11 @@
         <service
             android:name=".LocationService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:permission="ACCESS_FINE_LOCATION" />
 <!--        <meta-data-->
 <!--            android:name="com.google.android.geo.API_KEY"-->
 <!--            android:value="${MAPS_API_KEY}" />-->
-        <activity
-            android:name=".end_activity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
             android:name=".go_activity"
             android:exported="false">

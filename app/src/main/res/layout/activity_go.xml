@@ -9,22 +9,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
-        <TextView
+        <Button
             android:id="@+id/back"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:layout_weight="0.1"
-            android:padding="20dp"
-            app:drawableEndCompat="@drawable/round_arrow_back_24"
-            app:drawableTint="?colorOnBackground" />
-
-        <LinearLayout
+            style="@style/Widget.Material3.Button.IconButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:contentDescription="back"
+            app:icon="@drawable/round_arrow_back_24" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="0.2"
             android:orientation="vertical">
 
@@ -39,15 +38,14 @@
 
         </LinearLayout>
 
-        <TextView
+        <Button
             android:id="@+id/question"
-            android:layout_width="0dp"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_weight="0.1"
-            android:padding="20dp"
-            app:drawableEndCompat="@drawable/round_help_outline_24"
-            app:drawableTint="?colorOnBackground" />
+            android:contentDescription="QA"
+            app:icon="@drawable/round_help_outline_24" />
 
     </LinearLayout>
 
@@ -67,9 +65,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                app:singleSelection="true"
                 android:padding="10dp"
-                app:selectionRequired="false">
+                app:selectionRequired="false"
+                app:singleSelection="true">
 
                 <Button
                     android:id="@+id/trans1"
@@ -85,7 +83,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Moped"
-                    app:icon="@drawable/round_moped_24"/>
+                    app:icon="@drawable/round_moped_24" />
 
                 <Button
                     android:id="@+id/trans3"
@@ -93,36 +91,38 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Car"
-                    app:icon="@drawable/round_directions_car_24"/>
+                    app:icon="@drawable/round_directions_car_24" />
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
-            <Button
-                android:id="@+id/start_service_btn"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="36dp"
-                android:text="Start"
-                app:icon="@drawable/ic_round_stop_circle_24" />
-            <Button
-                android:id="@+id/stop_service_btn"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="36dp"
-                android:text="Stop"
-                app:icon="@drawable/ic_round_stop_circle_24" />
-            <Button
-                android:id="@+id/btn_stop"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="36dp"
-                android:text="test"
-                app:icon="@drawable/ic_round_stop_circle_24" />
+                android:orientation="vertical"
+                android:padding="30dp">
+
+                <Button
+                    android:id="@+id/start_service_btn"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:text="Start"
+                    app:shapeAppearanceOverlay="@style/m3_fab_rounded" />
+
+                <Button
+                    android:id="@+id/stop_service_btn"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:text="Stop"
+                    app:shapeAppearanceOverlay="@style/m3_fab_rounded" />
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
