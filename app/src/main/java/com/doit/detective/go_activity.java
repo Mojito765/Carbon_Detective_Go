@@ -32,6 +32,9 @@ public class go_activity extends AppCompatActivity {
     private static final int MY_FINE_LOCATION_REQUEST = 99;
     private static final int MY_BACKGROUND_LOCATION_REQUEST = 100;
 
+    public static double transportation_weight = 0;
+    public static double final_carbon_footprint = 0;
+
     LocationService mLocationService = new LocationService();
     Intent mServiceIntent;
 
@@ -142,11 +145,11 @@ public class go_activity extends AppCompatActivity {
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
                 if (isChecked) {
                     if (checkedId == R.id.trans1) {
-                        Toast.makeText(go_activity.this, "Button1 Clicked", Toast.LENGTH_SHORT).show();
+                        transportation_weight=0.06;
                     } else if (checkedId == R.id.trans2) {
-                        Toast.makeText(go_activity.this, "Button2 Clicked", Toast.LENGTH_SHORT).show();
+                        transportation_weight=0.046;
                     } else if (checkedId == R.id.trans3) {
-                        Toast.makeText(go_activity.this, "Button3 Clicked", Toast.LENGTH_SHORT).show();
+                        transportation_weight=0.173;
                     }
                 }
             }
@@ -154,8 +157,8 @@ public class go_activity extends AppCompatActivity {
     }
 
     private void topQA() {
-        TextView questionTextView = findViewById(R.id.question);
-        questionTextView.setOnClickListener(new View.OnClickListener() {
+        Button questionButton = findViewById(R.id.question);
+        questionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog7_fragment badgeDialog = new dialog7_fragment();
@@ -165,8 +168,8 @@ public class go_activity extends AppCompatActivity {
     }
 
     private void topBack() {
-        Button iconButton = findViewById(R.id.back);
-        iconButton.setOnClickListener(new View.OnClickListener() {
+        Button backButton = findViewById(R.id.back);
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -223,9 +226,9 @@ public class go_activity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (!Util.isMyServiceRunning(mLocationService.getClass(), this)) {
             startService(mServiceIntent);
-            Toast.makeText(this, getString(R.string.service_start_successfully), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Start record", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, getString(R.string.service_already_running), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Recording", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -234,10 +237,10 @@ public class go_activity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (Util.isMyServiceRunning(mLocationService.getClass(), this)) {
             stopService(mServiceIntent);
-            Toast.makeText(this, "Service stopped!!", Toast.LENGTH_SHORT).show();
-            saveDistance(); // testing
+            Toast.makeText(this, "Stopping", Toast.LENGTH_SHORT).show();
+            saveDistance(); // beta
         } else {
-            Toast.makeText(this, "Service is already stopped!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Not recording", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -263,8 +266,19 @@ public class go_activity extends AppCompatActivity {
         }
         Toast.makeText(this,
                 "Distance: " + finalDistance, Toast.LENGTH_LONG).show();
+        setResultTV();
         myLocationList.clear();
         finalDistance = 0;
+    }
+
+    private void setResultTV() {
+        TextView tvDistance = findViewById(R.id.carbon_footprint);
+        final_carbon_footprint=finalDistance*transportation_weight;
+        final_carbon_footprint = Math.round(final_carbon_footprint * 1000.0) / 1000.0;
+        finalDistance = Math.round(finalDistance * 1000.0) / 1000.0;
+        String fCF = Double.toString(final_carbon_footprint);
+        String fD = Double.toString(finalDistance);
+        tvDistance.setText(getString(R.string.calculate_result, fD, fCF));
     }
 
 }

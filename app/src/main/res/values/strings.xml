@@ -11,14 +11,12 @@
     <string name="badge6">敬請期待</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+<!--carbon footprint-->
+    <string name="kgCO2">kgCO2</string>
+    <string name="calculate_result">Travel %1$s km\n%2$s kgCO2</string>
+<!--    QA-->
     <string name="QA">Q1：如何開始記錄碳足跡？\nA1：窩也不知道。\n\nQ2：可以中途切換交通工具嗎？\nA2：可以，前一次記錄會Bang不見。\n\nQ3：沒有我要的交通工具欸？！\nA3：是喔。</string>
 <!--location-->
-    <string name="service_already_running">Service is already running</string>
-    <string name="service_start_successfully">Service started successfully</string>
-    <string name="gps_enable">GPS enabled</string>
-    <string name="please_turn_on_gps">Please turn on GPS</string>
-    <string name="ok">OK</string>
     <string name="background_location_permission_message">App currently can access location only while you\'re using the app</string>
-
     <string name="ask_background_location_permission">Allow &lt;b>App&lt;/b> to access this device\'s location &lt;b>all the time&lt;/b>?</string>
 </resources>

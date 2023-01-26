@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="?colorOnSurfaceVariant"
-        app:srcCompat="@drawable/round_lock_open_24" />
+        app:srcCompat="@drawable/round_lock_24" />
 
     <!--Headline-->
     <TextView
@@ -90,7 +90,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
             android:textColor="?colorOnSurfaceVariant"
-            android:text="Unlocked: 2022/12/26"
+            android:text="Locked"
             android:textSize="16sp"
             android:textStyle="bold" />
 

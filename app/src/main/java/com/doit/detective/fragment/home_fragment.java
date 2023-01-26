@@ -22,7 +22,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.doit.detective.R;
-import com.doit.detective.card2_activity;
+import com.doit.detective.card_activity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -140,7 +140,7 @@ public class home_fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), card2_activity.class);
+                intent.setClass(getActivity(), card_activity.class);
                 startActivity(intent);
             }
         });
