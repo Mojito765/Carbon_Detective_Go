@@ -14,8 +14,8 @@
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:navigationIconTint="?colorOnBackground"
             app:navigationIcon="@drawable/round_arrow_back_24"
+            app:navigationIconTint="?colorOnBackground"
             app:title="Statistic" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -66,26 +66,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="產生的碳足跡相當於製造"
+                android:text="累積的碳足跡相當於製造"
                 android:textColor="?colorOnPrimary"
                 android:textSize="30sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
                 android:paddingBottom="50dp">
 
                 <TextView
                     android:id="@+id/chopsticks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
                     android:background="@drawable/text_bg"
+                    android:text="0"
                     android:textColor="?colorOnSecondaryContainer"
                     android:textSize="30sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"

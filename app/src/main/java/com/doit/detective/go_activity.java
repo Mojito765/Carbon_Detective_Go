@@ -5,12 +5,14 @@ import static com.doit.detective.LocationService.myLocationList;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.Service;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.Html;
 import android.view.View;
@@ -60,6 +62,8 @@ public class go_activity extends AppCompatActivity {
         startServiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                setVibrate();
 
                 if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                         == PackageManager.PERMISSION_GRANTED) {
@@ -127,11 +131,14 @@ public class go_activity extends AppCompatActivity {
                 }
 
             }
+
         });
 
         stopServiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setVibrate();
+
                 stopServiceFunc();
             }
         });
@@ -222,6 +229,11 @@ public class go_activity extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void setVibrate(){
+        Vibrator myVibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
+        myVibrator.vibrate(1000);
     }
 
     private void starServiceFunc() {

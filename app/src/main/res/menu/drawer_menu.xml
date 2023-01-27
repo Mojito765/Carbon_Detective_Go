@@ -13,7 +13,7 @@
                     android:title="What's Carbon Footprint"/>
                 <item
                     android:id="@+id/nav_about"
-                    android:icon="@drawable/ic_round_person_24"
+                    android:icon="@drawable/round_people_24"
                     android:title="About Us"/>
 <!--            </group>-->
         </menu>
