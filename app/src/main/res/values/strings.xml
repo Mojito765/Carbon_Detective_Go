@@ -16,6 +16,7 @@
     <string name="calculate_result">Travel %1$s km\n%2$s kgCO2</string>
 <!--    QA-->
     <string name="QA">Q1：如何開始記錄碳足跡？\nA1：窩也不知道。\n\nQ2：可以中途切換交通工具嗎？\nA2：可以，前一次記錄會Bang不見。\n\nQ3：沒有我要的交通工具欸？！\nA3：是喔。</string>
+    <string name="QA_about_us">Q：What\'s “Carbon Detective Go”?\nA：“Carbon Detective Go” is an app for people to record their carbon footprint easily.</string>
 <!--location-->
     <string name="background_location_permission_message">App currently can access location only while you\'re using the app</string>
     <string name="ask_background_location_permission">Allow &lt;b>App&lt;/b> to access this device\'s location &lt;b>all the time&lt;/b>?</string>

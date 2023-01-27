@@ -5,18 +5,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class about_carbon_activity extends AppCompatActivity {
-    private Button btnIntentActivityB;
-    private Button btnIntentActivityH;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_carbon);
 
-        btnIntentActivityB = (Button) findViewById(R.id.btn_web);
-        btnIntentActivityB.setOnClickListener(new View.OnClickListener() {
+        Button btnWeb = (Button) findViewById(R.id.btn_web);
+        btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -25,8 +26,8 @@ public class about_carbon_activity extends AppCompatActivity {
             }
         });
 
-        btnIntentActivityH = (Button) findViewById(R.id.btn_home);
-        btnIntentActivityH.setOnClickListener(new View.OnClickListener() {
+        Button btnHome = (Button) findViewById(R.id.btn_home);
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -34,5 +35,16 @@ public class about_carbon_activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Toolbar myChildToolbar =
+                (Toolbar) findViewById(R.id.topAppBar);
+        setSupportActionBar(myChildToolbar);
+
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+        assert ab != null;
+        ab.setDisplayHomeAsUpEnabled(true);
     }
 }

@@ -31,32 +31,36 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".card_activity"
-            android:exported="false">
+            android:name=".total_activity"
+            android:exported="false"
+            android:parentActivityName="com.doit.detective.MainActivity" >
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.doit.detective.MainActivity" />
         </activity>
         <activity
             android:name=".carbon_web_activity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName="com.doit.detective.about_carbon_activity">
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.doit.detective.about_carbon_activity" />
         </activity>
         <activity
             android:name=".about_carbon_activity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName="com.doit.detective.MainActivity" >
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.doit.detective.MainActivity" />
         </activity>
         <activity
             android:name=".about_us_activity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName="com.doit.detective.MainActivity" >
             <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.doit.detective.MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"

@@ -107,8 +107,8 @@ public class go_activity extends AppCompatActivity {
 
 
                         AlertDialog alertDialog = new AlertDialog.Builder(go_activity.this).create();
-                        alertDialog.setTitle("ACCESS_FINE_LOCATION");
-                        alertDialog.setMessage("Location permission required");
+                        alertDialog.setTitle("Location permission required");
+                        alertDialog.setMessage("ACCESS_FINE_LOCATION");
 
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                 new DialogInterface.OnClickListener() {
