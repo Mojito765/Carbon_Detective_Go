@@ -28,7 +28,11 @@
 <!--            android:value="${MAPS_API_KEY}" />-->
         <activity
             android:name=".go_activity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName="com.doit.detective.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.doit.detective.MainActivity" />
         </activity>
         <activity
             android:name=".total_activity"

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="?colorPrimary" />
-    <corners
-        android:bottomLeftRadius="0dp"
-        android:radius="28dp"
-        android:topLeftRadius="0dp" />
+    <solid android:color="?colorSecondaryContainer" />
+    <corners android:radius="28dp" />
     <padding android:top="12dp" />
     <padding android:left="12dp" />
     <padding android:right="12dp" />

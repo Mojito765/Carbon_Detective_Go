@@ -16,7 +16,7 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationIconTint="?colorOnBackground"
             app:navigationIcon="@drawable/round_arrow_back_24"
-            app:title="Carbon Footprint" />
+            app:title="Statistic" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -37,56 +37,86 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:padding="30dp"
-                android:text="Total"
-                android:textColor="?colorOnPrimary"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="39"
-                android:textColor="?colorOnPrimary"
-                android:textSize="100sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="kgCO2"
+                android:text="Carbon Footprint"
                 android:textColor="?colorOnPrimary"
                 android:textSize="60sp"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/all_carbon_footprint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:padding="30dp"
-                android:text="Moving 256 km"
-                android:textColor="?colorOnPrimary"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="      Tips: "
-                android:textColor="?colorOnPrimary"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:background="@drawable/text_bg"
+                android:text="0"
+                android:textColor="?colorOnSecondaryContainer"
+                android:textSize="100sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:padding="10dp"
-                android:text="善用大眾交通運輸工具更環保愛地球~"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
+                android:text="kgCO2"
                 android:textColor="?colorOnPrimary"
-                android:textSize="16sp" />
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="產生的碳足跡相當於製造"
+                android:textColor="?colorOnPrimary"
+                android:textSize="30sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:paddingBottom="50dp">
+
+                <TextView
+                    android:id="@+id/chopsticks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:background="@drawable/text_bg"
+                    android:textColor="?colorOnSecondaryContainer"
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="雙免洗筷"
+                    android:textColor="?colorOnPrimary"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/all_move"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/text_bg"
+                android:text="0"
+                android:textColor="?colorOnSecondaryContainer"
+                android:textSize="100sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
+                android:text="km moving"
+                android:textColor="?colorOnPrimary"
+                android:textSize="30sp" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

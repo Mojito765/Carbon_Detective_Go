@@ -92,16 +92,15 @@
 
             <Button
                 android:id="@+id/btn_web"
-                style="@style/Widget.Material3.Button.TextButton"
+                style="@style/Widget.Material3.Button.TextButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginBottom="10dp"
-                android:onClick="web"
                 android:text="Learn more"
                 android:textColor="?colorOnPrimary"
-                app:drawableEndCompat="@drawable/ic_round_open_in_new_24"
-                app:drawableTint="?colorOnPrimary" />
+                app:icon="@drawable/ic_round_open_in_new_24"
+                app:iconTint="?colorOnPrimary" />
 
             <Button
                 android:id="@+id/btn_home"
@@ -110,7 +109,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="5dp"
-                android:onClick="redirect"
                 android:text="Back to home"
                 app:icon="@drawable/ic_round_home_24" />
 

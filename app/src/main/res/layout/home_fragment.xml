@@ -189,47 +189,30 @@
                 android:layout_weight="0.5"
                 app:cardCornerRadius="28dp">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="20dp">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/total_distance"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:text="0"
-                            android:textColor="?colorOnPrimaryContainer"
-                            android:textSize="58sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            app:drawableEndCompat="@drawable/round_history_24"
-                            app:drawableTint="?colorOnPrimaryContainer" />
-
-                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.6"
+                        app:srcCompat="@drawable/round_history_24"
+                        app:tint="?colorOnPrimaryContainer" />
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_gravity="center_horizontal"
-                        android:text="kgCO2"
+                        android:layout_weight="0.4"
+                        android:padding="10dp"
+                        android:text="Statistic"
                         android:textColor="?colorOnPrimaryContainer"
                         android:textSize="18sp" />
 
                 </LinearLayout>
-
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -251,16 +234,13 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:id="@+id/modeImg"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.6"
-                        android:contentDescription="switch mode"
                         app:srcCompat="@drawable/round_invert_colors_24"
                         app:tint="?colorOnPrimaryContainer" />
 
                     <TextView
-                        android:id="@+id/modeTv"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_gravity="center_horizontal"
@@ -271,6 +251,7 @@
                         android:textSize="18sp" />
 
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>

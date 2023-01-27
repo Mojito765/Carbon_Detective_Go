@@ -1,7 +1,5 @@
 package com.doit.detective.fragment;
 
-import static com.doit.detective.go_activity.total_travel_carbon_footprint;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +10,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,15 +51,21 @@ public class home_fragment extends Fragment {
         getTime();
         getMyLocation();
         configureCardView();
-        setTravelTV();
-        return v;
-    }
 
-    private void setTravelTV() {
-        TextView tvTotalDistance = v.findViewById(R.id.total_distance);
-        total_travel_carbon_footprint=Math.round(total_travel_carbon_footprint * 10.0) / 10.0;
-        String tT = Double.toString(total_travel_carbon_footprint);
-        tvTotalDistance.setText(tT);
+        //Init
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                getTime();
+                handler.postDelayed(this, 1000);
+            }
+        };
+
+        //Start
+        handler.postDelayed(runnable, 1000);
+
+        return v;
     }
 
     private void getMyLocation() {
@@ -142,7 +147,6 @@ public class home_fragment extends Fragment {
                 Toast.makeText(requireActivity(), "Updating", Toast.LENGTH_SHORT).show();
                 getTime();
                 getMyLocation();
-                setTravelTV();
             }
         });
 

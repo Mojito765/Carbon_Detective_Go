@@ -25,7 +25,7 @@
                 app:menu="@menu/top_app_bar"
                 app:navigationIcon="@drawable/round_arrow_back_24"
                 app:navigationIconTint="?colorOnBackground"
-                app:title="@string/app_name" />
+                app:title="About Team DOiT" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
