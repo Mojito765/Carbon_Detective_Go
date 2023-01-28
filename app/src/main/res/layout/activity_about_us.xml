@@ -24,7 +24,6 @@
                 app:layout_collapseMode="pin"
                 app:menu="@menu/top_app_bar"
                 app:navigationIcon="@drawable/round_arrow_back_24"
-                app:navigationIconTint="?colorOnBackground"
                 app:title="About Team DOiT" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -49,7 +48,7 @@
                 android:padding="20dp"
                 android:text="DOiT_做就隊 Logo"
                 android:textColor="?colorOnBackground"
-                android:textSize="25sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -58,21 +57,30 @@
                 android:padding="20dp"
                 android:src="@drawable/ic_doit_normal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:text="      Logo 設計靈感來自台灣碳足跡標章的腳丫形狀，腳掌加上 “DOiT” 隊伍名稱，底部 “CARBON FOOTPRINT” 寓含 APP 的碳足跡主題。\n\n\n"
-                android:textColor="?colorOnBackground"
-                android:textSize="16sp" />
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="28dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="20dp"
+                android:text="  Logo 設計靈感來自台灣碳足跡標章的腳丫形狀，腳掌加上 “DOiT” 隊伍名稱，底部 “CARBON FOOTPRINT” 寓含 APP 的碳足跡主題。"
+                android:textColor="?colorOnSurfaceVariant"
+                android:textSize="20sp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="60dp"
+                android:paddingBottom="20dp"
                 android:text="DOiT_做就隊 Word Cloud"
                 android:textColor="?colorOnBackground"
-                android:textSize="25sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <ImageView
@@ -81,16 +89,21 @@
                 android:padding="20dp"
                 android:src="@drawable/ic_doit_word_cloud" />
 
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="28dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:paddingTop="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="30dp"
-                android:text="      蘊含我們製作理念的文字雲，以 Logo 輪廓為基底，包含永續發展、環保意識、碳足跡記錄等關鍵字。"
-                android:textColor="?colorOnBackground"
-                android:textSize="16sp" />
+                android:padding="20dp"
+                android:text="  蘊含我們製作理念的文字雲，以 Logo 輪廓為基底，包含永續發展、環保意識、碳足跡記錄等關鍵字。"
+                android:textColor="?colorOnSurfaceVariant"
+                android:textSize="20sp" />
+
+            </com.google.android.material.card.MaterialCardView>
 
             <Button
                 android:id="@+id/btn_home"
@@ -98,10 +111,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
                 android:text="Back to home"
                 app:icon="@drawable/ic_round_home_24" />
+
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

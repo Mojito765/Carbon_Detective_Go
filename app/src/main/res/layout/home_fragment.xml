@@ -143,32 +143,30 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:layout_marginTop="40dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginEnd="30dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_gravity="start"
-                        android:paddingStart="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="10dp"
                         app:drawableEndCompat="@drawable/round_refresh_24"
                         app:drawableTint="?colorOnPrimaryContainer" />
 
                     <TextView
                         android:id="@+id/tvRefresh"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
                         android:text="Tap To Refresh"
                         android:textColor="?colorOnPrimaryContainer"
                         android:textSize="18sp" />
+
                 </LinearLayout>
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -199,7 +197,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="0.6"
-                        app:srcCompat="@drawable/round_history_24"
+                        app:srcCompat="@drawable/round_query_stats_24"
                         app:tint="?colorOnPrimaryContainer" />
 
                     <TextView

@@ -15,14 +15,13 @@ import com.doit.detective.fragment.dialog8_fragment;
 
 public class about_us_activity extends AppCompatActivity {
 
-    private Button btnIntentActivityH;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
-        btnIntentActivityH = (Button) findViewById(R.id.btn_home);
-        btnIntentActivityH.setOnClickListener(new View.OnClickListener() {
+        Button btnHome = findViewById(R.id.btn_home);
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -31,8 +30,7 @@ public class about_us_activity extends AppCompatActivity {
             }
         });
 
-        Toolbar myChildToolbar =
-                (Toolbar) findViewById(R.id.topAppBar);
+        Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
 
         // Get a support ActionBar corresponding to this toolbar
