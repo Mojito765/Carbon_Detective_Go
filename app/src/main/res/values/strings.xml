@@ -13,7 +13,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 <!--carbon footprint-->
     <string name="kgCO2">kgCO2</string>
-    <string name="calculate_result">Travel %1$s km\n%2$s kgCO2</string>
+    <string name="calculate_result">Travel %1$s km. Carbon footprint %2$s kgCO2.</string>
 <!--    QA-->
     <string name="QA">Q1：如何開始記錄碳足跡？\nA1：允許定位權限，選擇交通方式，然後點擊開始按鈕，到達目的地再點擊結束按鈕。\n\nQ2：可以中途切換交通工具嗎？\nA2：可以，每次記錄只會以最後一次選擇的交通方式計算。\n\nQ3：沒有我要的交通工具欸？！\nA3：自己算（ᗜ ‸ ᗜ）。</string>
     <string name="QA_about_us">Q：What\'s “Carbon Detective Go”?\nA：“Carbon Detective Go” is an app for people to record their carbon footprint easily.</string>

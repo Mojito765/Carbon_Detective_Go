@@ -16,7 +16,7 @@ public class about_carbon_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_carbon);
 
-        Button btnWeb = (Button) findViewById(R.id.btn_web);
+        Button btnWeb = findViewById(R.id.btn_web);
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -26,18 +26,17 @@ public class about_carbon_activity extends AppCompatActivity {
             }
         });
 
-        Button btnHome = (Button) findViewById(R.id.btn_home);
+        Button btnHome = findViewById(R.id.btn_home);
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(about_carbon_activity.this,MainActivity.class);
+                intent.setClass(about_carbon_activity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
 
-        Toolbar myChildToolbar =
-                (Toolbar) findViewById(R.id.topAppBar);
+        Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
 
         // Get a support ActionBar corresponding to this toolbar

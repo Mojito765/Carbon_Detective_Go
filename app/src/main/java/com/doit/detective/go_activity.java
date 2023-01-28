@@ -15,6 +15,8 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,7 +24,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -50,10 +54,6 @@ public class go_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go);
 
-        topBack();
-
-        topQA();
-
         btnTransportation();
 
         startServiceBtn = findViewById(R.id.start_service_btn);
@@ -63,6 +63,7 @@ public class go_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                // Vibrate
                 setVibrate();
 
                 if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -143,6 +144,15 @@ public class go_activity extends AppCompatActivity {
             }
         });
 
+        Toolbar myChildToolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(myChildToolbar);
+
+        // Get a support ActionBar corresponding to this toolbar
+        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+        assert ab != null;
+        ab.setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -162,27 +172,6 @@ public class go_activity extends AppCompatActivity {
                         transportation_weight = 0.173;
                     }
                 }
-            }
-        });
-    }
-
-    private void topQA() {
-        Button questionButton = findViewById(R.id.question);
-        questionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog7_fragment badgeDialog = new dialog7_fragment();
-                badgeDialog.show(getSupportFragmentManager(), "dialog7_fragment");
-            }
-        });
-    }
-
-    private void topBack() {
-        Button backButton = findViewById(R.id.back);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
             }
         });
     }
@@ -302,6 +291,28 @@ public class go_activity extends AppCompatActivity {
         String fD = Double.toString(finalDistance);
 
         tvDistance.setText(getString(R.string.calculate_result, fD, fCF));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.top_app_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.help:
+                dialog7_fragment badgeDialog = new dialog7_fragment();
+                badgeDialog.show(getSupportFragmentManager(), "dialog7_fragment");
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
 }
