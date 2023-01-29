@@ -10,9 +10,9 @@
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            style="?attr/collapsingToolbarLayoutLargeStyle"
+            style="?attr/collapsingToolbarLayoutMediumStyle"
             android:layout_width="match_parent"
-            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+            android:layout_height="?attr/collapsingToolbarLayoutMediumSize"
             app:contentScrim="?attr/colorSurface"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
@@ -99,7 +99,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginStart="10dp"
-                            android:text="累積的碳足跡相當於製造"
+                            android:text="累積的碳足跡 ="
                             android:textColor="?colorOnBackground"
                             android:textSize="24sp" />
 
@@ -110,6 +110,14 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="10dp"
+                                android:text="製造"
+                                android:textColor="?colorOnBackground"
+                                android:textSize="24sp" />
 
                             <TextView
                                 android:id="@+id/chopsticks"

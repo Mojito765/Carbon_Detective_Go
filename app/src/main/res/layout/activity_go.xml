@@ -5,21 +5,36 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         app:liftOnScroll="true">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            style="?attr/collapsingToolbarLayoutMediumStyle"
+            android:layout_width="match_parent"
+            app:contentScrim="?attr/colorSurface"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            android:layout_height="?attr/collapsingToolbarLayoutMediumSize">
+
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:menu="@menu/top_app_bar"
+            app:layout_collapseMode="pin"
+            android:elevation="0dp"
             app:navigationIcon="@drawable/round_arrow_back_24"
             app:title="@string/app_name" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -54,28 +69,18 @@
                         android:paddingTop="10dp"
                         android:paddingEnd="0dp"
                         android:paddingBottom="10dp"
-                        app:drawableTint="?colorOnPrimaryContainer"
-                        app:drawableEndCompat="@drawable/round_looks_one_24" />
+                        app:drawableEndCompat="@drawable/round_looks_one_24"
+                        app:drawableTint="?colorOnPrimaryContainer" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Step 1:"
-                        android:paddingStart="5dp"
+                        android:paddingStart="10dp"
                         android:paddingTop="10dp"
                         android:paddingEnd="10dp"
-                        android:paddingBottom="10dp"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:paddingStart="0dp"
-                        android:paddingEnd="10dp"
-                        android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="Choose transportation"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -138,43 +143,37 @@
                         android:paddingTop="10dp"
                         android:paddingEnd="0dp"
                         android:paddingBottom="10dp"
-                        app:drawableTint="?colorOnPrimaryContainer"
-                        app:drawableEndCompat="@drawable/round_looks_two_24" />
+                        app:drawableEndCompat="@drawable/round_looks_two_24"
+                        app:drawableTint="?colorOnPrimaryContainer" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Step 2:"
-                        android:paddingStart="5dp"
+                        android:paddingStart="10dp"
                         android:paddingTop="10dp"
                         android:paddingEnd="10dp"
-                        android:paddingBottom="10dp"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:paddingStart="0dp"
-                        android:paddingEnd="10dp"
-                        android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="Tap to start / stop"
-                        android:textSize="18sp" />
+                        android:textSize="20sp" />
+
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:layout_margin="20dp"
+                app:cardCornerRadius="28dp">
 
                 <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/layout_bg2"
+                    android:background="@drawable/layout_bg3"
                     android:orientation="vertical"
                     android:padding="20dp">
 
@@ -189,7 +188,7 @@
 
                     <Button
                         android:id="@+id/stop_service_btn"
-                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        style="@style/Widget.Material3.Button.ElevatedButton"
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:layout_gravity="center_horizontal"
@@ -198,75 +197,216 @@
 
                 </LinearLayout>
 
-                <com.google.android.material.card.MaterialCardView
-                    style="?attr/materialCardViewElevatedStyle"
-                    android:layout_width="match_parent"
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                app:cardCornerRadius="28dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="start"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="0dp"
+                        android:paddingBottom="10dp"
+                        app:drawableEndCompat="@drawable/round_looks_3_24"
+                        app:drawableTint="?colorOnPrimaryContainer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingStart="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Boom! That's it!"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <com.google.android.material.card.MaterialCardView
+                    style="?attr/materialCardViewFilledStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     app:cardCornerRadius="28dp">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="horizontal">
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/all_carbon_footprint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/text_bg"
+                            android:text="0"
+                            android:textColor="?colorOnPrimaryContainer"
+                            android:textSize="100sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="start"
-                            android:paddingStart="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
                             android:paddingTop="10dp"
-                            android:paddingEnd="0dp"
-                            android:paddingBottom="10dp"
-                            app:drawableTint="?colorOnPrimaryContainer"
-                            app:drawableEndCompat="@drawable/round_looks_3_24" />
+                            android:paddingBottom="20dp"
+                            android:text="kgCO2"
+                            android:textColor="?colorOnBackground"
+                            android:textSize="30sp" />
+
+                        <com.google.android.material.card.MaterialCardView
+                            style="?attr/materialCardViewElevatedStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="28dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="vertical"
+                                android:padding="20dp">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        app:srcCompat="@drawable/round_tips_and_updates_24"
+                                        app:tint="?colorOnPrimaryContainer" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_horizontal"
+                                        android:layout_marginStart="10dp"
+                                        android:text="本次碳足跡 ="
+                                        android:textColor="?colorOnBackground"
+                                        android:textSize="24sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="10dp"
+                                        android:text="製造"
+                                        android:textColor="?colorOnBackground"
+                                        android:textSize="24sp" />
+
+                                    <TextView
+                                        android:id="@+id/chopsticks"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:background="@drawable/text_bg"
+                                        android:text="0"
+                                        android:textColor="?colorOnPrimaryContainer"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:text="雙免洗筷"
+                                        android:textColor="?colorOnBackground"
+                                        android:textSize="24sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                            android:id="@+id/all_move"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/text_bg"
+                            android:text="0"
+                            android:textColor="?colorOnPrimaryContainer"
+                            android:textSize="100sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="Step 3:"
-                            android:paddingStart="5dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
                             android:paddingTop="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingBottom="10dp"
-                            android:textSize="18sp" />
+                            android:paddingBottom="20dp"
+                            android:text="km moving"
+                            android:textColor="?colorOnBackground"
+                            android:textSize="30sp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:paddingStart="0dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:text="That's it!"
-                            android:textSize="18sp" />
+                        <com.google.android.material.card.MaterialCardView
+                            style="?attr/materialCardViewElevatedStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            app:cardCornerRadius="28dp">
+
+                            <TextView
+                                android:id="@+id/carbon_footprint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:padding="20dp"
+                                android:text="No record yet :("
+                                android:textSize="18sp" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="20dp">
-
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:id="@+id/carbon_footprint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/layout_bg2"
-                        android:padding="20dp"
-                        android:text="Travel detail"
-                        android:textColor="?colorOnSurfaceVariant"
-                        android:textSize="12sp" />
-
-                </LinearLayout>
-
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_up"
+                style="@style/Widget.Material3.Button.OutlinedButton.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="Back to top"
+                app:icon="@drawable/round_arrow_upward_24" />
 
         </LinearLayout>
 

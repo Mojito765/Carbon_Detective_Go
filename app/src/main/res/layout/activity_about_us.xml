@@ -5,14 +5,15 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            style="?attr/collapsingToolbarLayoutLargeStyle"
+            style="?attr/collapsingToolbarLayoutMediumStyle"
             android:layout_width="match_parent"
-            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
+            android:layout_height="?attr/collapsingToolbarLayoutMediumSize"
             app:contentScrim="?attr/colorSurface"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
@@ -31,6 +32,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -48,8 +50,7 @@
                 android:padding="20dp"
                 android:text="DOiT_做就隊 Logo"
                 android:textColor="?colorOnBackground"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="24sp" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -69,7 +70,7 @@
                 android:padding="20dp"
                 android:text="  Logo 設計靈感來自台灣碳足跡標章的腳丫形狀，腳掌加上 “DOiT” 隊伍名稱，底部 “CARBON FOOTPRINT” 寓含 APP 的碳足跡主題。"
                 android:textColor="?colorOnSurfaceVariant"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -80,8 +81,7 @@
                 android:paddingBottom="20dp"
                 android:text="DOiT_做就隊 Word Cloud"
                 android:textColor="?colorOnBackground"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="24sp" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -101,20 +101,20 @@
                 android:padding="20dp"
                 android:text="  蘊含我們製作理念的文字雲，以 Logo 輪廓為基底，包含永續發展、環保意識、碳足跡記錄等關鍵字。"
                 android:textColor="?colorOnSurfaceVariant"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             </com.google.android.material.card.MaterialCardView>
 
             <Button
-                android:id="@+id/btn_home"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
+                android:id="@+id/btn_up"
+                style="@style/Widget.Material3.Button.OutlinedButton.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="10dp"
-                android:text="Back to home"
-                app:icon="@drawable/ic_round_home_24" />
+                android:text="Back to top"
+                app:icon="@drawable/round_arrow_upward_24" />
 
         </LinearLayout>
 

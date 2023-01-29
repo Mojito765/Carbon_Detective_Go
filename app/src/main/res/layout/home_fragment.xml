@@ -198,7 +198,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.6"
                         app:srcCompat="@drawable/round_query_stats_24"
-                        app:tint="?colorOnPrimaryContainer" />
+                        app:tint="?colorOnSecondaryContainer" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -207,7 +207,7 @@
                         android:layout_weight="0.4"
                         android:padding="10dp"
                         android:text="Statistic"
-                        android:textColor="?colorOnPrimaryContainer"
+                        android:textColor="?colorOnSecondaryContainer"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -236,7 +236,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="0.6"
                         app:srcCompat="@drawable/round_invert_colors_24"
-                        app:tint="?colorOnPrimaryContainer" />
+                        app:tint="?colorOnSecondaryContainer" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -245,7 +245,7 @@
                         android:layout_weight="0.4"
                         android:padding="10dp"
                         android:text="Switch"
-                        android:textColor="?colorOnPrimaryContainer"
+                        android:textColor="?colorOnSecondaryContainer"
                         android:textSize="18sp" />
 
                 </LinearLayout>

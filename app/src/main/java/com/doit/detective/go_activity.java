@@ -2,6 +2,7 @@ package com.doit.detective;
 
 import static com.doit.detective.LocationService.finalDistance;
 import static com.doit.detective.LocationService.myLocationList;
+import static com.doit.detective.total_activity.chopsticks_weight;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -29,8 +30,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.NestedScrollView;
 
 import com.doit.detective.fragment.dialog7_fragment;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
 public class go_activity extends AppCompatActivity {
@@ -58,6 +61,21 @@ public class go_activity extends AppCompatActivity {
 
         startServiceBtn = findViewById(R.id.start_service_btn);
         stopServiceBtn = findViewById(R.id.stop_service_btn);
+
+        // back_to_top start
+        Button btnUp = findViewById(R.id.btn_up);
+        NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_view);
+        AppBarLayout appBarLayout = findViewById(R.id.appBarLayout);
+
+        btnUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nestedScrollView.fullScroll(View.FOCUS_UP);
+//                nestedScrollView.scrollTo(0,0);
+                appBarLayout.setExpanded(true);
+            }
+        });
+        // back_to_top end
 
         startServiceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,7 +248,7 @@ public class go_activity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (!Util.isMyServiceRunning(mLocationService.getClass(), this)) {
             startService(mServiceIntent);
-            Toast.makeText(this, "Start record", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Start recording", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Recording", Toast.LENGTH_SHORT).show();
         }
@@ -270,26 +288,45 @@ public class go_activity extends AppCompatActivity {
         }
 //        Toast.makeText(this,
 //                "Distance: " + finalDistance, Toast.LENGTH_LONG).show();
+
+        //step3 setText
         setResultTV();
+
+        //clear record
         myLocationList.clear();
         finalDistance = 0;
     }
 
+    //step3
     private void setResultTV() {
         TextView tvDistance = findViewById(R.id.carbon_footprint);
+        TextView tvTotalDistance = findViewById(R.id.all_move);
+        TextView tvTotalFootprint = findViewById(R.id.all_carbon_footprint);
+        TextView tvTotalChopsticks = findViewById(R.id.chopsticks);
 
 //        calculate carbon footprint
         final_carbon_footprint = finalDistance * transportation_weight;
+
 //        calculate app total
         total_travel_carbon_footprint += final_carbon_footprint;
         total_travel += finalDistance;
+
 //        round off
-        final_carbon_footprint = Math.round(final_carbon_footprint * 1000.0) / 1000.0;
-        finalDistance = Math.round(finalDistance * 1000.0) / 1000.0;
+        double round_final_carbon_footprint = Math.round(final_carbon_footprint * 10.0) / 10.0;
+        double round_finalDistance = Math.round(finalDistance * 10.0) / 10.0;
+        double myChopsticks = total_travel_carbon_footprint / chopsticks_weight;
+
 //        Double.toString
         String fCF = Double.toString(final_carbon_footprint);
         String fD = Double.toString(finalDistance);
+        String tD = Double.toString(round_finalDistance);
+        String tF = Double.toString(round_final_carbon_footprint);
+        String tC = Integer.toString((int) myChopsticks);
 
+//        setText
+        tvTotalDistance.setText(tD);
+        tvTotalFootprint.setText(tF);
+        tvTotalChopsticks.setText(tC);
         tvDistance.setText(getString(R.string.calculate_result, fD, fCF));
     }
 
