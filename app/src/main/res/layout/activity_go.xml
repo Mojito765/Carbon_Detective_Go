@@ -386,7 +386,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:padding="20dp"
-                                android:text="No record yet :("
+                                android:text="Nothing here :("
                                 android:textSize="18sp" />
 
                         </com.google.android.material.card.MaterialCardView>

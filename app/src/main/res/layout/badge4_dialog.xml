@@ -8,7 +8,7 @@
     <!--Header-->
     <!--Icon-->
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/lock4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="?colorOnSurfaceVariant"
-        app:srcCompat="@drawable/round_lock_open_24" />
+        app:srcCompat="@drawable/round_lock_24" />
 
     <!--Headline-->
     <TextView
@@ -29,8 +29,8 @@
         android:text="@string/badge4"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/lock4"
+        app:layout_constraintTop_toTopOf="@id/lock4" />
 
     <!--Text button-->
     <Button
@@ -84,13 +84,13 @@
 
         <!--badgeTime-->
         <TextView
-            android:id="@+id/badgeTime"
+            android:id="@+id/badgeTime4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
             android:textColor="?colorOnSurfaceVariant"
-            android:text="Unlocked: 2022/12/26"
+            android:text="Locked"
             android:textSize="16sp"
             android:textStyle="bold" />
 

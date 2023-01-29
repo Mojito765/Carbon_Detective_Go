@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:text="00:00"
-                        android:textColor="?colorOnPrimaryContainer"
+                        android:textColor="?colorOnSecondaryContainer"
                         android:textSize="14sp" />
 
                     <LinearLayout
@@ -107,7 +107,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="City"
-                            android:textColor="?colorOnPrimaryContainer"
+                            android:textColor="?colorOnSecondaryContainer"
                             android:textSize="38sp" />
 
                         <LinearLayout
@@ -124,7 +124,7 @@
                                 android:paddingEnd="0dp"
                                 android:paddingBottom="10dp"
                                 app:drawableEndCompat="@drawable/round_my_location_24"
-                                app:drawableTint="?colorOnPrimaryContainer" />
+                                app:drawableTint="?colorOnSecondaryContainer" />
 
                             <TextView
                                 android:id="@+id/locationState"
@@ -132,7 +132,7 @@
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
                                 android:text="State"
-                                android:textColor="?colorOnPrimaryContainer"
+                                android:textColor="?colorOnSecondaryContainer"
                                 android:textSize="18sp" />
                         </LinearLayout>
 

@@ -8,7 +8,7 @@
     <!--Header-->
     <!--Icon-->
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/lock5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -29,8 +29,8 @@
         android:text="@string/badge5"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/lock5"
+        app:layout_constraintTop_toTopOf="@id/lock5" />
 
     <!--Text button-->
     <Button
@@ -84,7 +84,7 @@
 
         <!--badgeTime-->
         <TextView
-            android:id="@+id/badgeTime"
+            android:id="@+id/badgeTime5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

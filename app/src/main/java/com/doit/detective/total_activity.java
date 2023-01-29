@@ -38,6 +38,7 @@ public class total_activity extends AppCompatActivity {
     }
 
     private void setStatisticTV() {
+        TextView tvDistance = findViewById(R.id.carbon_footprint);
         TextView tvTotalDistance = findViewById(R.id.all_move);
         TextView tvTotalFootprint = findViewById(R.id.all_carbon_footprint);
         TextView tvTotalChopsticks = findViewById(R.id.chopsticks);
@@ -45,12 +46,15 @@ public class total_activity extends AppCompatActivity {
         double total_travel_carbon_footprint2 = Math.round(total_travel_carbon_footprint * 10.0) / 10.0;
         double myChopsticks = total_travel_carbon_footprint / chopsticks_weight;
         myChopsticks = Math.round(myChopsticks);
+        String fCF = Double.toString(total_travel_carbon_footprint);
+        String fD = Double.toString(total_travel);
         String tD = Double.toString(total_travel2);
         String tF = Double.toString(total_travel_carbon_footprint2);
         String tC = Integer.toString((int) myChopsticks);
         tvTotalDistance.setText(tD);
         tvTotalFootprint.setText(tF);
         tvTotalChopsticks.setText(tC);
+        tvDistance.setText(getString(R.string.calculate_result, fD, fCF));
     }
 
     @Override
