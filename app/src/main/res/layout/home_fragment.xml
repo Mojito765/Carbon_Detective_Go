@@ -208,7 +208,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="0.5"
                         android:padding="10dp"
-                        android:text="Statistic"
+                        android:text="Statistics"
                         android:textStyle="bold"
                         android:textColor="?colorOnSecondaryContainer"
                         android:textSize="18sp" />

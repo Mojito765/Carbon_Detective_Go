@@ -6,13 +6,17 @@ import static com.doit.detective.go_activity.total_travel_carbon_footprint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.widget.NestedScrollView;
 
 import com.doit.detective.fragment.dialog8_fragment;
+import com.google.android.material.appbar.AppBarLayout;
 
 public class total_activity extends AppCompatActivity {
 
@@ -37,6 +41,19 @@ public class total_activity extends AppCompatActivity {
 
         //display total travel
         setStatisticTV();
+
+        Button btnUp = findViewById(R.id.btn_up);
+        NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_view);
+        AppBarLayout appBarLayout = findViewById(R.id.appBarLayout);
+
+        btnUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nestedScrollView.fullScroll(View.FOCUS_UP);
+//                nestedScrollView.scrollTo(0,0);
+                appBarLayout.setExpanded(true);
+            }
+        });
     }
 
     private void setStatisticTV() {
