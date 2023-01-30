@@ -159,7 +159,6 @@ public class go_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setVibrate();
-
                 stopService();
             }
         });
@@ -245,6 +244,7 @@ public class go_activity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (!Util.isMyServiceRunning(mLocationService.getClass(), this)) {
             startService(mServiceIntent);
+            setRecordTV();
             Toast.makeText(this, "Start recording", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Recording", Toast.LENGTH_SHORT).show();
@@ -256,6 +256,7 @@ public class go_activity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (Util.isMyServiceRunning(mLocationService.getClass(), this)) {
             stopService(mServiceIntent);
+            setNoRecordTV();
             Toast.makeText(this, "Stopping", Toast.LENGTH_SHORT).show();
             saveTravel();
         } else {
@@ -292,6 +293,21 @@ public class go_activity extends AppCompatActivity {
         //clear record
         myLocationList.clear();
         finalDistance = 0;
+    }
+
+    //step2
+    private void setRecordTV() {
+        TextView tvStatus = findViewById(R.id.record_status);
+
+//        setText
+        tvStatus.setText("Recording");
+    }
+
+    private void setNoRecordTV() {
+        TextView tvStatus = findViewById(R.id.record_status);
+
+//        setText
+        tvStatus.setText("Not Recording");
     }
 
     //step3
