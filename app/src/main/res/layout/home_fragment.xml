@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
             android:id="@+id/c0"
             style="?attr/materialCardViewOutlinedStyle"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
@@ -107,6 +106,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="City"
+                            android:textStyle="bold"
                             android:textColor="?colorOnSecondaryContainer"
                             android:textSize="38sp" />
 
@@ -127,6 +127,7 @@
                                 app:drawableTint="?colorOnSecondaryContainer" />
 
                             <TextView
+                                android:textStyle="bold"
                                 android:id="@+id/locationState"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -194,9 +195,10 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
                         android:layout_height="0dp"
-                        android:layout_weight="0.6"
+                        android:layout_weight="0.5"
+                        android:layout_gravity="center_horizontal"
                         app:srcCompat="@drawable/round_query_stats_24"
                         app:tint="?colorOnSecondaryContainer" />
 
@@ -204,9 +206,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_weight="0.4"
+                        android:layout_weight="0.5"
                         android:padding="10dp"
                         android:text="Statistic"
+                        android:textStyle="bold"
                         android:textColor="?colorOnSecondaryContainer"
                         android:textSize="18sp" />
 
@@ -232,9 +235,10 @@
                     android:padding="20dp">
 
                     <ImageView
-                        android:layout_width="match_parent"
+                        android:layout_width="50dp"
+                        android:layout_gravity="center_horizontal"
                         android:layout_height="0dp"
-                        android:layout_weight="0.6"
+                        android:layout_weight="0.5"
                         app:srcCompat="@drawable/round_invert_colors_24"
                         app:tint="?colorOnSecondaryContainer" />
 
@@ -242,9 +246,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_gravity="center_horizontal"
-                        android:layout_weight="0.4"
+                        android:layout_weight="0.5"
                         android:padding="10dp"
                         android:text="Switch"
+                        android:textStyle="bold"
                         android:textColor="?colorOnSecondaryContainer"
                         android:textSize="18sp" />
 

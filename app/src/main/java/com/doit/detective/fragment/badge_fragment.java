@@ -22,7 +22,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class badge_fragment extends Fragment {
-// !!!!!!!!!testing!!!!!!!!! implements android.location.LocationListener
+    // !!!!!!!!!testing!!!!!!!!! implements android.location.LocationListener
     private View v;
 
     public static boolean badge1_unlock = false;

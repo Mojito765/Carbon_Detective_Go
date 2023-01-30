@@ -21,6 +21,8 @@ public class about_us_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
+//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         Button btnUp = findViewById(R.id.btn_up);
         NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_view);
         AppBarLayout appBarLayout = findViewById(R.id.appBarLayout);

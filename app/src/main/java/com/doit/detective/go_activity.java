@@ -57,6 +57,8 @@ public class go_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go);
 
+//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         btnTransportation();
 
         startServiceBtn = findViewById(R.id.start_service_btn);
@@ -260,7 +262,7 @@ public class go_activity extends AppCompatActivity {
         if (Util.isMyServiceRunning(mLocationService.getClass(), this)) {
             stopService(mServiceIntent);
             Toast.makeText(this, "Stopping", Toast.LENGTH_SHORT).show();
-            saveDistance(); // beta
+            saveTravel();
         } else {
             Toast.makeText(this, "Not recording", Toast.LENGTH_SHORT).show();
         }
@@ -277,7 +279,7 @@ public class go_activity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, MY_FINE_LOCATION_REQUEST);
     }
 
-    public void saveDistance() {
+    public void saveTravel() {
         try {
             for (int i = 0; i < myLocationList.size(); i += 2) {
                 finalDistance += LocationService.GetDistanceFromLatLonInKm(myLocationList.get(i), myLocationList.get(i + 1),

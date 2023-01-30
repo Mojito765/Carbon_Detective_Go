@@ -23,6 +23,8 @@ public class total_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total);
 
+//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
 

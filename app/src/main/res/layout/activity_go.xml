@@ -255,7 +255,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:padding="10dp">
+                        android:padding="20dp">
 
                         <TextView
                             android:id="@+id/all_carbon_footprint"
@@ -403,8 +403,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:text="Back to top"
                 app:icon="@drawable/round_arrow_upward_24" />
 
