@@ -18,6 +18,12 @@
     <string name="QA">Q1：如何開始記錄碳足跡？\nA1：允許定位權限，選擇交通方式，然後點擊開始按鈕，到達目的地再點擊結束按鈕。\n\nQ2：可以中途切換交通工具嗎？\nA2：可以，每次記錄只會以最後一次選擇的交通方式計算。\n\nQ3：沒有我要的交通工具欸？！\nA3：自己算（ᗜ ‸ ᗜ）。</string>
     <string name="QA_about_us">Q：What\'s “Carbon Detective Go”?\nA：“Carbon Detective Go” is an app for people to record their carbon footprint easily.</string>
 <!--location-->
-    <string name="background_location_permission_message">App currently can access location only while you\'re using the app</string>
-    <string name="ask_background_location_permission">Allow &lt;b>App&lt;/b> to access this device\'s location &lt;b>all the time&lt;/b>?</string>
+    <string name="background_location_permission_granted">Permission granted</string>
+    <string name="background_location_permission_denied">All-the-time permission denied</string>
+
+    <string name="background_location_permission_message">App currently can access location only while you\'re using the app.</string>
+    <string name="ask_background_location_permission">Allow App to access this device\'s location all the time?</string>
+
+    <string name="location_permission_message">Allow App to access this device\'s location. Then set Allow-all-the-time permission in Settings.</string>
+    <string name="ask_location_permission">Allow App to access this device\'s location?</string>
 </resources>

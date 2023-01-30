@@ -102,7 +102,7 @@ public class go_activity extends AppCompatActivity {
                             alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Keep Only-while-using Access",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
-                                            starServiceFunc();
+                                            startService();
                                             dialog.dismiss();
                                         }
                                     });
@@ -120,10 +120,10 @@ public class go_activity extends AppCompatActivity {
 
                         } else if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                                 == PackageManager.PERMISSION_GRANTED) {
-                            starServiceFunc();
+                            startService();
                         }
                     } else {
-                        starServiceFunc();
+                        startService();
                     }
 
                 } else if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -132,8 +132,8 @@ public class go_activity extends AppCompatActivity {
 
 
                         AlertDialog alertDialog = new AlertDialog.Builder(go_activity.this).create();
-                        alertDialog.setTitle("Location permission required");
-                        alertDialog.setMessage("ACCESS_FINE_LOCATION");
+                        alertDialog.setTitle(R.string.ask_location_permission);
+                        alertDialog.setMessage(getString(R.string.location_permission_message));
 
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
                                 new DialogInterface.OnClickListener() {
@@ -160,7 +160,7 @@ public class go_activity extends AppCompatActivity {
             public void onClick(View v) {
                 setVibrate();
 
-                stopServiceFunc();
+                stopService();
             }
         });
 
@@ -176,7 +176,7 @@ public class go_activity extends AppCompatActivity {
 
     }
 
-    //01/24
+    //01/24 Transportation
     private void btnTransportation() {
         MaterialButtonToggleGroup materialButtonToggleGroup = findViewById(R.id.toggleButton);
 
@@ -204,7 +204,7 @@ public class go_activity extends AppCompatActivity {
 
         if (requestCode == MY_FINE_LOCATION_REQUEST) {
 
-            if (grantResults.length != 0 /*grantResults.isNotEmpty()*/ && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                         == PackageManager.PERMISSION_GRANTED) {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -215,26 +215,21 @@ public class go_activity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "ACCESS_FINE_LOCATION permission denied", Toast.LENGTH_LONG).show();
                 if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                 /*   startActivity(
-                            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                            Uri.fromParts("package", this.getPackageName(), null),),);*/
-
                     startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
                             Uri.parse("package:com.doit.detective")
                     ));
-
                 }
             }
 
         } else if (requestCode == MY_BACKGROUND_LOCATION_REQUEST) {
 
-            if (grantResults.length != 0 /*grantResults.isNotEmpty()*/ && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                         == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "Background location Permission Granted", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.background_location_permission_granted, Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(this, "Background location permission denied", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.background_location_permission_denied, Toast.LENGTH_LONG).show();
             }
         }
 
@@ -245,7 +240,7 @@ public class go_activity extends AppCompatActivity {
         myVibrator.vibrate(50);
     }
 
-    private void starServiceFunc() {
+    private void startService() {
         mLocationService = new LocationService();
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (!Util.isMyServiceRunning(mLocationService.getClass(), this)) {
@@ -256,7 +251,7 @@ public class go_activity extends AppCompatActivity {
         }
     }
 
-    private void stopServiceFunc() {
+    private void stopService() {
         mLocationService = new LocationService();
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (Util.isMyServiceRunning(mLocationService.getClass(), this)) {
