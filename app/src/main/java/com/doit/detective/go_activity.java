@@ -242,7 +242,7 @@ public class go_activity extends AppCompatActivity {
 
     private void setVibrate(){
         Vibrator myVibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
-        myVibrator.vibrate(1000);
+        myVibrator.vibrate(50);
     }
 
     private void starServiceFunc() {

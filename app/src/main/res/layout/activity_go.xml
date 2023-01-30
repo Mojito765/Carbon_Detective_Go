@@ -89,8 +89,9 @@
                 android:id="@+id/toggleButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_gravity="center_horizontal"
-                android:padding="20dp"
                 app:selectionRequired="true"
                 app:singleSelection="true">
 
@@ -300,7 +301,7 @@
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="match_parent"
-                                        app:srcCompat="@drawable/round_tips_and_updates_24"
+                                        app:srcCompat="@drawable/round_history_24"
                                         app:tint="?colorOnPrimaryContainer" />
 
                                     <TextView
@@ -308,9 +309,9 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center_horizontal"
                                         android:layout_marginStart="10dp"
-                                        android:text="本次碳足跡 ="
+                                        android:text="碳足跡相當於"
                                         android:textColor="?colorOnBackground"
-                                        android:textSize="24sp" />
+                                        android:textSize="20sp" />
 
                                 </LinearLayout>
 
@@ -326,7 +327,7 @@
                                         android:layout_marginEnd="10dp"
                                         android:text="製造"
                                         android:textColor="?colorOnBackground"
-                                        android:textSize="24sp" />
+                                        android:textSize="20sp" />
 
                                     <TextView
                                         android:id="@+id/chopsticks"
@@ -335,16 +336,16 @@
                                         android:background="@drawable/text_bg"
                                         android:text="0"
                                         android:textColor="?colorOnPrimaryContainer"
-                                        android:textSize="24sp"
+                                        android:textSize="20sp"
                                         android:textStyle="bold" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="10dp"
-                                        android:text="雙免洗筷"
+                                        android:text="雙免洗筷！"
                                         android:textColor="?colorOnBackground"
-                                        android:textSize="24sp" />
+                                        android:textSize="20sp" />
 
                                 </LinearLayout>
 

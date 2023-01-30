@@ -32,7 +32,7 @@
             </com.google.android.material.appbar.AppBarLayout>
 
             <FrameLayout
-                android:padding="10dp"
+                android:padding="5dp"
                 android:id="@+id/root_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
