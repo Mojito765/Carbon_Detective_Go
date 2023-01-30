@@ -307,7 +307,7 @@ public class go_activity extends AppCompatActivity {
         TextView tvStatus = findViewById(R.id.record_status);
 
 //        setText
-        tvStatus.setText("Not Recording");
+        tvStatus.setText("Stopped");
     }
 
     //step3
