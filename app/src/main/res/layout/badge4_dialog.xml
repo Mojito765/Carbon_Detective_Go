@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:textColor="?colorOnBackground"
-            android:text="  一轉眼間，你的累積綠色里程已經達到100公里，真是令人敬佩的地球之友，繼續向前邁進吧！"
+            android:text="  一轉眼間，你已經累積記錄 100 kgCO2 的碳足跡，Carbon Detective Go 會引領你邁向環保之路，加油！"
             android:textSize="18sp" />
 
         <!--badgeTime-->

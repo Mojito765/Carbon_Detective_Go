@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="30dp"
-                android:text="  Logo 設計靈感來自台灣碳足跡標章的腳丫形狀，腳掌加上 “DOiT” 隊伍名稱，底部 “CARBON FOOTPRINT” 寓含 APP 的碳足跡主題。"
+                android:text="  Logo 設計靈感來自台灣碳足跡標章的腳丫形狀，腳掌加上 “DOiT” 隊伍名稱，底部 “CARBON FOOTPRINT” 字樣寓含 APP 的碳足跡主題。"
                 android:textColor="?colorOnSurfaceVariant"
                 android:textSize="18sp" />
 

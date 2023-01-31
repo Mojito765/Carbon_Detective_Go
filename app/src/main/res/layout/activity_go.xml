@@ -243,7 +243,7 @@
                         android:paddingTop="10dp"
                         android:paddingEnd="10dp"
                         android:paddingBottom="10dp"
-                        android:text="Here's your travel information."
+                        android:text="Here's your travel info"
                         android:textSize="20sp" />
 
                 </LinearLayout>

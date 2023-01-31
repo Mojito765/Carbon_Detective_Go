@@ -32,7 +32,7 @@
             </com.google.android.material.appbar.AppBarLayout>
 
             <FrameLayout
-                android:padding="5dp"
+                android:padding="10dp"
                 android:id="@+id/root_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -43,7 +43,7 @@
             android:id="@+id/bottomAppBar"
             style="@style/Widget.Material3.BottomAppBar.Legacy"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/m3_bottom_nav_min_height"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:fabCradleRoundedCornerRadius="28dp" />
 
@@ -60,7 +60,7 @@
         <com.ismaeldivita.chipnavigation.ChipNavigationBar
             android:id="@+id/chip_app_bar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/m3_bottom_nav_min_height"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:paddingBottom="5dp"
             app:cnb_menuResource="@menu/bottom_menu"
