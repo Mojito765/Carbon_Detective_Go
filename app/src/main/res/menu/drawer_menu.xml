@@ -22,8 +22,8 @@
         <menu>
             <item
                 android:id="@+id/nav_support"
-                android:icon="@drawable/ic_round_thumb_up_24"
-                android:title="Like" />
+                android:icon="@drawable/round_mail_outline_24"
+                android:title="Contact Us" />
         </menu>
     </item>
 </menu>

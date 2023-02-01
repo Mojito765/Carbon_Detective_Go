@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomMenu();
     }
 
-//drawer
+    //drawer
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -78,7 +78,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(j);
                 break;
             case R.id.nav_support:
-                Toast.makeText(this, "Thanks!", Toast.LENGTH_SHORT).show();
+                Intent k = new Intent(Intent.ACTION_SEND);
+                k.setType("message/rfc822");
+                k.putExtra(Intent.EXTRA_EMAIL, new String[]{"example@mail.com"});
+                k.putExtra(Intent.EXTRA_SUBJECT, "Carbon Detective Go Feedback");
+                k.putExtra(Intent.EXTRA_TEXT, "Tell us about your experience...");
+                try {
+                    startActivity(Intent.createChooser(k, "Contact Us"));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -94,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-//bottomAppBar
+    //bottomAppBar
     private void bottomMenu() {
         chipNavigationBar.setOnItemSelectedListener
                 (new ChipNavigationBar.OnItemSelectedListener() {
