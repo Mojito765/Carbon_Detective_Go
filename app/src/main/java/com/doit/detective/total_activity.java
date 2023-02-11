@@ -1,9 +1,8 @@
 package com.doit.detective;
 
-import static com.doit.detective.go_activity.total_travel;
-import static com.doit.detective.go_activity.total_travel_carbon_footprint;
-
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -57,19 +56,32 @@ public class total_activity extends AppCompatActivity {
     }
 
     private void setStatisticTV() {
+        // 取得SharedPreference
+        SharedPreferences getPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getBaseContext());
+        // 取得Key名稱為app_cfp的資料
+        float app_cfp = getPrefs.getFloat("app_cfp", 0);
+        // 取得Key名稱為app_mileage的資料
+        float app_mileage = getPrefs.getFloat("app_mileage", 0);
+
         TextView tvDistance = findViewById(R.id.carbon_footprint);
         TextView tvTotalDistance = findViewById(R.id.all_move);
         TextView tvTotalFootprint = findViewById(R.id.all_carbon_footprint);
         TextView tvTotalChopsticks = findViewById(R.id.chopsticks);
-        double total_travel2 = Math.round(total_travel * 10.0) / 10.0;
-        double total_travel_carbon_footprint2 = Math.round(total_travel_carbon_footprint * 10.0) / 10.0;
-        double myChopsticks = total_travel_carbon_footprint / chopsticks_weight;
-        myChopsticks = Math.round(myChopsticks);
-        String fCF = Double.toString(total_travel_carbon_footprint);
-        String fD = Double.toString(total_travel);
+
+        // round off
+        double total_travel2 = Math.round(app_mileage * 10.0) / 10.0;
+        double total_travel_carbon_footprint2 = Math.round(app_cfp * 10.0) / 10.0;
+        double myChopsticks = Math.round(app_cfp / chopsticks_weight);
+
+        // Double.toString
+        String fCF = Float.toString(app_cfp);
+        String fD = Float.toString(app_mileage);
         String tD = Double.toString(total_travel2);
         String tF = Double.toString(total_travel_carbon_footprint2);
         String tC = Integer.toString((int) myChopsticks);
+
+        // setText
         tvTotalDistance.setText(tD);
         tvTotalFootprint.setText(tF);
         tvTotalChopsticks.setText(tC);

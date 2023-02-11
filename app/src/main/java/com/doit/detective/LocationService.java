@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class LocationService extends Service {
 
     public static ArrayList<Double> myLocationList = new ArrayList<>();
-    public static double finalDistance = 0;
+
     FusedLocationProviderClient fusedLocationClient;
     LocationRequest locationRequest;
     LocationCallback locationCallback;

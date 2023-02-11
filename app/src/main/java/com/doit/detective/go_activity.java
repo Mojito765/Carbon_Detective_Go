@@ -1,6 +1,5 @@
 package com.doit.detective;
 
-import static com.doit.detective.LocationService.finalDistance;
 import static com.doit.detective.LocationService.myLocationList;
 import static com.doit.detective.total_activity.chopsticks_weight;
 
@@ -9,11 +8,13 @@ import android.app.AlertDialog;
 import android.app.Service;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.text.Html;
 import android.view.Menu;
@@ -42,10 +43,8 @@ public class go_activity extends AppCompatActivity {
     private static final int MY_BACKGROUND_LOCATION_REQUEST = 100;
 
     public static double transportation_weight = 0;
+    public static double finalDistance = 0;
     public static double final_carbon_footprint = 0;
-
-    public static double total_travel = 0;
-    public static double total_travel_carbon_footprint = 0;
 
     LocationService mLocationService = new LocationService();
     Intent mServiceIntent;
@@ -58,6 +57,14 @@ public class go_activity extends AppCompatActivity {
         setContentView(R.layout.activity_go);
 
 //        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
+        // 取得SharedPreference
+        SharedPreferences getPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getBaseContext());
+        // 建立一個Key名稱為app_cfp的資料，預設值為0
+        getPrefs.getFloat("app_cfp", 0);
+        // 建立一個Key名稱為app_mileage的資料，預設值為0
+        getPrefs.getFloat("app_mileage", 0);
 
         btnTransportation();
 
@@ -233,7 +240,7 @@ public class go_activity extends AppCompatActivity {
 
     }
 
-    private void setVibrate(){
+    private void setVibrate() {
         Vibrator myVibrator = (Vibrator) getSystemService(Service.VIBRATOR_SERVICE);
         myVibrator.vibrate(50);
     }
@@ -246,6 +253,7 @@ public class go_activity extends AppCompatActivity {
             setRecordTV();
             Toast.makeText(this, "Start recording", Toast.LENGTH_SHORT).show();
         } else {
+            setRecordTV();
             Toast.makeText(this, "Recording", Toast.LENGTH_SHORT).show();
         }
     }
@@ -318,14 +326,27 @@ public class go_activity extends AppCompatActivity {
         final_carbon_footprint = finalDistance * transportation_weight;
 
 //        calculate app total
-        total_travel_carbon_footprint += final_carbon_footprint;
-        total_travel += finalDistance;
-
+        // 取得SharedPreference
+        SharedPreferences getPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getBaseContext());
+        // 取得Key的資料
+        float app_cfp = getPrefs.getFloat("app_cfp", 0);
+        float app_mileage = getPrefs.getFloat("app_mileage", 0);
+        // 取得Editor
+        SharedPreferences.Editor editor = getPrefs.edit();
+        // 將user_cfp的值設為cfp加總
+        float user_cfp = (float) (app_cfp + final_carbon_footprint);
+        editor.putFloat("app_cfp", user_cfp);
+        // 將user_mileage的值設為mileage加總
+        float user_mileage = (float) (app_mileage + finalDistance);
+        editor.putFloat("app_mileage", user_mileage);
+        // 套用變更，一定要apply才會生效哦
+        editor.apply();
 
 //        round off
         double round_final_carbon_footprint = Math.round(final_carbon_footprint * 10.0) / 10.0;
         double round_finalDistance = Math.round(finalDistance * 10.0) / 10.0;
-        double myChopsticks = total_travel_carbon_footprint / chopsticks_weight;
+        double myChopsticks = final_carbon_footprint / chopsticks_weight;
 
 //        Double.toString
         String fCF = Double.toString(final_carbon_footprint);

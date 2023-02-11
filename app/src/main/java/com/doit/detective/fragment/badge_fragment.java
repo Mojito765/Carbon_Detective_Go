@@ -1,7 +1,5 @@
 package com.doit.detective.fragment;
 
-import static com.doit.detective.go_activity.total_travel_carbon_footprint;
-
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -39,9 +37,11 @@ public class badge_fragment extends Fragment {
                 .getDefaultSharedPreferences(getContext());
         // 取得Editor
         SharedPreferences.Editor editor = getPrefs.edit();
+        // 取得Key名稱為app_cfp的資料
+        float app_cfp = getPrefs.getFloat("app_cfp", 0);
 
         //badge1
-        if (total_travel_carbon_footprint >= 0) {
+        if (app_cfp > 0) {
             // 將status_badge1的值設為1（解鎖）
             editor.putInt("status_badge1", 1);
             // 套用變更，一定要apply才會生效哦
@@ -60,7 +60,7 @@ public class badge_fragment extends Fragment {
         }
 
         //badge4
-        if (total_travel_carbon_footprint >= 100) {
+        if (app_cfp >= 100) {
             // 將status_badge4的值設為1（解鎖）
             editor.putInt("status_badge4", 1);
             // 套用變更，一定要apply才會生效哦
