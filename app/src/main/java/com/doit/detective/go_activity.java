@@ -143,7 +143,6 @@ public class go_activity extends AppCompatActivity {
                                     }
                                 });
 
-
                         alertDialog.show();
 
                     } else {
@@ -284,8 +283,6 @@ public class go_activity extends AppCompatActivity {
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("OutOfBounds");
         }
-//        Toast.makeText(this,
-//                "Distance: " + finalDistance, Toast.LENGTH_LONG).show();
 
         //step3 setText
         setResultTV();
@@ -323,6 +320,7 @@ public class go_activity extends AppCompatActivity {
 //        calculate app total
         total_travel_carbon_footprint += final_carbon_footprint;
         total_travel += finalDistance;
+
 
 //        round off
         double round_final_carbon_footprint = Math.round(final_carbon_footprint * 10.0) / 10.0;

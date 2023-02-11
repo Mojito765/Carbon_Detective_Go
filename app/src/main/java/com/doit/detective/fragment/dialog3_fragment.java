@@ -1,7 +1,5 @@
 package com.doit.detective.fragment;
 
-import static com.doit.detective.fragment.badge_fragment.badge3_unlock;
-
 import android.app.Dialog;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,10 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import com.doit.detective.R;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class dialog3_fragment extends DialogFragment {
 
@@ -46,11 +40,6 @@ public class dialog3_fragment extends DialogFragment {
 
         ImageView badgeLock = builder.findViewById(R.id.lock3);
         TextView badgeTime = builder.findViewById(R.id.badgeTime3);
-        if (badge3_unlock) {
-            badgeLock.setImageResource(R.drawable.round_lock_open_24);
-            String date = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
-            badgeTime.setText("Unlocked: " + date);
-        }
 
         return builder;
     }

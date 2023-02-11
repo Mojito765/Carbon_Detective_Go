@@ -1,10 +1,10 @@
 package com.doit.detective.fragment;
 
-import static com.doit.detective.fragment.badge_fragment.badge1_unlock;
-
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -16,10 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import com.doit.detective.R;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 public class dialog1_fragment extends DialogFragment {
 
@@ -46,10 +42,17 @@ public class dialog1_fragment extends DialogFragment {
 
         ImageView badgeLock = builder.findViewById(R.id.lock1);
         TextView badgeTime = builder.findViewById(R.id.badgeTime1);
-        if (badge1_unlock) {
+
+        // 取得SharedPreference
+        SharedPreferences getPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getContext());
+        // 取得Key名稱為version的資料
+        int b1 = getPrefs.getInt("status_badge1", 0);
+
+        if (b1 == 1) {
             badgeLock.setImageResource(R.drawable.round_lock_open_24);
-            String date = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
-            badgeTime.setText("Unlocked: " + date);
+
+            badgeTime.setText("Unlocked");
         }
 
         return builder;

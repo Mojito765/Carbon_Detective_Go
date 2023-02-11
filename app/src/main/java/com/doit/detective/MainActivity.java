@@ -1,7 +1,9 @@
 package com.doit.detective;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -28,6 +30,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+// 取得SharedPreference
+        SharedPreferences getPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getBaseContext());
+// 建立Key名稱為status_badge的資料，預設值為0（未解鎖）
+        getPrefs.getInt("status_badge1", 0);
+        getPrefs.getInt("status_badge2", 0);
+        getPrefs.getInt("status_badge4", 0);
+        getPrefs.getInt("status_badge5", 0);
 
 //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);

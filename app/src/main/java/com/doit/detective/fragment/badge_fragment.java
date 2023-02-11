@@ -4,8 +4,10 @@ import static com.doit.detective.go_activity.total_travel_carbon_footprint;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,12 +25,6 @@ import java.util.Locale;
 public class badge_fragment extends Fragment {
     private View v;
 
-    public static boolean badge1_unlock = false;
-    public static boolean badge2_unlock = false;
-    public static boolean badge3_unlock = false;
-    public static boolean badge4_unlock = false;
-    public static boolean badge5_unlock = false;
-
     public badge_fragment() {
         // Required empty public constructor
     }
@@ -38,9 +34,18 @@ public class badge_fragment extends Fragment {
         v = inflater.inflate(R.layout.badge_fragment, container, false);
         configureImageButton();
 
+        // 取得SharedPreference
+        SharedPreferences getPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getContext());
+        // 取得Editor
+        SharedPreferences.Editor editor = getPrefs.edit();
+
         //badge1
         if (total_travel_carbon_footprint >= 0) {
-            badge1_unlock = true;
+            // 將status_badge1的值設為1（解鎖）
+            editor.putInt("status_badge1", 1);
+            // 套用變更，一定要apply才會生效哦
+            editor.apply();
         }
 
         //badge2
@@ -48,17 +53,26 @@ public class badge_fragment extends Fragment {
         // get current time
         Date date = new Date(System.currentTimeMillis());
         if (simpleDateFormat.format(date).equals("00:00")) {
-            badge2_unlock = true;
+            // 將status_badge2的值設為1（解鎖）
+            editor.putInt("status_badge2", 1);
+            // 套用變更，一定要apply才會生效哦
+            editor.apply();
         }
 
         //badge4
         if (total_travel_carbon_footprint >= 100) {
-            badge4_unlock = true;
+            // 將status_badge4的值設為1（解鎖）
+            editor.putInt("status_badge4", 1);
+            // 套用變更，一定要apply才會生效哦
+            editor.apply();
         }
 
         //badge5
         if (getBatteryLevel() < 20) {
-            badge5_unlock = true;
+            // 將status_badge5的值設為1（解鎖）
+            editor.putInt("status_badge5", 1);
+            // 套用變更，一定要apply才會生效哦
+            editor.apply();
         }
 
         return v;
