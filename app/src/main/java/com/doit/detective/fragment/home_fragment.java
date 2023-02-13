@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
@@ -24,13 +25,19 @@ import androidx.fragment.app.Fragment;
 
 import com.doit.detective.R;
 import com.doit.detective.total_activity;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class home_fragment extends Fragment {
+public class home_fragment extends Fragment implements OnMapReadyCallback {
 
     private View v;
 
@@ -40,6 +47,9 @@ public class home_fragment extends Fragment {
     double longitude;
     double latitude;
     String userState, userCity;
+
+    MapView mapview;
+    GoogleMap mMap;
 
     public home_fragment() {
         // Required empty public constructor
@@ -51,6 +61,10 @@ public class home_fragment extends Fragment {
         getTime();
         getMyLocation();
         configureCardView();
+
+        mapview = v.findViewById(R.id.map);
+        mapview.getMapAsync(this);
+        mapview.onCreate(savedInstanceState);
 
         //Init
         Handler handler = new Handler();
@@ -174,5 +188,59 @@ public class home_fragment extends Fragment {
                 }
             }
         });
+    }
+
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in current location
+        LatLng currentLocation = new LatLng(final_loc.getLatitude(), final_loc.getLongitude());
+        mMap.addMarker(new MarkerOptions().position(currentLocation).title("You're here!"));
+        // Move the camera and zoom in
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation,12.0f));
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mapview.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapview.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapview.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapview.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapview.onDestroy();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapview.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapview.onLowMemory();
     }
 }
