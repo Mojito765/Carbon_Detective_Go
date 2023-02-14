@@ -189,6 +189,7 @@ public class go_activity extends AppCompatActivity {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
                 if (isChecked) {
+                    setVibrate();
                     if (checkedId == R.id.trans1) {
                         transportation_weight = 0.06;
                     } else if (checkedId == R.id.trans2) {
