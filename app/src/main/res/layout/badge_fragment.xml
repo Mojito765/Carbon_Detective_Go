@@ -28,9 +28,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:background="@drawable/text_bg2"
-                android:text="beta"
+                android:text="NEW"
                 android:textColor="?colorOnPrimaryContainer"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
 
         </LinearLayout>
 
