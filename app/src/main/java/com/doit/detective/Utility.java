@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 
-public class Util {
+public class Utility {
 
     public static boolean isMyServiceRunning(Class<?> serviceClass, Activity myActivity) {
         ActivityManager manager = (ActivityManager) myActivity.getSystemService(Context.ACTIVITY_SERVICE);

@@ -9,7 +9,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class about_carbon_activity extends AppCompatActivity {
+public class AboutCarbonActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class about_carbon_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(about_carbon_activity.this, carbon_web_activity.class);
+                intent.setClass(AboutCarbonActivity.this, CarbonWebActivity.class);
                 startActivity(intent);
             }
         });
@@ -31,7 +31,7 @@ public class about_carbon_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(about_carbon_activity.this, MainActivity.class);
+                intent.setClass(AboutCarbonActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

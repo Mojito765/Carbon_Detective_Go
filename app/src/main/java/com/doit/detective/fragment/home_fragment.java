@@ -24,7 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import com.doit.detective.R;
-import com.doit.detective.total_activity;
+import com.doit.detective.StatisticsActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -169,7 +169,7 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), total_activity.class);
+                intent.setClass(getActivity(), StatisticsActivity.class);
                 startActivity(intent);
             }
         });

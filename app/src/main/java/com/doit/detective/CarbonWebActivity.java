@@ -10,7 +10,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class carbon_web_activity extends AppCompatActivity {
+public class CarbonWebActivity extends AppCompatActivity {
     WebView webview;
     WebSettings webSettings;
     String url="https://cfp-calculate.tw/cfpc/Carbon/WebPage/InstitutionDesc.aspx";

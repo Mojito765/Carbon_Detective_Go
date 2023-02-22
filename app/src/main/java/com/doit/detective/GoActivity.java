@@ -1,7 +1,7 @@
 package com.doit.detective;
 
 import static com.doit.detective.LocationService.myLocationList;
-import static com.doit.detective.total_activity.chopsticks_weight;
+import static com.doit.detective.StatisticsActivity.chopsticks_weight;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -37,7 +37,7 @@ import com.doit.detective.fragment.dialog7_fragment;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
-public class go_activity extends AppCompatActivity {
+public class GoActivity extends AppCompatActivity {
 
     private static final int MY_FINE_LOCATION_REQUEST = 99;
     private static final int MY_BACKGROUND_LOCATION_REQUEST = 100;
@@ -93,16 +93,16 @@ public class go_activity extends AppCompatActivity {
                 // Vibrate
                 setVibrate();
 
-                if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                         == PackageManager.PERMISSION_GRANTED) {
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 
-                        if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                        if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                                 != PackageManager.PERMISSION_GRANTED) {
 
 
-                            AlertDialog alertDialog = new AlertDialog.Builder(go_activity.this).create();
+                            AlertDialog alertDialog = new AlertDialog.Builder(GoActivity.this).create();
                             alertDialog.setTitle(Html.fromHtml(getString(R.string.ask_background_location_permission)));
                             alertDialog.setMessage(getString(R.string.background_location_permission_message));
 
@@ -125,7 +125,7 @@ public class go_activity extends AppCompatActivity {
                             alertDialog.show();
 
 
-                        } else if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                        } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                                 == PackageManager.PERMISSION_GRANTED) {
                             startService();
                         }
@@ -133,12 +133,12 @@ public class go_activity extends AppCompatActivity {
                         startService();
                     }
 
-                } else if (ActivityCompat.checkSelfPermission(go_activity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                         != PackageManager.PERMISSION_GRANTED) {
-                    if (ActivityCompat.shouldShowRequestPermissionRationale(go_activity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    if (ActivityCompat.shouldShowRequestPermissionRationale(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
 
 
-                        AlertDialog alertDialog = new AlertDialog.Builder(go_activity.this).create();
+                        AlertDialog alertDialog = new AlertDialog.Builder(GoActivity.this).create();
                         alertDialog.setTitle(R.string.ask_location_permission);
                         alertDialog.setMessage(getString(R.string.location_permission_message));
 
@@ -249,7 +249,7 @@ public class go_activity extends AppCompatActivity {
     private void startService() {
         mLocationService = new LocationService();
         mServiceIntent = new Intent(this, mLocationService.getClass());
-        if (!Util.isMyServiceRunning(mLocationService.getClass(), this)) {
+        if (!Utility.isMyServiceRunning(mLocationService.getClass(), this)) {
             startService(mServiceIntent);
             setRecordTV();
             Toast.makeText(this, "Start recording", Toast.LENGTH_SHORT).show();
@@ -262,7 +262,7 @@ public class go_activity extends AppCompatActivity {
     private void stopService() {
         mLocationService = new LocationService();
         mServiceIntent = new Intent(this, mLocationService.getClass());
-        if (Util.isMyServiceRunning(mLocationService.getClass(), this)) {
+        if (Utility.isMyServiceRunning(mLocationService.getClass(), this)) {
             stopService(mServiceIntent);
             setNoRecordTV();
             Toast.makeText(this, "Stopping", Toast.LENGTH_SHORT).show();

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, go_activity.class));
+                startActivity(new Intent(MainActivity.this, GoActivity.class));
             }
         });
 //chipNavigationBar
@@ -81,11 +81,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch (id) {
             case R.id.nav_carbon:
-                Intent i = new Intent(MainActivity.this, about_carbon_activity.class);
+                Intent i = new Intent(MainActivity.this, AboutCarbonActivity.class);
                 startActivity(i);
                 break;
             case R.id.nav_about:
-                Intent j = new Intent(MainActivity.this, about_us_activity.class);
+                Intent j = new Intent(MainActivity.this, AboutUsActivity.class);
                 startActivity(j);
                 break;
             case R.id.nav_support:

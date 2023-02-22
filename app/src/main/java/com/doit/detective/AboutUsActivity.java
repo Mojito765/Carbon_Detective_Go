@@ -14,7 +14,7 @@ import androidx.core.widget.NestedScrollView;
 import com.doit.detective.fragment.dialog8_fragment;
 import com.google.android.material.appbar.AppBarLayout;
 
-public class about_us_activity extends AppCompatActivity {
+public class AboutUsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

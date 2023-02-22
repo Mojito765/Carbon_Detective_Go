@@ -17,14 +17,14 @@ import androidx.core.widget.NestedScrollView;
 import com.doit.detective.fragment.dialog8_fragment;
 import com.google.android.material.appbar.AppBarLayout;
 
-public class total_activity extends AppCompatActivity {
+public class StatisticsActivity extends AppCompatActivity {
 
     public static double chopsticks_weight = 0.05;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_total);
+        setContentView(R.layout.activity_statistics);
 
 //        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
