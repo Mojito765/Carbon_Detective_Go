@@ -51,7 +51,6 @@
                 android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:text="DOiT_做就隊 Logo"
-                android:textStyle="bold"
                 android:textColor="?colorOnBackground"
                 android:textSize="24sp"
                 android:textStyle="bold" />
@@ -84,7 +83,6 @@
                 android:paddingTop="80dp"
                 android:paddingBottom="20dp"
                 android:text="DOiT_做就隊 Word Cloud"
-                android:textStyle="bold"
                 android:textColor="?colorOnBackground"
                 android:textSize="24sp"
                 android:textStyle="bold" />
