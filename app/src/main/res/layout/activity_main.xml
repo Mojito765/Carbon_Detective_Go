@@ -35,8 +35,7 @@
                 android:padding="10dp"
                 android:id="@+id/root_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/m3_bottom_nav_min_height" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <com.google.android.material.bottomappbar.BottomAppBar

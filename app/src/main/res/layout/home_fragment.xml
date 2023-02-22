@@ -22,46 +22,46 @@
             android:layout_marginEnd="20dp"
             app:cardCornerRadius="28dp">
 
-                <LinearLayout
-                    android:padding="5dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_gravity="start"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="0dp"
+                    android:paddingBottom="10dp"
+                    app:drawableEndCompat="@drawable/round_tips_and_updates_24"
+                    app:drawableTint="?colorOnPrimaryContainer" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start"
-                        android:paddingStart="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingEnd="0dp"
-                        android:paddingBottom="10dp"
-                        app:drawableEndCompat="@drawable/round_tips_and_updates_24"
-                        app:drawableTint="?colorOnPrimaryContainer" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Tips:"
+                    android:textColor="?colorOnPrimaryContainer"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Tips:"
-                        android:paddingStart="5dp"
-                        android:paddingTop="10dp"
-                        android:paddingEnd="10dp"
-                        android:paddingBottom="10dp"
-                        android:textColor="?colorOnPrimaryContainer"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:paddingStart="0dp"
-                        android:paddingEnd="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:text="Go Green!"
-                        android:textColor="?colorOnPrimaryContainer"
-                        android:textSize="18sp" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingStart="0dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Go Green!"
+                    android:textColor="?colorOnPrimaryContainer"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -106,10 +106,10 @@
                             android:id="@+id/locationCity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="City"
-                            android:textStyle="bold"
+                            android:text="No Service"
                             android:textColor="?colorOnSecondaryContainer"
-                            android:textSize="38sp" />
+                            android:textSize="38sp"
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -128,14 +128,14 @@
                                 app:drawableTint="?colorOnSecondaryContainer" />
 
                             <TextView
-                                android:textStyle="bold"
                                 android:id="@+id/locationState"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
-                                android:text="State"
+                                android:text="No Service"
                                 android:textColor="?colorOnSecondaryContainer"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -145,10 +145,10 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:layout_marginTop="40dp"
                     android:layout_gravity="center_horizontal"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -163,7 +163,7 @@
                         android:layout_height="match_parent"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:text="Tap To Refresh"
+                        android:text="TAP TO REFRESH"
                         android:textColor="?colorOnPrimaryContainer"
                         android:textSize="18sp" />
 
@@ -195,11 +195,11 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_marginTop="10dp"
                         android:layout_width="50dp"
                         android:layout_height="0dp"
-                        android:layout_weight="0.5"
                         android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="0.5"
                         app:srcCompat="@drawable/round_query_stats_24"
                         app:tint="?colorOnSecondaryContainer" />
 
@@ -210,9 +210,9 @@
                         android:layout_weight="0.5"
                         android:padding="10dp"
                         android:text="Statistics"
-                        android:textStyle="bold"
                         android:textColor="?colorOnSecondaryContainer"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -235,10 +235,10 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_marginTop="10dp"
                         android:layout_width="50dp"
-                        android:layout_gravity="center_horizontal"
                         android:layout_height="0dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="0.5"
                         app:srcCompat="@drawable/round_invert_colors_24"
                         app:tint="?colorOnSecondaryContainer" />
@@ -250,9 +250,9 @@
                         android:layout_weight="0.5"
                         android:padding="10dp"
                         android:text="Switch"
-                        android:textStyle="bold"
                         android:textColor="?colorOnSecondaryContainer"
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -261,35 +261,61 @@
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/c4"
-            style="?attr/materialCardViewOutlinedStyle"
+            style="?attr/materialCardViewFilledStyle"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="360dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
             app:cardCornerRadius="28dp">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Where are you?" />
+                    android:padding="20dp"
+                    android:text="Where are you?"
+                    android:textColor="?colorOnSecondaryContainer"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
-                <com.google.android.gms.maps.MapView
-                    android:id="@+id/map"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/c4"
+                    style="?attr/materialCardViewOutlinedStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    app:cardCornerRadius="28dp">
+
+                    <com.google.android.gms.maps.MapView
+                        android:id="@+id/map"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:paddingBottom="150dp"
+            android:text="DOiT_名偵碳走哪裡？Carbon Detective Go"
+            android:textColor="?colorOnBackground"
+            android:textSize="14sp" />
 
     </LinearLayout>
 </ScrollView>

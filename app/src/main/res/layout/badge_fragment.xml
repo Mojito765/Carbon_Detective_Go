@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/m3_bottom_nav_min_height"
     android:orientation="vertical">
 
     <LinearLayout
@@ -29,8 +30,9 @@
                 android:layout_gravity="end"
                 android:background="@drawable/text_bg2"
                 android:text="NEW"
+                android:textStyle="bold"
                 android:textColor="?colorOnPrimaryContainer"
-                android:textSize="10sp" />
+                android:textSize="11sp" />
 
         </LinearLayout>
 
