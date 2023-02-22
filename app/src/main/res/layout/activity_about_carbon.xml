@@ -101,17 +101,6 @@
                 app:icon="@drawable/ic_round_open_in_new_24"
                 app:iconTint="?colorOnPrimary" />
 
-            <Button
-                android:id="@+id/btn_home"
-                style="@style/Widget.Material3.Button.TonalButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:text="Back to home"
-                app:icon="@drawable/ic_round_home_24" />
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

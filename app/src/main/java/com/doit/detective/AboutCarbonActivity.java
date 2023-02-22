@@ -9,7 +9,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class AboutCarbonActivity extends AppCompatActivity {
+public class about_carbon_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,17 +21,7 @@ public class AboutCarbonActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(AboutCarbonActivity.this, CarbonWebActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button btnHome = findViewById(R.id.btn_home);
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(AboutCarbonActivity.this, MainActivity.class);
+                intent.setClass(about_carbon_activity.this, carbon_web_activity.class);
                 startActivity(intent);
             }
         });
