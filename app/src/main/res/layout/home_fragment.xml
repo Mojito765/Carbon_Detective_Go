@@ -282,8 +282,7 @@
                     android:padding="20dp"
                     android:text="Where are you?"
                     android:textColor="?colorOnSecondaryContainer"
-                    android:textSize="28sp"
-                    android:textStyle="bold" />
+                    android:textSize="28sp" />
 
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/c4"

@@ -26,16 +26,6 @@ public class about_carbon_activity extends AppCompatActivity {
             }
         });
 
-        Button btnHome = findViewById(R.id.btn_home);
-        btnHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(about_carbon_activity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
         Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
 
