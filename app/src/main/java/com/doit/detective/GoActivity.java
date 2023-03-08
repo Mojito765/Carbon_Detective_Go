@@ -286,7 +286,7 @@ public class GoActivity extends AppCompatActivity {
     public void saveTravel() {
         try {
             for (int i = 0; i < myLocationList.size(); i += 2) {
-                finalDistance += LocationService.GetDistanceFromLatLonInKm(myLocationList.get(i), myLocationList.get(i + 1),
+                finalDistance += LocationService.getDistanceFromLatLon(myLocationList.get(i), myLocationList.get(i + 1),
                         myLocationList.get(i + 2), myLocationList.get(i + 3));
             }
         } catch (IndexOutOfBoundsException ex) {

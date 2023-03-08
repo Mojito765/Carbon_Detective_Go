@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getPrefs.getInt("status_badge2", 0);
         getPrefs.getInt("status_badge4", 0);
         getPrefs.getInt("status_badge5", 0);
+// 建立Key名稱為time_badge的資料，預設值為"Locked"（未解鎖）
+        getPrefs.getString("time_badge1", "Locked");
+        getPrefs.getString("time_badge2", "Locked");
+        getPrefs.getString("time_badge4", "Locked");
+        getPrefs.getString("time_badge5", "Locked");
 
 //toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);

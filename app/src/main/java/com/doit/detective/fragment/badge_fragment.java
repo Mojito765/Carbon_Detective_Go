@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -39,9 +40,18 @@ public class badge_fragment extends Fragment {
         SharedPreferences.Editor editor = getPrefs.edit();
         // 取得Key名稱為app_cfp的資料
         float app_cfp = getPrefs.getFloat("app_cfp", 0);
+        int badge1Status = getPrefs.getInt("status_badge1", 0);
+        int badge2Status = getPrefs.getInt("status_badge2", 0);
+        int badge4Status = getPrefs.getInt("status_badge4", 0);
+        int badge5Status = getPrefs.getInt("status_badge5", 0);
 
         //badge1
         if (app_cfp > 0) {
+            if (badge1Status != 1) {
+                String date1 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
+                editor.putString("time_badge1", "Unlocked: " + date1);
+                editor.apply();
+            }
             // 將status_badge1的值設為1（解鎖）
             editor.putInt("status_badge1", 1);
             // 套用變更，一定要apply才會生效哦
@@ -53,6 +63,11 @@ public class badge_fragment extends Fragment {
         // get current time
         Date date = new Date(System.currentTimeMillis());
         if (simpleDateFormat.format(date).equals("00:00")) {
+            if (badge2Status != 1) {
+                String date2 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
+                editor.putString("time_badge2", "Unlocked: " + date2);
+                editor.apply();
+            }
             // 將status_badge2的值設為1（解鎖）
             editor.putInt("status_badge2", 1);
             // 套用變更，一定要apply才會生效哦
@@ -61,6 +76,11 @@ public class badge_fragment extends Fragment {
 
         //badge4
         if (app_cfp >= 100) {
+            if (badge4Status != 1) {
+                String date4 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
+                editor.putString("time_badge4", "Unlocked: " + date4);
+                editor.apply();
+            }
             // 將status_badge4的值設為1（解鎖）
             editor.putInt("status_badge4", 1);
             // 套用變更，一定要apply才會生效哦
@@ -69,6 +89,11 @@ public class badge_fragment extends Fragment {
 
         //badge5
         if (getBatteryLevel() < 20) {
+            if (badge5Status != 1) {
+                String date5 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
+                editor.putString("time_badge5", "Unlocked: " + date5);
+                editor.apply();
+            }
             // 將status_badge5的值設為1（解鎖）
             editor.putInt("status_badge5", 1);
             // 套用變更，一定要apply才會生效哦

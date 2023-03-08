@@ -38,9 +38,6 @@ public class dialog3_fragment extends DialogFragment {
             }
         });
 
-        ImageView badgeLock = builder.findViewById(R.id.lock3);
-        TextView badgeTime = builder.findViewById(R.id.badgeTime3);
-
         return builder;
     }
 }

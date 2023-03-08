@@ -48,11 +48,12 @@ public class dialog2_fragment extends DialogFragment {
                 .getDefaultSharedPreferences(getContext());
         // 取得Key名稱為version的資料
         int b2 = getPrefs.getInt("status_badge2", 0);
+        String badge2Time = getPrefs.getString("time_badge2", "Unlocked");
 
         if (b2 == 1) {
             badgeLock.setImageResource(R.drawable.round_lock_open_24);
 
-            badgeTime.setText("Unlocked");
+            badgeTime.setText(badge2Time);
         }
 
         return builder;
