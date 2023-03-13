@@ -36,6 +36,7 @@ import androidx.core.widget.NestedScrollView;
 import com.doit.detective.fragment.dialog7_fragment;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButtonToggleGroup;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 public class GoActivity extends AppCompatActivity {
 
@@ -101,29 +102,25 @@ public class GoActivity extends AppCompatActivity {
                         if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                                 != PackageManager.PERMISSION_GRANTED) {
 
-
-                            AlertDialog alertDialog = new AlertDialog.Builder(GoActivity.this).create();
-                            alertDialog.setTitle(Html.fromHtml(getString(R.string.ask_background_location_permission)));
-                            alertDialog.setMessage(getString(R.string.background_location_permission_message));
-
-                            alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Keep Only-while-using Access",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            startService();
-                                            dialog.dismiss();
-                                        }
-                                    });
-
-                            alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Setup All-the-time Access",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
+                            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
+                                    .setTitle(getString(R.string.ask_background_location_permission))
+                                    .setMessage(getString(R.string.background_location_permission_message))
+                                    .setPositiveButton("Setup All-the-time Access", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
                                             requestBackgroundLocationPermission();
-                                            dialog.dismiss();
+                                            dialogInterface.dismiss();
+                                        }
+                                    })
+                                    .setNegativeButton("Keep Only-while-using Access", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            startService();
+                                            dialogInterface.dismiss();
                                         }
                                     });
-
-                            alertDialog.show();
-
+                            builder.create();
+                            builder.show();
 
                         } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                                 == PackageManager.PERMISSION_GRANTED) {
@@ -137,20 +134,18 @@ public class GoActivity extends AppCompatActivity {
                         != PackageManager.PERMISSION_GRANTED) {
                     if (ActivityCompat.shouldShowRequestPermissionRationale(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-
-                        AlertDialog alertDialog = new AlertDialog.Builder(GoActivity.this).create();
-                        alertDialog.setTitle(R.string.ask_location_permission);
-                        alertDialog.setMessage(getString(R.string.location_permission_message));
-
-                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
+                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
+                                .setTitle(getString(R.string.ask_location_permission))
+                                .setMessage(getString(R.string.location_permission_message))
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
                                         requestFineLocationPermission();
-                                        dialog.dismiss();
+                                        dialogInterface.dismiss();
                                     }
                                 });
-
-                        alertDialog.show();
+                        builder.create();
+                        builder.show();
 
                     } else {
                         requestFineLocationPermission();

@@ -46,7 +46,7 @@ public class dialog5_fragment extends DialogFragment {
         // 取得SharedPreference
         SharedPreferences getPrefs = PreferenceManager
                 .getDefaultSharedPreferences(getContext());
-        // 取得Key名稱為version的資料
+        // 取得Key名稱為status_badge5的資料
         int b5 = getPrefs.getInt("status_badge5", 0);
         String badge5Time = getPrefs.getString("time_badge5", "Unlocked");
 

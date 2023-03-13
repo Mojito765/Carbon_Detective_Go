@@ -91,7 +91,7 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
         if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-            return;
+//            return;
         }
 
         try {
@@ -128,7 +128,6 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
             }
             tvCity.setText(userCity);
             tvState.setText(userState);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -190,16 +189,17 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
         });
     }
 
-
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in current location
-        LatLng currentLocation = new LatLng(final_loc.getLatitude(), final_loc.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(currentLocation).title("You're here!"));
-        // Move the camera and zoom in
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation,12.0f));
+        try {
+            // Add a marker in current location
+            LatLng currentLocation = new LatLng(final_loc.getLatitude(), final_loc.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(currentLocation).title("You're here!"));
+            // Move the camera and zoom in
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f));
+        } catch (Exception ignored) {
+        }
     }
 
     @Override
