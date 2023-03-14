@@ -38,6 +38,9 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class GoActivity extends AppCompatActivity {
 
     private static final int MY_FINE_LOCATION_REQUEST = 99;
@@ -50,12 +53,24 @@ public class GoActivity extends AppCompatActivity {
     LocationService mLocationService = new LocationService();
     Intent mServiceIntent;
 
-    Button startServiceBtn, stopServiceBtn;
+    TextView timerText;
+    Button stopStartButton;
+
+    Timer timer;
+    TimerTask timerTask;
+    Double time = 0.0;
+
+    boolean timerStarted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go);
+
+        timerText = findViewById(R.id.record_status);
+        stopStartButton = findViewById(R.id.startStopButton);
+
+        timer = new Timer();
 
 //        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
@@ -68,9 +83,6 @@ public class GoActivity extends AppCompatActivity {
         getPrefs.getFloat("app_mileage", 0);
 
         btnTransportation();
-
-        startServiceBtn = findViewById(R.id.start_service_btn);
-        stopServiceBtn = findViewById(R.id.stop_service_btn);
 
         // back_to_top start
         Button btnUp = findViewById(R.id.btn_up);
@@ -87,83 +99,6 @@ public class GoActivity extends AppCompatActivity {
         });
         // back_to_top end
 
-        startServiceBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // Vibrate
-                setVibrate();
-
-                if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED) {
-
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-
-                        if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                                != PackageManager.PERMISSION_GRANTED) {
-
-                            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
-                                    .setTitle(getString(R.string.ask_background_location_permission))
-                                    .setMessage(getString(R.string.background_location_permission_message))
-                                    .setPositiveButton("Setup All-the-time Access", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            requestBackgroundLocationPermission();
-                                            dialogInterface.dismiss();
-                                        }
-                                    })
-                                    .setNegativeButton("Keep Only-while-using Access", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            startService();
-                                            dialogInterface.dismiss();
-                                        }
-                                    });
-                            builder.create();
-                            builder.show();
-
-                        } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                                == PackageManager.PERMISSION_GRANTED) {
-                            startService();
-                        }
-                    } else {
-                        startService();
-                    }
-
-                } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        != PackageManager.PERMISSION_GRANTED) {
-                    if (ActivityCompat.shouldShowRequestPermissionRationale(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-
-                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
-                                .setTitle(getString(R.string.ask_location_permission))
-                                .setMessage(getString(R.string.location_permission_message))
-                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        requestFineLocationPermission();
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                        builder.create();
-                        builder.show();
-
-                    } else {
-                        requestFineLocationPermission();
-                    }
-                }
-
-            }
-
-        });
-
-        stopServiceBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setVibrate();
-                stopService();
-            }
-        });
-
         Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
 
@@ -174,6 +109,156 @@ public class GoActivity extends AppCompatActivity {
         assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
 
+    }
+
+    private void resetTapped() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
+                .setTitle("Stop recording")
+                .setMessage("Are you sure you want to stop recording?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (timerTask != null) {
+                            timerTask.cancel();
+                            setButtonUI("START", R.color.seed);
+                            time = 0.0;
+                            timerStarted = false;
+                            timerText.setText(formatTime(0, 0, 0));
+
+                            stopService();
+                        }
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //do nothing
+                    }
+                });
+        builder.create();
+        builder.show();
+    }
+
+    public void startStopTapped(View view) {
+        if (!timerStarted) {
+            // Vibrate
+            setVibrate();
+
+            if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+
+                    if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED) {
+
+                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
+                                .setTitle(getString(R.string.ask_background_location_permission))
+                                .setMessage(getString(R.string.background_location_permission_message))
+                                .setPositiveButton("Setup All-the-time Access", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        requestBackgroundLocationPermission();
+                                        dialogInterface.dismiss();
+                                    }
+                                })
+                                .setNegativeButton("Keep Only-while-using Access", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        startService();
+
+                                        timerStarted = true;
+                                        setButtonUI("STOP", com.google.android.material.R.color.design_default_color_error);
+
+                                        startTimer();
+
+                                        dialogInterface.dismiss();
+                                    }
+                                });
+                        builder.create();
+                        builder.show();
+
+                    } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
+                            == PackageManager.PERMISSION_GRANTED) {
+                        startService();
+
+                        timerStarted = true;
+                        setButtonUI("STOP", com.google.android.material.R.color.design_default_color_error);
+
+                        startTimer();
+                    }
+                } else {
+                    startService();
+
+                    timerStarted = true;
+                    setButtonUI("STOP", com.google.android.material.R.color.design_default_color_error);
+
+                    startTimer();
+                }
+
+            } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
+                            .setTitle(getString(R.string.ask_location_permission))
+                            .setMessage(getString(R.string.location_permission_message))
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    requestFineLocationPermission();
+                                    dialogInterface.dismiss();
+                                }
+                            });
+                    builder.create();
+                    builder.show();
+
+                } else {
+                    requestFineLocationPermission();
+                }
+            }
+        } else {
+            // Vibrate
+            setVibrate();
+
+            resetTapped();
+        }
+    }
+
+    private void setButtonUI(String start, int color) {
+        stopStartButton.setText(start);
+        stopStartButton.setTextColor(ContextCompat.getColor(this, color));
+    }
+
+    private void startTimer() {
+        timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        time++;
+                        timerText.setText(getTimerText());
+                    }
+                });
+            }
+
+        };
+        timer.scheduleAtFixedRate(timerTask, 0, 1000);
+    }
+
+    private String getTimerText() {
+        int rounded = (int) Math.round(time);
+
+        int seconds = ((rounded % 86400) % 3600) % 60;
+        int minutes = ((rounded % 86400) % 3600) / 60;
+        int hours = ((rounded % 86400) / 3600);
+
+        return formatTime(seconds, minutes, hours);
+    }
+
+    private String formatTime(int seconds, int minutes, int hours) {
+        return String.format("%02d", hours) + " : " + String.format("%02d", minutes) + " : " + String.format("%02d", seconds);
     }
 
     //01/24 Transportation
@@ -246,10 +331,8 @@ public class GoActivity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (!Utility.isMyServiceRunning(mLocationService.getClass(), this)) {
             startService(mServiceIntent);
-            setRecordTV();
             Toast.makeText(this, "Start recording", Toast.LENGTH_SHORT).show();
         } else {
-            setRecordTV();
             Toast.makeText(this, "Recording", Toast.LENGTH_SHORT).show();
         }
     }
@@ -259,7 +342,6 @@ public class GoActivity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (Utility.isMyServiceRunning(mLocationService.getClass(), this)) {
             stopService(mServiceIntent);
-            setNoRecordTV();
             Toast.makeText(this, "Stopping", Toast.LENGTH_SHORT).show();
             saveTravel();
         } else {
@@ -294,21 +376,6 @@ public class GoActivity extends AppCompatActivity {
         //clear record
         myLocationList.clear();
         finalDistance = 0;
-    }
-
-    //step2
-    private void setRecordTV() {
-        TextView tvStatus = findViewById(R.id.record_status);
-
-//        setText
-        tvStatus.setText("Recording");
-    }
-
-    private void setNoRecordTV() {
-        TextView tvStatus = findViewById(R.id.record_status);
-
-//        setText
-        tvStatus.setText("Stopped");
     }
 
     //step3
