@@ -187,9 +187,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginTop="20dp"
-                            android:background="@drawable/text_bg2"
+                            android:background="@drawable/text_bg3"
                             android:text="Ready to start"
-                            android:textColor="?colorOnPrimaryContainer"
+                            android:textColor="?colorOnErrorContainer"
                             android:textSize="20sp" />
 
                         <LinearLayout

@@ -2,21 +2,15 @@ package com.doit.detective;
 
 import android.Manifest;
 import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.location.Location;
-import android.os.Build;
 import android.os.IBinder;
 import android.os.Looper;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
@@ -60,12 +54,6 @@ public class LocationService extends Service {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) createNotificationChanel();
-        else startForeground(
-                1,
-                new Notification()
-        );
-
         locationRequest = LocationRequest.create();
         locationRequest.setInterval(3000);
         locationRequest.setFastestInterval(3000);
@@ -80,42 +68,9 @@ public class LocationService extends Service {
                 assert location != null;
                 myLocationList.add(location.getLatitude());
                 myLocationList.add(location.getLongitude());
-
-//                Toast.makeText(getApplicationContext(),
-//                        "Lat: "+ location.getLatitude() + '\n' +
-//                                "Long: " + location.getLongitude(), Toast.LENGTH_LONG).show();
             }
         };
         startLocationUpdates();
-    }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void createNotificationChanel() {
-        String notificationChannelId = "Location channel id";
-        String channelName = "Background Service";
-
-        NotificationChannel chan = new NotificationChannel(
-                notificationChannelId,
-                channelName,
-                NotificationManager.IMPORTANCE_NONE
-        );
-        chan.setLightColor(Color.BLUE);
-        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-
-        NotificationManager manager = getSystemService(NotificationManager.class);
-
-        manager.createNotificationChannel(chan);
-
-        NotificationCompat.Builder notificationBuilder =
-                new NotificationCompat.Builder(this, notificationChannelId);
-
-        Notification notification = notificationBuilder.setOngoing(true)
-                .setContentTitle("Location updates:")
-                .setPriority(NotificationManager.IMPORTANCE_MIN)
-                .setCategory(Notification.CATEGORY_SERVICE)
-                .build();
-        startForeground(2, notification);
     }
 
     @Override
