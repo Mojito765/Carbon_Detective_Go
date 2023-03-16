@@ -38,7 +38,7 @@ public class badge_fragment extends Fragment {
                 .getDefaultSharedPreferences(getContext());
         // 取得Editor
         SharedPreferences.Editor editor = getPrefs.edit();
-        // 取得Key名稱為app_cfp的資料
+        // 取得Key名稱為app_cfp...的資料
         float app_cfp = getPrefs.getFloat("app_cfp", 0);
         int badge1Status = getPrefs.getInt("status_badge1", 0);
         int badge2Status = getPrefs.getInt("status_badge2", 0);
@@ -54,7 +54,7 @@ public class badge_fragment extends Fragment {
             }
             // 將status_badge1的值設為1（解鎖）
             editor.putInt("status_badge1", 1);
-            // 套用變更，一定要apply才會生效哦
+            // apply
             editor.apply();
         }
 
@@ -70,7 +70,7 @@ public class badge_fragment extends Fragment {
             }
             // 將status_badge2的值設為1（解鎖）
             editor.putInt("status_badge2", 1);
-            // 套用變更，一定要apply才會生效哦
+            // apply
             editor.apply();
         }
 
@@ -83,7 +83,7 @@ public class badge_fragment extends Fragment {
             }
             // 將status_badge4的值設為1（解鎖）
             editor.putInt("status_badge4", 1);
-            // 套用變更，一定要apply才會生效哦
+            // apply
             editor.apply();
         }
 
@@ -96,7 +96,7 @@ public class badge_fragment extends Fragment {
             }
             // 將status_badge5的值設為1（解鎖）
             editor.putInt("status_badge5", 1);
-            // 套用變更，一定要apply才會生效哦
+            // apply
             editor.apply();
         }
 

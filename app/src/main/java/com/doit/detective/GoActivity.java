@@ -38,6 +38,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -258,10 +259,10 @@ public class GoActivity extends AppCompatActivity {
     }
 
     private String formatTime(int seconds, int minutes, int hours) {
-        return String.format("%02d", hours) + " : " + String.format("%02d", minutes) + " : " + String.format("%02d", seconds);
+        return String.format(Locale.getDefault(),"%02d", hours) + " : " + String.format(Locale.getDefault(),"%02d", minutes) + " : " + String.format(Locale.getDefault(),"%02d", seconds);
     }
 
-    //01/24 Transportation
+    // Transportation weight
     private void btnTransportation() {
         MaterialButtonToggleGroup materialButtonToggleGroup = findViewById(R.id.toggleButton);
 
@@ -403,7 +404,7 @@ public class GoActivity extends AppCompatActivity {
         // 將user_mileage的值設為mileage加總
         float user_mileage = (float) (app_mileage + finalDistance);
         editor.putFloat("app_mileage", user_mileage);
-        // 套用變更，一定要apply才會生效哦
+        // apply
         editor.apply();
 
 //        round off

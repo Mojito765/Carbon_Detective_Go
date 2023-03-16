@@ -3,6 +3,7 @@ package com.doit.detective.fragment;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.location.Address;
@@ -11,6 +12,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -148,8 +150,20 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
         cv0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog6_fragment badgeDialog = new dialog6_fragment();
-                badgeDialog.show(getChildFragmentManager(), "dialog6_fragment");
+                // 取得SharedPreference
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                // 取得Key名稱為app_cfp...的資料
+                float app_cfp = getPrefs.getFloat("app_cfp", 0);
+
+                if (app_cfp <= 100) {
+                    dialog6_fragment badgeDialog = new dialog6_fragment();
+                    badgeDialog.show(getChildFragmentManager(), "dialog6_fragment");
+                }
+                else {
+                    dialog9_fragment badgeDialog = new dialog9_fragment();
+                    badgeDialog.show(getChildFragmentManager(), "dialog9_fragment");
+                }
             }
         });
 
