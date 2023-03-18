@@ -141,9 +141,10 @@ public class GoActivity extends AppCompatActivity {
     }
 
     public void startStopTapped(View view) {
+        // Vibrate
+        setVibrate();
+
         if (!timerStarted) {
-            // Vibrate
-            setVibrate();
 
             if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -168,11 +169,6 @@ public class GoActivity extends AppCompatActivity {
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         startService();
 
-                                        timerStarted = true;
-                                        setButtonUI("STOP", com.google.android.material.R.color.design_default_color_error);
-
-                                        startTimer();
-
                                         dialogInterface.dismiss();
                                     }
                                 });
@@ -182,19 +178,9 @@ public class GoActivity extends AppCompatActivity {
                     } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
                         startService();
-
-                        timerStarted = true;
-                        setButtonUI("STOP", com.google.android.material.R.color.design_default_color_error);
-
-                        startTimer();
                     }
                 } else {
                     startService();
-
-                    timerStarted = true;
-                    setButtonUI("STOP", com.google.android.material.R.color.design_default_color_error);
-
-                    startTimer();
                 }
 
             } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -219,9 +205,6 @@ public class GoActivity extends AppCompatActivity {
                 }
             }
         } else {
-            // Vibrate
-            setVibrate();
-
             resetTapped();
         }
     }
@@ -287,8 +270,6 @@ public class GoActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-//        Toast.makeText(this, Integer.toString(requestCode), Toast.LENGTH_LONG).show();
-
         if (requestCode == MY_FINE_LOCATION_REQUEST) {
 
             if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -328,13 +309,18 @@ public class GoActivity extends AppCompatActivity {
     }
 
     private void startService() {
+        timerStarted = true;
+        setButtonUI("STOP", com.google.android.material.R.color.design_default_color_error);
+
+        startTimer();
+
         mLocationService = new LocationService();
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (!Utility.isMyServiceRunning(mLocationService.getClass(), this)) {
             startService(mServiceIntent);
             Toast.makeText(this, "Start recording", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Recording", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Already recording", Toast.LENGTH_SHORT).show();
         }
     }
 

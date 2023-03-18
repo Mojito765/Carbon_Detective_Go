@@ -50,8 +50,6 @@ public class LocationService extends Service {
 
         super.onCreate();
 
-        new Notification();
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         locationRequest = LocationRequest.create();
