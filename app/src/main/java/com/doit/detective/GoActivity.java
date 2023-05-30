@@ -242,7 +242,7 @@ public class GoActivity extends AppCompatActivity {
     }
 
     private String formatTime(int seconds, int minutes, int hours) {
-        return String.format(Locale.getDefault(),"%02d", hours) + " : " + String.format(Locale.getDefault(),"%02d", minutes) + " : " + String.format(Locale.getDefault(),"%02d", seconds);
+        return String.format(Locale.getDefault(), "%02d", hours) + " : " + String.format(Locale.getDefault(), "%02d", minutes) + " : " + String.format(Locale.getDefault(), "%02d", seconds);
     }
 
     // Transportation weight

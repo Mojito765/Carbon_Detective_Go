@@ -89,25 +89,64 @@ public class LocationService extends Service {
     }
 
     public static double getDistanceFromLatLon(double lat1, double lon1, double lat2, double lon2) {
-        final double R = 6371.0; // Earth radius in kilometers
+        final double EARTH_RADIUS = 6371.0; // 地球半徑（公里）
+        final double EPSILON = 1E-12; // 計算精度
 
-        // Convert latitudes and longitudes from degrees to radians
-        double lat1Rad = Math.toRadians(lat1);
-        double lon1Rad = Math.toRadians(lon1);
-        double lat2Rad = Math.toRadians(lat2);
-        double lon2Rad = Math.toRadians(lon2);
+        // 經緯度轉為弧度
+        double radLat1 = Math.toRadians(lat1);
+        double radLon1 = Math.toRadians(lon1);
+        double radLat2 = Math.toRadians(lat2);
+        double radLon2 = Math.toRadians(lon2);
 
-        // Calculate the differences between latitudes and longitudes
-        double latDiff = lat2Rad - lat1Rad;
-        double lonDiff = lon2Rad - lon1Rad;
+        double a = EARTH_RADIUS;
+        double b = EARTH_RADIUS;
 
-        // Calculate the haversine of the latitudes and longitudes differences
-        double a = Math.sin(latDiff / 2) * Math.sin(latDiff / 2) +
-                Math.cos(lat1Rad) * Math.cos(lat2Rad) *
-                        Math.sin(lonDiff / 2) * Math.sin(lonDiff / 2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        double f = 1 / 298.257223563; // 地球扁率
+        double L = radLon2 - radLon1;
+        double tanU1 = (1 - f) * Math.tan(radLat1);
+        double cosU1 = 1 / Math.sqrt(1 + tanU1 * tanU1);
+        double sinU1 = tanU1 * cosU1;
+        double tanU2 = (1 - f) * Math.tan(radLat2);
+        double cosU2 = 1 / Math.sqrt(1 + tanU2 * tanU2);
+        double sinU2 = tanU2 * cosU2;
 
-        // Calculate the distance in kilometers
-        return R * c;
+        double lambda = L;
+
+        int maxIterations = 100;
+        double sinLambda, cosLambda, sinSigma, cosSigma, sigma, sinAlpha, cosSqAlpha, cos2SigmaM, C;
+
+        do {
+            sinLambda = Math.sin(lambda);
+            cosLambda = Math.cos(lambda);
+            sinSigma = Math.sqrt((cosU2 * sinLambda) * (cosU2 * sinLambda)
+                    + (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda) * (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda));
+            if (sinSigma == 0) {
+                return 0.0; // 兩點重疊
+            }
+            cosSigma = sinU1 * sinU2 + cosU1 * cosU2 * cosLambda;
+            sigma = Math.atan2(sinSigma, cosSigma);
+            sinAlpha = cosU1 * cosU2 * sinLambda / sinSigma;
+            cosSqAlpha = 1 - sinAlpha * sinAlpha;
+            cos2SigmaM = cosSigma - 2 * sinU1 * sinU2 / cosSqAlpha;
+            C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha));
+
+            double lambdaP = lambda;
+            lambda = L + (1 - C) * f * sinAlpha
+                    * (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)));
+
+            // 檢查迭代誤差是否小於預設精度
+            if (Math.abs(lambda - lambdaP) < EPSILON) {
+                break;
+            }
+        } while (--maxIterations > 0);
+
+        double uSq = cosSqAlpha * (a * a - b * b) / (b * b);
+        double A = 1 + uSq / 16384 * (4096 + uSq * (-768 + uSq * (320 - 175 * uSq)));
+        double B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq)));
+        double deltaSigma = B * sinSigma
+                * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)
+                - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
+
+        return b * A * (sigma - deltaSigma);
     }
 }

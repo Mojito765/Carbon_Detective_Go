@@ -280,7 +280,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:padding="20dp"
-                    android:text="Where are you?"
+                    android:text="You are here!"
                     android:textColor="?colorOnSecondaryContainer"
                     android:textSize="28sp" />
 
