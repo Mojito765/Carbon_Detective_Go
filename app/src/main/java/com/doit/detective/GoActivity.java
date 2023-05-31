@@ -4,7 +4,6 @@ import static com.doit.detective.LocationService.myLocationList;
 import static com.doit.detective.StatisticsActivity.chopsticks_weight;
 
 import android.Manifest;
-import android.app.AlertDialog;
 import android.app.Service;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +15,6 @@ import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
