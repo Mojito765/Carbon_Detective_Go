@@ -118,8 +118,9 @@ public class LocationService extends Service {
         do {
             sinLambda = Math.sin(lambda);
             cosLambda = Math.cos(lambda);
+            double v = cosU1 * sinU2 - sinU1 * cosU2 * cosLambda;
             sinSigma = Math.sqrt((cosU2 * sinLambda) * (cosU2 * sinLambda)
-                    + (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda) * (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda));
+                    + v * v);
             if (sinSigma == 0) {
                 return 0.0; // 兩點重疊
             }

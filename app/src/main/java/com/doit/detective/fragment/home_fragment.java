@@ -157,7 +157,7 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
                 // 取得SharedPreference
                 SharedPreferences getPrefs = PreferenceManager
                         .getDefaultSharedPreferences(getContext());
-                // 取得Key名稱為app_cfp...的資料
+                // 取得Key名稱為app_cfp的資料
                 float app_cfp = getPrefs.getFloat("app_cfp", 0);
 
                 if (app_cfp <= 100) {
