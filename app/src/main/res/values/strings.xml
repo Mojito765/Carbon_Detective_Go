@@ -9,13 +9,14 @@
     <string name="badge4">百里竿頭</string>
     <string name="badge5">你累了嗎</string>
     <string name="badge6">敬請期待</string>
+    <string name="lock">Locked</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 <!--carbon footprint-->
     <string name="kgCO2">kgCO2</string>
     <string name="calculate_result">Mileage:\n%1$s km\n\nCarbon footprint:\n%2$s kgCO2</string>
 <!--    QA-->
-    <string name="QA"><b>Q1：如何開始記錄碳足跡？</b>\nA1：允許定位權限，選擇交通方式，然後點擊開始按鈕，到達目的地再點擊結束按鈕。\n\n<b>Q2：可以中途切換交通工具嗎？</b>\nA2：可以，每次記錄只會以最後一次選擇的交通方式計算。\n\n<b>Q3：沒有我要的交通工具欸？！</b>\nA3：自己算（ᗜ ‸ ᗜ）。</string>
+    <string name="QA"><b>Q1: How to start tracking carbon footprint?</b>\nA1: Grant location permission, choose your mode of transportation, then click the start button. When you reach your destination, click the stop button.\n\n<b>Q2: Is it possible to switch transportation modes midway?</b>\nA2: Yes, but each recording will only calculate based on the last selected transportation mode.\n\n<b>Q3: How to unlock the yellow badge?</b>\nA3: No idea.（ᗜ ‸ ᗜ）</string>
     <string name="QA_about_us"><b>Q：What\'s “Carbon Detective Go”?</b>\nA：“Carbon Detective Go” is an app for people to record their carbon footprint easily.</string>
 <!--location-->
     <string name="background_location_permission_granted">Permission granted</string>

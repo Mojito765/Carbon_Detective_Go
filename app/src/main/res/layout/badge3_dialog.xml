@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:textColor="?colorOnBackground"
-            android:text="  你的行進速度飆破光速啦！超能力者是你？！"
+            android:text="  You're breaking the speed of light! Are you a superhero?!"
             android:textSize="18sp" />
 
         <!--badgeTime-->

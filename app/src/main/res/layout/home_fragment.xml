@@ -312,7 +312,7 @@
             android:layout_gravity="center_horizontal"
             android:paddingTop="30dp"
             android:paddingBottom="150dp"
-            android:text="DOiT_名偵碳走哪裡？Carbon Detective Go"
+            android:text="DOiT_做就隊 Carbon Detective Go"
             android:textColor="?colorOnBackground"
             android:textSize="14sp" />
 

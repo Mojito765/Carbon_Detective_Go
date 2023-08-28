@@ -17,6 +17,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.doit.detective.R;
 
+import java.util.Objects;
+
 public class dialog1_fragment extends DialogFragment {
 
     public dialog1_fragment() {
@@ -28,9 +30,9 @@ public class dialog1_fragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = requireActivity().getLayoutInflater().inflate(R.layout.badge1_dialog, new LinearLayout(getActivity()), false);
         // Build dialog
-        Dialog builder = new Dialog(getActivity(), android.R.style.Theme_Material_Dialog_NoActionBar_MinWidth);
+        Dialog builder = new Dialog(requireActivity(), android.R.style.Theme_Material_Dialog_NoActionBar_MinWidth);
         builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        builder.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        Objects.requireNonNull(builder.getWindow()).setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         builder.setContentView(view);
         Button btnOk = view.findViewById(R.id.close);
         btnOk.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +50,7 @@ public class dialog1_fragment extends DialogFragment {
                 .getDefaultSharedPreferences(getContext());
         // 取得Key名稱為status_badge1的資料
         int b1 = getPrefs.getInt("status_badge1", 0);
-        String badge1Time = getPrefs.getString("time_badge1", "Unlocked");
+        String badge1Time = getPrefs.getString("time_badge1", "0");
 
         if (b1 == 1) {
             badgeLock.setImageResource(R.drawable.round_lock_open_24);

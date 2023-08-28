@@ -16,8 +16,6 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +23,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 
 import com.doit.detective.R;
@@ -36,7 +33,6 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.material.appbar.AppBarLayout;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -94,11 +90,9 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
 
         LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
 
-        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
-//            return;
-        }
+        if (ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.checkSelfPermission(requireActivity(), Manifest.permission.INTERNET);
+        }//            return;
 
         try {
             gps_loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -123,7 +117,7 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
         ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_NETWORK_STATE}, 1);
 
         try {
-            Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
+            Geocoder geocoder = new Geocoder(requireActivity(), Locale.getDefault());
             List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
             if (addresses != null && addresses.size() > 0) {
                 userState = addresses.get(0).getAdminArea();
@@ -186,7 +180,7 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), StatisticsActivity.class);
+                intent.setClass(requireActivity(), StatisticsActivity.class);
                 startActivity(intent);
             }
         });

@@ -55,17 +55,11 @@ public class AboutUsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.help:
-                dialog8_fragment badgeDialog = new dialog8_fragment();
-                badgeDialog.show(getSupportFragmentManager(), "dialog8_fragment");
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
+        if (item.getItemId() == R.id.help) {
+            dialog8_fragment badgeDialog = new dialog8_fragment();
+            badgeDialog.show(getSupportFragmentManager(), "dialog8_fragment");
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }

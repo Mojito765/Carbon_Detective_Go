@@ -90,7 +90,7 @@
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
             android:textColor="?colorOnSurfaceVariant"
-            android:text="Locked"
+            android:text="@string/lock"
             android:textSize="16sp"
             android:textStyle="bold" />
 

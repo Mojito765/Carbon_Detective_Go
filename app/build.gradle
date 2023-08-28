@@ -5,13 +5,13 @@ plugins {
 
 android {
     namespace 'com.doit.detective'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.doit.detective"
         minSdk 23
         targetSdk 33
-        versionCode 70607
+        versionCode 70828
         versionName "1.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -42,8 +42,8 @@ dependencies {
     implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
-    implementation 'androidx.navigation:navigation-fragment:2.5.3'
-    implementation 'androidx.navigation:navigation-ui:2.5.3'
+    implementation 'androidx.navigation:navigation-fragment:2.7.1'
+    implementation 'androidx.navigation:navigation-ui:2.7.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.gms:play-services-maps:18.1.0'

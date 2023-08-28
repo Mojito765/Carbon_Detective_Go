@@ -13,6 +13,8 @@ import androidx.fragment.app.DialogFragment;
 
 import com.doit.detective.R;
 
+import java.util.Objects;
+
 public class dialog6_fragment extends DialogFragment {
 
     public dialog6_fragment() {
@@ -24,9 +26,9 @@ public class dialog6_fragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = requireActivity().getLayoutInflater().inflate(R.layout.tips_dialog, new LinearLayout(getActivity()), false);
         // Build dialog
-        Dialog builder = new Dialog(getActivity(), android.R.style.Theme_Material_Dialog_NoActionBar_MinWidth);
+        Dialog builder = new Dialog(requireActivity(), android.R.style.Theme_Material_Dialog_NoActionBar_MinWidth);
         builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        builder.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        Objects.requireNonNull(builder.getWindow()).setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         builder.setContentView(view);
         Button btnClose = view.findViewById(R.id.close);
         btnClose.setOnClickListener(new View.OnClickListener() {

@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.doit.detective.fragment.badge_fragment;
+import com.doit.detective.fragment.dialog8_fragment;
 import com.doit.detective.fragment.home_fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -84,27 +85,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.nav_carbon:
-                Intent i = new Intent(MainActivity.this, AboutCarbonActivity.class);
-                startActivity(i);
-                break;
-            case R.id.nav_about:
-                Intent j = new Intent(MainActivity.this, AboutUsActivity.class);
-                startActivity(j);
-                break;
-            case R.id.nav_support:
-                Intent k = new Intent(Intent.ACTION_SEND);
-                k.setType("message/rfc822");
-                k.putExtra(Intent.EXTRA_EMAIL, new String[]{"example@mail.com"});
-                k.putExtra(Intent.EXTRA_SUBJECT, "Carbon Detective Go Feedback");
-                k.putExtra(Intent.EXTRA_TEXT, "Tell us about your experience...");
-                try {
-                    startActivity(Intent.createChooser(k, "Contact Us"));
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(this, "No email clients installed.", Toast.LENGTH_SHORT).show();
-                }
-                break;
+        if (id == R.id.nav_carbon) {
+            Intent i = new Intent(MainActivity.this, AboutCarbonActivity.class);
+            startActivity(i);
+        } else if (id == R.id.nav_about) {
+            Intent j = new Intent(MainActivity.this, AboutUsActivity.class);
+            startActivity(j);
+        } else if (id == R.id.nav_support) {
+            Intent k = new Intent(Intent.ACTION_SEND);
+            k.setType("message/rfc822");
+            k.putExtra(Intent.EXTRA_EMAIL, new String[]{"example@mail.com"});
+            k.putExtra(Intent.EXTRA_SUBJECT, "Carbon Detective Go Feedback");
+            k.putExtra(Intent.EXTRA_TEXT, "Tell us about your experience...");
+            try {
+                startActivity(Intent.createChooser(k, "Contact Us"));
+            } catch (android.content.ActivityNotFoundException ex) {
+                Toast.makeText(this, "No email clients installed.", Toast.LENGTH_SHORT).show();
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
@@ -126,13 +123,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onItemSelected(int i) {
                         Fragment fragment = null;
-                        switch (i) {
-                            case R.id.home:
-                                fragment = new home_fragment();
-                                break;
-                            case R.id.badge:
-                                fragment = new badge_fragment();
-                                break;
+                        if(i == R.id.home)fragment = new home_fragment();
+                        else if (i == R.id.badge) {
+                            fragment = new badge_fragment();
                         }
                         assert fragment != null;
                         getSupportFragmentManager().beginTransaction()

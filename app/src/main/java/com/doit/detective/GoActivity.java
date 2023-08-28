@@ -418,18 +418,12 @@ public class GoActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.help:
-                dialog7_fragment badgeDialog = new dialog7_fragment();
-                badgeDialog.show(getSupportFragmentManager(), "dialog7_fragment");
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
+        if (item.getItemId() == R.id.help) {
+            dialog7_fragment badgeDialog = new dialog7_fragment();
+            badgeDialog.show(getSupportFragmentManager(), "dialog7_fragment");
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
 }
