@@ -17,7 +17,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.doit.detective.fragment.badge_fragment;
-import com.doit.detective.fragment.dialog8_fragment;
 import com.doit.detective.fragment.home_fragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
 //FAB
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.FAB);
+        FloatingActionButton fab = findViewById(R.id.FAB);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     public void onItemSelected(int i) {
                         Fragment fragment = null;
-                        if(i == R.id.home)fragment = new home_fragment();
+                        if (i == R.id.home) fragment = new home_fragment();
                         else if (i == R.id.badge) {
                             fragment = new badge_fragment();
                         }

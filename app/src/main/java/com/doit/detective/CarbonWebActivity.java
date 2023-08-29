@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 public class CarbonWebActivity extends AppCompatActivity {
     WebView webview;
     WebSettings webSettings;
-    String url="https://cfp-calculate.tw/cfpc/Carbon/WebPage/InstitutionDesc.aspx";
+    String url = "https://cfp-calculate.tw/cfpc/Carbon/WebPage/InstitutionDesc.aspx";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,11 @@ public class CarbonWebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_carbon_web);
 
         webview = findViewById(R.id.carbon_webview);
-        webSettings=webview.getSettings();
-        webSettings.setJavaScriptEnabled(true);//開啟javascript功能
-        webview.setWebViewClient(new WebViewClient());//新增瀏覽器客戶端
-        webview.loadUrl(url);//讀取url網站
+        webSettings = webview.getSettings();
+        //enable javascript
+        webSettings.setJavaScriptEnabled(true);
+        webview.setWebViewClient(new WebViewClient());
+        webview.loadUrl(url);
 
         Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
@@ -36,10 +37,12 @@ public class CarbonWebActivity extends AppCompatActivity {
         assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
     }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK && webview.canGoBack()) {//如果按下返回鍵&能後退為true
-            webview.goBack();//返回上一頁
+        // 如果按下返回且能後退
+        if (keyCode == KeyEvent.KEYCODE_BACK && webview.canGoBack()) {
+            webview.goBack();
             return true;
         }
         return super.onKeyDown(keyCode, event);

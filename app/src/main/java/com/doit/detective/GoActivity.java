@@ -42,8 +42,8 @@ import java.util.TimerTask;
 
 public class GoActivity extends AppCompatActivity {
 
-    private static final int MY_FINE_LOCATION_REQUEST = 99;
-    private static final int MY_BACKGROUND_LOCATION_REQUEST = 100;
+    private static final int request_FINE_LOCATION = 99;
+    private static final int request_BACKGROUND_LOCATION = 100;
 
     public static double transportation_weight = 0;
     public static double finalDistance = 0;
@@ -122,7 +122,7 @@ public class GoActivity extends AppCompatActivity {
                             setButtonUI("START", R.color.seed);
                             time = 0.0;
                             timerStarted = false;
-                            timerText.setText(formatTime(0, 0, 0));
+//                            timerText.setText(formatTime(0, 0, 0));
 
                             stopService();
                         }
@@ -268,7 +268,7 @@ public class GoActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == MY_FINE_LOCATION_REQUEST) {
+        if (requestCode == request_FINE_LOCATION) {
 
             if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -287,7 +287,7 @@ public class GoActivity extends AppCompatActivity {
                 }
             }
 
-        } else if (requestCode == MY_BACKGROUND_LOCATION_REQUEST) {
+        } else if (requestCode == request_BACKGROUND_LOCATION) {
 
             if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -338,11 +338,11 @@ public class GoActivity extends AppCompatActivity {
     private void requestBackgroundLocationPermission() {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION},
-                MY_BACKGROUND_LOCATION_REQUEST);
+                request_BACKGROUND_LOCATION);
     }
 
     private void requestFineLocationPermission() {
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, MY_FINE_LOCATION_REQUEST);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, request_FINE_LOCATION);
     }
 
     public void saveTravel() {
