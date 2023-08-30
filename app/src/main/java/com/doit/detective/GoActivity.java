@@ -44,7 +44,6 @@ public class GoActivity extends AppCompatActivity {
 
     private static final int request_FINE_LOCATION = 99;
     private static final int request_BACKGROUND_LOCATION = 100;
-
     public static double transportation_weight = 0;
     public static double finalDistance = 0;
     public static double final_carbon_footprint = 0;
@@ -58,7 +57,6 @@ public class GoActivity extends AppCompatActivity {
     Timer timer;
     TimerTask timerTask;
     Double time = 0.0;
-
     boolean timerStarted = false;
 
     @Override
@@ -114,7 +112,7 @@ public class GoActivity extends AppCompatActivity {
         MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
                 .setTitle("Stop recording")
                 .setMessage("Are you sure you want to stop recording?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Stop", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (timerTask != null) {
@@ -128,7 +126,7 @@ public class GoActivity extends AppCompatActivity {
                         }
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //do nothing
@@ -224,7 +222,6 @@ public class GoActivity extends AppCompatActivity {
                     }
                 });
             }
-
         };
         timer.scheduleAtFixedRate(timerTask, 0, 1000);
     }
@@ -252,11 +249,11 @@ public class GoActivity extends AppCompatActivity {
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
                 if (isChecked) {
                     setVibrate();
-                    if (checkedId == R.id.trans1) {
+                    if (checkedId == R.id.train) {
                         transportation_weight = 0.06;
-                    } else if (checkedId == R.id.trans2) {
+                    } else if (checkedId == R.id.moped) {
                         transportation_weight = 0.046;
-                    } else if (checkedId == R.id.trans3) {
+                    } else if (checkedId == R.id.car) {
                         transportation_weight = 0.173;
                     }
                 }
@@ -327,7 +324,7 @@ public class GoActivity extends AppCompatActivity {
         mServiceIntent = new Intent(this, mLocationService.getClass());
         if (Utility.isMyServiceRunning(mLocationService.getClass(), this)) {
             stopService(mServiceIntent);
-            Toast.makeText(this, "Stopping", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Recorded", Toast.LENGTH_SHORT).show();
             saveTravel();
         } else {
             Toast.makeText(this, "Not recording", Toast.LENGTH_SHORT).show();

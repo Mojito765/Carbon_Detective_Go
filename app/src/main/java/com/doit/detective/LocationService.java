@@ -61,7 +61,6 @@ public class LocationService extends Service {
             @Override
             public void onLocationResult(@NonNull LocationResult locationResult) {
                 Location location = locationResult.getLastLocation();
-
                 assert location != null;
                 myLocationList.add(location.getLatitude());
                 myLocationList.add(location.getLongitude());

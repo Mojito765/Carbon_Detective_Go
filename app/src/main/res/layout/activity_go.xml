@@ -100,7 +100,7 @@
                         app:singleSelection="true">
 
                         <Button
-                            android:id="@+id/trans1"
+                            android:id="@+id/train"
                             style="?attr/materialButtonOutlinedStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                             app:icon="@drawable/round_directions_transit_24" />
 
                         <Button
-                            android:id="@+id/trans2"
+                            android:id="@+id/moped"
                             style="?attr/materialButtonOutlinedStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                             app:icon="@drawable/round_moped_24" />
 
                         <Button
-                            android:id="@+id/trans3"
+                            android:id="@+id/car"
                             style="?attr/materialButtonOutlinedStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
