@@ -1,5 +1,8 @@
 package com.doit.detective.fragment;
 
+import static android.app.ProgressDialog.show;
+
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -96,18 +99,18 @@ public class badge_fragment extends Fragment {
                 editor.putString("time_badge5", "Unlocked: " + date5);
                 editor.apply();
 
-                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireActivity())
-                        .setTitle("You just unlock a new badge")
-                        .setMessage("Check it out! Your new badge, \"Are you tired?\".")
+                MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), com.google.android.material.R.style.ThemeOverlay_Material3_MaterialAlertDialog_Centered)
+                        .setTitle("New badge unlocked")
+                        .setMessage("Check it out! Your new badge, \"Are you tired\".")
                         .setIcon(R.drawable.round_lock_open_24)
-                        .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                //do nothing
+                                dialog5_fragment badgeDialog = new dialog5_fragment();
+                                badgeDialog.show(getChildFragmentManager(), "dialog5_fragment");
                             }
                         });
-                builder.create();
-                builder.show();
+                iconDialog.show();
             }
             // 將status_badge5的值設為1（解鎖）
             editor.putInt("status_badge5", 1);

@@ -3,11 +3,11 @@
     <string name="badge">Badges</string>
     <string name="home">Home</string>
     <string name="go">Go</string>
-    <string name="badge1">初露鋒芒</string>
-    <string name="badge2">披星戴月</string>
-    <string name="badge3">走尬那飛</string>
-    <string name="badge4">百里竿頭</string>
-    <string name="badge5">你累了嗎</string>
+    <string name="badge1">First step / 初露鋒芒</string>
+    <string name="badge2">Under the moon / 披星戴月</string>
+    <string name="badge3">Faster than light / 走尬那飛</string>
+    <string name="badge4">A foot to 100 / 百里竿頭</string>
+    <string name="badge5">Are you tired / 你累了嗎</string>
     <string name="badge6">敬請期待</string>
     <string name="lock">Locked</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
