@@ -1,5 +1,6 @@
 package com.doit.detective.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -14,7 +15,9 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.doit.detective.GoActivity;
 import com.doit.detective.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -92,6 +95,19 @@ public class badge_fragment extends Fragment {
                 String date5 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
                 editor.putString("time_badge5", "Unlocked: " + date5);
                 editor.apply();
+
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireActivity())
+                        .setTitle("You just unlock a new badge")
+                        .setMessage("Check it out! Your new badge, \"Are you tired?\".")
+                        .setIcon(R.drawable.round_lock_open_24)
+                        .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //do nothing
+                            }
+                        });
+                builder.create();
+                builder.show();
             }
             // 將status_badge5的值設為1（解鎖）
             editor.putInt("status_badge5", 1);
