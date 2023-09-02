@@ -37,7 +37,7 @@
                 android:paddingStart="30dp"
                 android:paddingTop="36dp"
                 android:paddingEnd="30dp"
-                android:text="碳足跡？"
+                android:text="What's Carbon Footprint?"
                 android:textColor="?colorOnPrimary"
                 android:textSize="40sp"
                 android:textStyle="bold" />
@@ -45,18 +45,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="30dp"
-                android:paddingTop="0dp"
-                android:paddingEnd="30dp"
-                android:text="What's Carbon Footprint?"
-                android:textColor="?colorOnPrimary"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:padding="30dp"
-                android:text="  指一活動或產品的生命週期中，直接與間接產生的溫室氣體排放量。"
+                android:text="  Refers to the direct and indirect greenhouse gas emissions generated throughout the lifecycle of an activity or product."
                 android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 
@@ -73,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:paddingTop="15dp"
-                android:text="台灣碳足跡標籤"
+                android:text="Taiwan CFP-Labeling"
                 android:textColor="?colorOnPrimary"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -85,7 +75,7 @@
                 android:paddingTop="20dp"
                 android:paddingRight="30dp"
                 android:paddingBottom="0dp"
-                android:text="  碳標籤制度能使產品各階段的碳排放來源透明化，促使企業調整其產品碳排放量較大的製程，也能促使消費者正確地使用產品。"
+                android:text="  The carbon labeling system enables transparency regarding the carbon emissions sources at each stage of a product's lifecycle. Prompt manufacturers to adjust processes with higher carbon emissions, and encourage consumers to use products correctly."
                 android:textColor="?colorOnPrimary"
                 android:textSize="16sp" />
 

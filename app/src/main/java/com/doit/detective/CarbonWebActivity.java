@@ -13,7 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 public class CarbonWebActivity extends AppCompatActivity {
     WebView webview;
     WebSettings webSettings;
-    String url = "https://cfp-calculate.tw/cfpc/Carbon/WebPage/InstitutionDesc.aspx";
+    String url = "https://cfp-calculate.tw/cfpc/Carbon/WebPage/Background.aspx";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
