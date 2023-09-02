@@ -38,7 +38,7 @@
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Close"
+        android:text="@string/close"
         app:layout_constraintBottom_toBottomOf="@id/tvTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvTitle" />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:textColor="?colorOnBackground"
-            android:text="  在夜黑風高的夜晚裡，有一個來無影去無蹤的身影，原來就是你！無論多晚，Carbon Detective Go 永遠守候在旁，陪你一同披星戴月。"
+            android:text="@string/bg2_description"
             android:textSize="18sp" />
 
         <!--badgeTime-->

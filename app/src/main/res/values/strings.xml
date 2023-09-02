@@ -3,12 +3,12 @@
     <string name="badge">Badges</string>
     <string name="home">Home</string>
     <string name="go">Go</string>
-    <string name="badge1">First step / 初露鋒芒</string>
-    <string name="badge2">Under the moon / 披星戴月</string>
-    <string name="badge3">Faster than light / 走尬那飛</string>
-    <string name="badge4">A foot to 100 / 百里竿頭</string>
-    <string name="badge5">Are you tired / 你累了嗎</string>
-    <string name="badge6">敬請期待</string>
+    <string name="badge1">Take the first step</string>
+    <string name="badge2">Under the moon</string>
+    <string name="badge3">Faster than light</string>
+    <string name="badge4">A foot to 100</string>
+    <string name="badge5">Are you tired</string>
+    <string name="badge6">Stay tuned</string>
     <string name="lock">Locked</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -27,4 +27,10 @@
 
     <string name="location_permission_message">Allow App to access this device\'s location. Then set Allow-all-the-time permission in Settings.</string>
     <string name="ask_location_permission">Allow App to access this device\'s location?</string>
+    <string name="close">Close</string>
+    <string name="bg1_description">Great to see you here. Let\'s Carbon Detective Go!</string>
+    <string name="bg2_description">Under the stars and the moon, Carbon Detective Go still here with you.</string>
+    <string name="bg3_description">You\'re breaking the speed of light! Are you a superhero?!</string>
+    <string name="bg4_description">At the top of a hundred-kgCO2 pole, take one more step.</string>
+    <string name="bg5_description">To rest is to prepare for a longer journey ahead. (Battery level below 20%)</string>
 </resources>

@@ -38,7 +38,7 @@
         style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Close"
+        android:text="@string/close"
         app:layout_constraintBottom_toBottomOf="@id/tvTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvTitle" />
@@ -79,7 +79,7 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:textColor="?colorOnBackground"
-            android:text="  隨著你雲遊四海，獲得的徽章也會越來越多，還等什麼？與 Carbon Detective Go 一起展開全新的「偵碳」旅程吧！"
+            android:text="@string/bg1_description"
             android:textSize="18sp" />
 
         <!--badgeTime-->
