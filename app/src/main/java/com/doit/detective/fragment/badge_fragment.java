@@ -52,6 +52,19 @@ public class badge_fragment extends Fragment {
                 String date1 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
                 editor.putString("time_badge1", "Unlocked: " + date1);
                 editor.apply();
+
+                MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                        .setTitle("Congratulations!")
+                        .setMessage("You've unlocked a new badge, \"Take the first step\".")
+                        .setIcon(R.drawable.round_lock_open_24)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialog1_fragment badgeDialog = new dialog1_fragment();
+                                badgeDialog.show(getChildFragmentManager(), "dialog1_fragment");
+                            }
+                        });
+                iconDialog.show();
             }
             // 將status_badge1的值設為1（解鎖）
             editor.putInt("status_badge1", 1);
@@ -68,6 +81,19 @@ public class badge_fragment extends Fragment {
                 String date2 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
                 editor.putString("time_badge2", "Unlocked: " + date2);
                 editor.apply();
+
+                MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                        .setTitle("Congratulations!")
+                        .setMessage("You've unlocked a new badge, \"Under the moon\".")
+                        .setIcon(R.drawable.round_lock_open_24)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialog2_fragment badgeDialog = new dialog2_fragment();
+                                badgeDialog.show(getChildFragmentManager(), "dialog2_fragment");
+                            }
+                        });
+                iconDialog.show();
             }
             // 將status_badge2的值設為1（解鎖）
             editor.putInt("status_badge2", 1);
@@ -81,6 +107,19 @@ public class badge_fragment extends Fragment {
                 String date4 = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
                 editor.putString("time_badge4", "Unlocked: " + date4);
                 editor.apply();
+
+                MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                        .setTitle("Congratulations!")
+                        .setMessage("You've unlocked a new badge, \"A foot to hundred\".")
+                        .setIcon(R.drawable.round_lock_open_24)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialog4_fragment badgeDialog = new dialog4_fragment();
+                                badgeDialog.show(getChildFragmentManager(), "dialog4_fragment");
+                            }
+                        });
+                iconDialog.show();
             }
             // 將status_badge4的值設為1（解鎖）
             editor.putInt("status_badge4", 1);
@@ -95,9 +134,9 @@ public class badge_fragment extends Fragment {
                 editor.putString("time_badge5", "Unlocked: " + date5);
                 editor.apply();
 
-                MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), com.google.android.material.R.style.ThemeOverlay_Material3_MaterialAlertDialog_Centered)
-                        .setTitle("New badge unlocked")
-                        .setMessage("Check it out! Your new badge, \"Are you tired\".")
+                MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                        .setTitle("Congratulations!")
+                        .setMessage("You've unlocked a new badge, \"Are you tired\".")
                         .setIcon(R.drawable.round_lock_open_24)
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
@@ -113,7 +152,6 @@ public class badge_fragment extends Fragment {
             // apply
             editor.apply();
         }
-
         return v;
     }
 
@@ -134,8 +172,27 @@ public class badge_fragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog1_fragment badgeDialog = new dialog1_fragment();
-                badgeDialog.show(getChildFragmentManager(), "dialog1_fragment");
+                // 取得SharedPreference
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                int badge1Status = getPrefs.getInt("status_badge1", 0);
+                if (badge1Status != 1) {
+                    MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                            .setTitle("Locked")
+                            .setMessage("A journey of a thousand miles begins with a single step.")
+                            .setIcon(R.drawable.round_lock_24)
+                            .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialog1_fragment badgeDialog = new dialog1_fragment();
+                                    badgeDialog.show(getChildFragmentManager(), "dialog1_fragment");
+                                }
+                            });
+                    iconDialog.show();
+                } else {
+                    dialog1_fragment badgeDialog = new dialog1_fragment();
+                    badgeDialog.show(getChildFragmentManager(), "dialog1_fragment");
+                }
             }
         });
 
@@ -143,8 +200,27 @@ public class badge_fragment extends Fragment {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog2_fragment badgeDialog = new dialog2_fragment();
-                badgeDialog.show(getChildFragmentManager(), "dialog2_fragment");
+                // 取得SharedPreference
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                int badge2Status = getPrefs.getInt("status_badge2", 0);
+                if (badge2Status != 1) {
+                    MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                            .setTitle("Locked")
+                            .setMessage("A journey of a thousand miles begins with a single step.")
+                            .setIcon(R.drawable.round_lock_24)
+                            .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialog2_fragment badgeDialog = new dialog2_fragment();
+                                    badgeDialog.show(getChildFragmentManager(), "dialog2_fragment");
+                                }
+                            });
+                    iconDialog.show();
+                } else {
+                    dialog2_fragment badgeDialog = new dialog2_fragment();
+                    badgeDialog.show(getChildFragmentManager(), "dialog2_fragment");
+                }
             }
         });
 
@@ -152,8 +228,27 @@ public class badge_fragment extends Fragment {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog3_fragment badgeDialog = new dialog3_fragment();
-                badgeDialog.show(getChildFragmentManager(), "dialog3_fragment");
+                // 取得SharedPreference
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                int badge3Status = getPrefs.getInt("status_badge3", 0);
+                if (badge3Status != 1) {
+                    MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                            .setTitle("Locked")
+                            .setMessage("A journey of a thousand miles begins with a single step.")
+                            .setIcon(R.drawable.round_lock_24)
+                            .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialog3_fragment badgeDialog = new dialog3_fragment();
+                                    badgeDialog.show(getChildFragmentManager(), "dialog3_fragment");
+                                }
+                            });
+                    iconDialog.show();
+                } else {
+                    dialog3_fragment badgeDialog = new dialog3_fragment();
+                    badgeDialog.show(getChildFragmentManager(), "dialog3_fragment");
+                }
             }
         });
 
@@ -161,8 +256,27 @@ public class badge_fragment extends Fragment {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog4_fragment badgeDialog = new dialog4_fragment();
-                badgeDialog.show(getChildFragmentManager(), "dialog4_fragment");
+                // 取得SharedPreference
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                int badge4Status = getPrefs.getInt("status_badge4", 0);
+                if (badge4Status != 1) {
+                    MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                            .setTitle("Locked")
+                            .setMessage("A journey of a thousand miles begins with a single step.")
+                            .setIcon(R.drawable.round_lock_24)
+                            .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialog4_fragment badgeDialog = new dialog4_fragment();
+                                    badgeDialog.show(getChildFragmentManager(), "dialog4_fragment");
+                                }
+                            });
+                    iconDialog.show();
+                } else {
+                    dialog4_fragment badgeDialog = new dialog4_fragment();
+                    badgeDialog.show(getChildFragmentManager(), "dialog4_fragment");
+                }
             }
         });
 
@@ -170,8 +284,27 @@ public class badge_fragment extends Fragment {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog5_fragment badgeDialog = new dialog5_fragment();
-                badgeDialog.show(getChildFragmentManager(), "dialog5_fragment");
+                // 取得SharedPreference
+                SharedPreferences getPrefs = PreferenceManager
+                        .getDefaultSharedPreferences(getContext());
+                int badge5Status = getPrefs.getInt("status_badge5", 0);
+                if (badge5Status != 1) {
+                    MaterialAlertDialogBuilder iconDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.CustomMaterialAlertDialog)
+                            .setTitle("Locked")
+                            .setMessage("A journey of a thousand miles begins with a single step.")
+                            .setIcon(R.drawable.round_lock_24)
+                            .setPositiveButton("Dismiss", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialog5_fragment badgeDialog = new dialog5_fragment();
+                                    badgeDialog.show(getChildFragmentManager(), "dialog5_fragment");
+                                }
+                            });
+                    iconDialog.show();
+                } else {
+                    dialog5_fragment badgeDialog = new dialog5_fragment();
+                    badgeDialog.show(getChildFragmentManager(), "dialog5_fragment");
+                }
             }
         });
 

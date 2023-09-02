@@ -4,4 +4,14 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <style name="CustomMaterialAlertDialog" parent="@style/ThemeOverlay.Material3.MaterialAlertDialog.Centered">
+        <item name="materialAlertDialogTitleIconStyle">@style/TitleIconStyleCenter</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/BodyTextStyle</item>
+    </style>
+    <style name="TitleIconStyleCenter" parent="MaterialAlertDialog.Material3.Title.Icon.CenterStacked">
+        <item name="android:tint">?colorOnSurfaceVariant</item>
+    </style>
+    <style name="BodyTextStyle" parent="MaterialAlertDialog.Material3.Body.Text.CenterStacked">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>

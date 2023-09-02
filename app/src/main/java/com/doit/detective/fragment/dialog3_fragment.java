@@ -30,8 +30,8 @@ public class dialog3_fragment extends DialogFragment {
         builder.requestWindowFeature(Window.FEATURE_NO_TITLE);
         Objects.requireNonNull(builder.getWindow()).setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         builder.setContentView(view);
-        Button btnOk = view.findViewById(R.id.close);
-        btnOk.setOnClickListener(new View.OnClickListener() {
+        Button btnClose = view.findViewById(R.id.close);
+        btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 builder.dismiss();
