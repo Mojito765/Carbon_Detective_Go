@@ -108,7 +108,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
                             android:layout_marginStart="10dp"
-                            android:text="碳足跡相當於"
+                            android:text="Equivalent to producing"
                             android:textColor="?colorOnBackground"
                             android:textSize="20sp" />
 
@@ -121,15 +121,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginEnd="10dp"
-                                android:text="製造"
-                                android:textColor="?colorOnBackground"
-                                android:textSize="20sp" />
-
-                            <TextView
-                                android:id="@+id/chopsticks"
+                                android:id="@+id/straw"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/text_bg"
@@ -142,7 +134,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:text="雙免洗筷"
+                                android:text="plastic straw(s)."
                                 android:textColor="?colorOnBackground"
                                 android:textSize="20sp" />
 

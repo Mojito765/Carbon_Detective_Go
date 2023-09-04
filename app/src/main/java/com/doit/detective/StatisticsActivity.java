@@ -19,7 +19,7 @@ import com.google.android.material.appbar.AppBarLayout;
 
 public class StatisticsActivity extends AppCompatActivity {
 
-    public static double chopsticks_weight = 0.05;
+    public static double straw_weight = 0.00533;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,24 +67,24 @@ public class StatisticsActivity extends AppCompatActivity {
         TextView tvDistance = findViewById(R.id.carbon_footprint);
         TextView tvTotalDistance = findViewById(R.id.all_move);
         TextView tvTotalFootprint = findViewById(R.id.all_carbon_footprint);
-        TextView tvTotalChopsticks = findViewById(R.id.chopsticks);
+        TextView tvTotalStraw = findViewById(R.id.straw);
 
         // round off
         double total_travel2 = Math.round(app_mileage * 10.0) / 10.0;
         double total_travel_carbon_footprint2 = Math.round(app_cfp * 10.0) / 10.0;
-        double myChopsticks = Math.round(app_cfp / chopsticks_weight);
+        double myStraw = app_cfp / straw_weight;
 
         // Double.toString
         String fCF = Float.toString(app_cfp);
         String fD = Float.toString(app_mileage);
         String tD = Double.toString(total_travel2);
         String tF = Double.toString(total_travel_carbon_footprint2);
-        String tC = Integer.toString((int) myChopsticks);
+        String tS = Integer.toString((int) myStraw);
 
         // setText
         tvTotalDistance.setText(tD);
         tvTotalFootprint.setText(tF);
-        tvTotalChopsticks.setText(tC);
+        tvTotalStraw.setText(tS);
         tvDistance.setText(getString(R.string.calculate_result, fD, fCF));
     }
 

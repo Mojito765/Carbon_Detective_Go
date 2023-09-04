@@ -1,7 +1,7 @@
 package com.doit.detective;
 
 import static com.doit.detective.LocationService.myLocationList;
-import static com.doit.detective.StatisticsActivity.chopsticks_weight;
+import static com.doit.detective.StatisticsActivity.straw_weight;
 
 import android.Manifest;
 import android.app.Service;
@@ -365,7 +365,7 @@ public class GoActivity extends AppCompatActivity {
         TextView tvDistance = findViewById(R.id.carbon_footprint);
         TextView tvTotalDistance = findViewById(R.id.all_move);
         TextView tvTotalFootprint = findViewById(R.id.all_carbon_footprint);
-        TextView tvTotalChopsticks = findViewById(R.id.chopsticks);
+        TextView tvTotalStraw = findViewById(R.id.straw);
 
 //        calculate carbon footprint
         final_carbon_footprint = finalDistance * transportation_weight;
@@ -391,19 +391,19 @@ public class GoActivity extends AppCompatActivity {
 //        round off
         double round_final_carbon_footprint = Math.round(final_carbon_footprint * 10.0) / 10.0;
         double round_finalDistance = Math.round(finalDistance * 10.0) / 10.0;
-        double myChopsticks = final_carbon_footprint / chopsticks_weight;
+        double myStraw = final_carbon_footprint / straw_weight;
 
 //        Double.toString
         String fCF = Double.toString(final_carbon_footprint);
         String fD = Double.toString(finalDistance);
         String tD = Double.toString(round_finalDistance);
         String tF = Double.toString(round_final_carbon_footprint);
-        String tC = Integer.toString((int) myChopsticks);
+        String tS = Integer.toString((int) myStraw);
 
 //        setText
         tvTotalDistance.setText(tD);
         tvTotalFootprint.setText(tF);
-        tvTotalChopsticks.setText(tC);
+        tvTotalStraw.setText(tS);
         tvDistance.setText(getString(R.string.calculate_result, fD, fCF));
     }
 
