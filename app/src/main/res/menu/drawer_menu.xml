@@ -10,11 +10,11 @@
                 <item
                     android:id="@+id/nav_carbon"
                     android:icon="@drawable/ic_round_co2_24"
-                    android:title="What's Carbon Footprint"/>
+                    android:title="Carbon Footprint"/>
                 <item
                     android:id="@+id/nav_about"
-                    android:icon="@drawable/round_people_24"
-                    android:title="About Us"/>
+                    android:icon="@drawable/round_info_24"
+                    android:title="Team_DOiT"/>
 <!--            </group>-->
         </menu>
     </item>
