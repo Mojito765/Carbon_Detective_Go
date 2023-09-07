@@ -15,7 +15,7 @@
             android:layout_height="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:navigationIcon="@drawable/round_arrow_back_24"
-            app:title="Carbon Footprint" />
+            app:title="About Carbon Footprint" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
