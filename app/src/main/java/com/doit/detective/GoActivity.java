@@ -42,8 +42,8 @@ import java.util.TimerTask;
 
 public class GoActivity extends AppCompatActivity {
 
-    private static final int request_FINE_LOCATION = 99;
-    private static final int request_BACKGROUND_LOCATION = 100;
+    private static final int REQUEST_FINE_LOCATION = 99;
+    private static final int REQUEST_BACKGROUND_LOCATION = 100;
     public static double transportation_weight = 0;
     public static double finalDistance = 0;
     public static double final_carbon_footprint = 0;
@@ -105,7 +105,6 @@ public class GoActivity extends AppCompatActivity {
         // Enable the Up button
         assert ab != null;
         ab.setDisplayHomeAsUpEnabled(true);
-
     }
 
     private void resetTapped() {
@@ -141,61 +140,15 @@ public class GoActivity extends AppCompatActivity {
         setVibrate();
 
         if (!timerStarted) {
-
-            if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    == PackageManager.PERMISSION_GRANTED) {
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-
-                    if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                            != PackageManager.PERMISSION_GRANTED) {
-
-                        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
-                                .setTitle(getString(R.string.ask_background_location_permission))
-                                .setMessage(getString(R.string.background_location_permission_message))
-                                .setPositiveButton("Setup All-the-time Access", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        requestBackgroundLocationPermission();
-                                        dialogInterface.dismiss();
-                                    }
-                                })
-                                .setNegativeButton("Keep Only-while-using Access", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int i) {
-                                        startService();
-
-                                        dialogInterface.dismiss();
-                                    }
-                                });
-                        builder.create();
-                        builder.show();
-
-                    } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-                            == PackageManager.PERMISSION_GRANTED) {
-                        startService();
-                    }
+            if (hasFineLocationPermission()) {
+                if (shouldRequestBackgroundLocationPermission()) {
+                    showBackgroundLocationPermissionDialog();
                 } else {
                     startService();
                 }
-
-            } else if (ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                    != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-
-                    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
-                            .setTitle(getString(R.string.ask_location_permission))
-                            .setMessage(getString(R.string.location_permission_message))
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    requestFineLocationPermission();
-                                    dialogInterface.dismiss();
-                                }
-                            });
-                    builder.create();
-                    builder.show();
-
+            } else {
+                if (shouldShowFineLocationRationale()) {
+                    showFineLocationRationaleDialog();
                 } else {
                     requestFineLocationPermission();
                 }
@@ -204,6 +157,56 @@ public class GoActivity extends AppCompatActivity {
             resetTapped();
         }
     }
+
+    private boolean hasFineLocationPermission() {
+        return ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private boolean shouldRequestBackgroundLocationPermission() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q && ActivityCompat.checkSelfPermission(GoActivity.this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) != PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void showBackgroundLocationPermissionDialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
+                .setTitle(getString(R.string.ask_background_location_permission))
+                .setMessage(getString(R.string.background_location_permission_message))
+                .setPositiveButton(getString(R.string.setup_all_the_time_access), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (shouldRequestBackgroundLocationPermission()) {
+                            requestBackgroundLocationPermission();
+                        }
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNegativeButton(getString(R.string.keep_only_while_using_access), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        startService();
+                        dialogInterface.dismiss();
+                    }
+                });
+        builder.create().show();
+    }
+
+    private boolean shouldShowFineLocationRationale() {
+        return ActivityCompat.shouldShowRequestPermissionRationale(GoActivity.this, Manifest.permission.ACCESS_FINE_LOCATION);
+    }
+
+    private void showFineLocationRationaleDialog() {
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(GoActivity.this)
+                .setTitle(getString(R.string.ask_location_permission))
+                .setMessage(getString(R.string.location_permission_message))
+                .setPositiveButton(getString(R.string.ok), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        requestFineLocationPermission();
+                        dialogInterface.dismiss();
+                    }
+                });
+        builder.create().show();
+    }
+
 
     private void setButtonUI(String start, int color) {
         stopStartButton.setText(start);
@@ -228,7 +231,6 @@ public class GoActivity extends AppCompatActivity {
 
     private String getTimerText() {
         int rounded = (int) Math.round(time);
-
         int seconds = ((rounded % 86400) % 3600) % 60;
         int minutes = ((rounded % 86400) % 3600) / 60;
         int hours = ((rounded % 86400) / 3600);
@@ -243,7 +245,6 @@ public class GoActivity extends AppCompatActivity {
     // Transportation weight
     private void btnTransportation() {
         MaterialButtonToggleGroup materialButtonToggleGroup = findViewById(R.id.toggleButton);
-
         materialButtonToggleGroup.addOnButtonCheckedListener(new MaterialButtonToggleGroup.OnButtonCheckedListener() {
             @Override
             public void onButtonChecked(MaterialButtonToggleGroup group, int checkedId, boolean isChecked) {
@@ -265,37 +266,52 @@ public class GoActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        if (requestCode == request_FINE_LOCATION) {
+        if (requestCode == REQUEST_FINE_LOCATION) {
+            handleFineLocationPermissionResult(grantResults);
+        } else if (requestCode == REQUEST_BACKGROUND_LOCATION) {
+            handleBackgroundLocationPermissionResult(grantResults);
+        }
+    }
 
-            if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        requestBackgroundLocationPermission();
-                    }
-                }
-
-            } else {
-                Toast.makeText(this, "ACCESS_FINE_LOCATION permission denied", Toast.LENGTH_LONG).show();
-                if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-                    startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                            Uri.parse("package:com.doit.detective")
-                    ));
+    private void handleFineLocationPermissionResult(int[] grantResults) {
+        if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    requestBackgroundLocationPermission();
                 }
             }
-
-        } else if (requestCode == request_BACKGROUND_LOCATION) {
-
-            if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, R.string.background_location_permission_granted, Toast.LENGTH_LONG).show();
-                }
-            } else {
-                Toast.makeText(this, R.string.background_location_permission_denied, Toast.LENGTH_LONG).show();
+        } else {
+            showLocationPermissionDeniedMessage();
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                openAppSettings();
             }
         }
+    }
 
+    private void handleBackgroundLocationPermissionResult(int[] grantResults) {
+        if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                    == PackageManager.PERMISSION_GRANTED) {
+                showToast(getString(R.string.background_location_permission_granted));
+            }
+        } else {
+            showToast(getString(R.string.background_location_permission_denied));
+        }
+    }
+
+    private void showLocationPermissionDeniedMessage() {
+        showToast(getString(R.string.access_fine_location_permission_denied));
+    }
+
+    private void openAppSettings() {
+        startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                Uri.parse("package:com.doit.detective")
+        ));
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     private void setVibrate() {
@@ -335,11 +351,11 @@ public class GoActivity extends AppCompatActivity {
     private void requestBackgroundLocationPermission() {
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.ACCESS_BACKGROUND_LOCATION},
-                request_BACKGROUND_LOCATION);
+                REQUEST_BACKGROUND_LOCATION);
     }
 
     private void requestFineLocationPermission() {
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, request_FINE_LOCATION);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, REQUEST_FINE_LOCATION);
     }
 
     public void saveTravel() {
@@ -352,16 +368,15 @@ public class GoActivity extends AppCompatActivity {
             System.out.println("OutOfBounds");
         }
 
-        //step3 setText
-        setResultTV();
+        //setText
+        setResultText();
 
         //clear record
         myLocationList.clear();
         finalDistance = 0;
     }
 
-    //step3
-    private void setResultTV() {
+    private void setResultText() {
         TextView tvDistance = findViewById(R.id.carbon_footprint);
         TextView tvTotalDistance = findViewById(R.id.all_move);
         TextView tvTotalFootprint = findViewById(R.id.all_carbon_footprint);

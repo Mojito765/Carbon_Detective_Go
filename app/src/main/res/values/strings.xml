@@ -21,6 +21,7 @@
 <!--location-->
     <string name="background_location_permission_granted">Permission granted</string>
     <string name="background_location_permission_denied">All-the-time permission denied</string>
+    <string name="access_fine_location_permission_denied">No location permissions</string>
 
     <string name="background_location_permission_message">App currently can access location only while you\'re using the app.</string>
     <string name="ask_background_location_permission">Allow App to access this device\'s location all the time?</string>
@@ -33,4 +34,7 @@
     <string name="bg3_description">You\'re breaking the speed of light! Are you a superhero?!</string>
     <string name="bg4_description">At the top of a hundred-kgCO2 pole, take one more step.</string>
     <string name="bg5_description">To rest is to prepare for a longer journey ahead. (Battery level below 20%)</string>
+    <string name="setup_all_the_time_access">Setup All-the-time Access</string>
+    <string name="keep_only_while_using_access">Keep Only-while-using Access</string>
+    <string name="ok">OK</string>
 </resources>
