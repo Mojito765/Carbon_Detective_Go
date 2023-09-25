@@ -21,8 +21,18 @@ public class AboutUsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
-//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        setUpButtonClickListener();
 
+        Toolbar myChildToolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(myChildToolbar);
+
+        ActionBar ab = getSupportActionBar();
+        assert ab != null;
+        ab.setDisplayHomeAsUpEnabled(true);
+    }
+
+
+    private void setUpButtonClickListener() {
         Button btnUp = findViewById(R.id.btn_up);
         NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_view);
         AppBarLayout appBarLayout = findViewById(R.id.appBarLayout);
@@ -31,21 +41,11 @@ public class AboutUsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 nestedScrollView.fullScroll(View.FOCUS_UP);
-//                nestedScrollView.scrollTo(0,0);
                 appBarLayout.setExpanded(true);
             }
         });
-
-        Toolbar myChildToolbar = findViewById(R.id.topAppBar);
-        setSupportActionBar(myChildToolbar);
-
-        // Get a support ActionBar corresponding to this toolbar
-        ActionBar ab = getSupportActionBar();
-
-        // Enable the Up button
-        assert ab != null;
-        ab.setDisplayHomeAsUpEnabled(true);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

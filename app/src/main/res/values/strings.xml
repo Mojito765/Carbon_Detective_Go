@@ -37,4 +37,7 @@
     <string name="setup_all_the_time_access">Setup All-the-time Access</string>
     <string name="keep_only_while_using_access">Keep Only-while-using Access</string>
     <string name="ok">OK</string>
+
+    <string name="logo_description">&#160;&#160;Inspired by Taiwan CFP-Labeling. Team “DOiT” make a Carbon footprint-themed application.</string>
+    <string name="word_cloud_description">&#160;&#160;Design based on the logo graphic. Incorporating keywords such as sustainable development, environmental awareness, carbon footprint tracking, and more.</string>
 </resources>
