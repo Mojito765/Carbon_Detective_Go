@@ -1,5 +1,6 @@
 package com.doit.detective;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.webkit.WebSettings;
@@ -15,6 +16,7 @@ public class CarbonWebActivity extends AppCompatActivity {
     WebSettings webSettings;
     String url = "https://cfp-calculate.tw/cfpc/Carbon/WebPage/Background.aspx";
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

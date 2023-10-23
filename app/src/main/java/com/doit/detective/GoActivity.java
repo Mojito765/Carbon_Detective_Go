@@ -1,7 +1,7 @@
 package com.doit.detective;
 
 import static com.doit.detective.LocationService.myLocationList;
-import static com.doit.detective.StatisticsActivity.straw_weight;
+import static com.doit.detective.StatisticsActivity.STRAW_WEIGHT;
 
 import android.Manifest;
 import android.app.Service;
@@ -406,7 +406,7 @@ public class GoActivity extends AppCompatActivity {
 //        round off
         double round_final_carbon_footprint = Math.round(final_carbon_footprint * 10.0) / 10.0;
         double round_finalDistance = Math.round(finalDistance * 10.0) / 10.0;
-        double myStraw = final_carbon_footprint / straw_weight;
+        double myStraw = final_carbon_footprint / STRAW_WEIGHT;
 
 //        Double.toString
         String fCF = Double.toString(final_carbon_footprint);

@@ -10,30 +10,32 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class AboutCarbonActivity extends AppCompatActivity {
+    private static final int BUTTON_WEB_ID = R.id.btn_web;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_carbon);
 
-        Button btnWeb = findViewById(R.id.btn_web);
+        Button btnWeb = findViewById(BUTTON_WEB_ID);
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(AboutCarbonActivity.this, CarbonWebActivity.class);
-                startActivity(intent);
+                startCarbonWebActivity();
             }
         });
 
         Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
 
-        // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
+    }
 
-        // Enable the Up button
-        assert ab != null;
-        ab.setDisplayHomeAsUpEnabled(true);
+    private void startCarbonWebActivity() {
+        Intent intent = new Intent(this, CarbonWebActivity.class);
+        startActivity(intent);
     }
 }
