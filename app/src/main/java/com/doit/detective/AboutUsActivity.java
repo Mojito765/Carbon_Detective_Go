@@ -16,13 +16,19 @@ import com.google.android.material.appbar.AppBarLayout;
 
 public class AboutUsActivity extends AppCompatActivity {
 
+    private static final int BUTTON_UP_ID = R.id.btn_up;
+    private static final int NESTED_SCROLL_VIEW_ID = R.id.nested_scroll_view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
 
+        initializeToolbar();
         setUpButtonClickListener();
+    }
 
+    private void initializeToolbar() {
         Toolbar myChildToolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(myChildToolbar);
 
@@ -31,10 +37,9 @@ public class AboutUsActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
     }
 
-
     private void setUpButtonClickListener() {
-        Button btnUp = findViewById(R.id.btn_up);
-        NestedScrollView nestedScrollView = findViewById(R.id.nested_scroll_view);
+        Button btnUp = findViewById(BUTTON_UP_ID);
+        NestedScrollView nestedScrollView = findViewById(NESTED_SCROLL_VIEW_ID);
         AppBarLayout appBarLayout = findViewById(R.id.appBarLayout);
 
         btnUp.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +50,6 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
