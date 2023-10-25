@@ -11,7 +11,7 @@ android {
         applicationId "com.doit.detective"
         minSdk 23
         targetSdk 33
-        versionCode 80916
+        versionCode 81025
         versionName "1.8"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
