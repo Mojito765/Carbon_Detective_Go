@@ -17,6 +17,13 @@ public class AboutCarbonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_carbon);
 
+        initializeViews();
+    }
+
+    private void initializeViews() {
+        Toolbar myChildToolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(myChildToolbar);
+
         Button btnWeb = findViewById(BUTTON_WEB_ID);
         btnWeb.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,9 +31,6 @@ public class AboutCarbonActivity extends AppCompatActivity {
                 startCarbonWebActivity();
             }
         });
-
-        Toolbar myChildToolbar = findViewById(R.id.topAppBar);
-        setSupportActionBar(myChildToolbar);
 
         ActionBar ab = getSupportActionBar();
         if (ab != null) {

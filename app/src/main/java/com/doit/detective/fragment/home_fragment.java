@@ -42,13 +42,11 @@ import java.util.Locale;
 public class home_fragment extends Fragment implements OnMapReadyCallback {
 
     private View v;
-
-    Location gps_loc;
-    Location network_loc;
-    Location final_loc;
-    double longitude;
-    double latitude;
-    String userState, userCity;
+    private Location final_loc;
+    private double longitude;
+    private double latitude;
+    private String userState = "Unknown";
+    private String userCity = "Unknown";
 
     MapView mapview;
     GoogleMap mMap;
@@ -91,37 +89,28 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
         LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
 
         try {
-            if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
+            if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
                 return;
             }
-            gps_loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            network_loc = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            Location gps_loc = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            Location network_loc = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+            if (gps_loc != null) {
+                final_loc = gps_loc;
+                latitude = final_loc.getLatitude();
+                longitude = final_loc.getLongitude();
+            } else if (network_loc != null) {
+                final_loc = network_loc;
+                latitude = final_loc.getLatitude();
+                longitude = final_loc.getLongitude();
+            } else {
+                latitude = 0.0;
+                longitude = 0.0;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        if (gps_loc != null) {
-            final_loc = gps_loc;
-            latitude = final_loc.getLatitude();
-            longitude = final_loc.getLongitude();
-        } else if (network_loc != null) {
-            final_loc = network_loc;
-            latitude = final_loc.getLatitude();
-            longitude = final_loc.getLongitude();
-        } else {
-            latitude = 0.0;
-            longitude = 0.0;
-        }
-
-        ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_NETWORK_STATE}, 1);
 
         try {
             Geocoder geocoder = new Geocoder(requireActivity(), Locale.getDefault());
@@ -129,9 +118,6 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
             if (addresses != null && addresses.size() > 0) {
                 userState = addresses.get(0).getAdminArea();
                 userCity = addresses.get(0).getLocality();
-            } else {
-                userCity = "Unknown";
-                userState = "Unknown";
             }
             tvCity.setText(userCity);
             tvState.setText(userState);
@@ -142,23 +128,17 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
 
     private void getTime() {
         TextView tvTime = v.findViewById(R.id.time);
-        // HH:mm:ss
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
-        // get current time
         Date date = new Date(System.currentTimeMillis());
         tvTime.setText(simpleDateFormat.format(date));
     }
 
     private void configureCardView() {
-
         CardView cv0 = v.findViewById(R.id.c0);
         cv0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 取得SharedPreference
-                SharedPreferences getPrefs = PreferenceManager
-                        .getDefaultSharedPreferences(getContext());
-                // 取得Key名稱為app_cfp的資料
+                SharedPreferences getPrefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
                 float app_cfp = getPrefs.getFloat("app_cfp", 0);
 
                 if (app_cfp <= 100) {
@@ -185,8 +165,7 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
         cv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(requireActivity(), StatisticsActivity.class);
+                Intent intent = new Intent(requireActivity(), StatisticsActivity.class);
                 startActivity(intent);
             }
         });
@@ -195,13 +174,11 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
         cv3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
-                    case Configuration.UI_MODE_NIGHT_YES:
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                        break;
-                    case Configuration.UI_MODE_NIGHT_NO:
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                        break;
+                int uiMode = getResources().getConfiguration().uiMode;
+                if ((uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 }
             }
         });
@@ -211,10 +188,8 @@ public class home_fragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mMap = googleMap;
         try {
-            // Add a marker in current location
             LatLng currentLocation = new LatLng(final_loc.getLatitude(), final_loc.getLongitude());
             mMap.addMarker(new MarkerOptions().position(currentLocation).title("You're here!"));
-            // Move the camera and zoom in
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 12.0f));
         } catch (Exception ignored) {
         }
