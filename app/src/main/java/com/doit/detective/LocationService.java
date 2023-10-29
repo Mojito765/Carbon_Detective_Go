@@ -1,5 +1,7 @@
 package com.doit.detective;
 
+import static com.google.android.gms.location.LocationRequest.Builder.IMPLICIT_MIN_UPDATE_INTERVAL;
+
 import android.Manifest;
 import android.app.Service;
 import android.content.Intent;
@@ -16,12 +18,11 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.Priority;
 
 import java.util.ArrayList;
 
-
 public class LocationService extends Service {
-
     public static ArrayList<Double> myLocationList = new ArrayList<>();
     private FusedLocationProviderClient fusedLocationClient;
     private LocationRequest locationRequest;
@@ -30,6 +31,10 @@ public class LocationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        initLocationServices();
+    }
+
+    private void initLocationServices() {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         createLocationRequest();
         createLocationCallback();
@@ -37,11 +42,11 @@ public class LocationService extends Service {
     }
 
     private void createLocationRequest() {
-        locationRequest = new LocationRequest();
-        locationRequest.setInterval(3000);
-        locationRequest.setFastestInterval(3000);
-        locationRequest.setMaxWaitTime(5000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest = new LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
+                .setWaitForAccurateLocation(false)
+                .setMinUpdateIntervalMillis(IMPLICIT_MIN_UPDATE_INTERVAL)
+                .setMaxUpdateDelayMillis(1000)
+                .build();
     }
 
     private void createLocationCallback() {
@@ -50,34 +55,37 @@ public class LocationService extends Service {
             public void onLocationResult(@NonNull LocationResult locationResult) {
                 Location location = locationResult.getLastLocation();
                 if (location != null) {
-                    myLocationList.add(location.getLatitude());
-                    myLocationList.add(location.getLongitude());
+                    updateLocationList(location.getLatitude(), location.getLongitude());
                 }
             }
         };
     }
 
+    private void updateLocationList(double latitude, double longitude) {
+        myLocationList.add(latitude);
+        myLocationList.add(longitude);
+    }
+
     private void startLocationUpdates() {
         if (hasLocationPermission()) {
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-                return;
-            }
-            fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
+            requestLocationUpdates();
         } else {
-            // no permission, do something
+            // Handle the case when location permissions are not granted.
         }
     }
 
     private boolean hasLocationPermission() {
         return ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestLocationUpdates() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Handle the case when permissions are not granted.
+            return;
+        }
+        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper());
     }
 
     @Override
@@ -89,6 +97,10 @@ public class LocationService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        stopLocationUpdates();
+    }
+
+    private void stopLocationUpdates() {
         fusedLocationClient.removeLocationUpdates(locationCallback);
     }
 
@@ -98,19 +110,21 @@ public class LocationService extends Service {
     }
 
     public static double getDistanceFromLatLon(double lat1, double lon1, double lat2, double lon2) {
-        final double EARTH_RADIUS = 6371.0; // 地球半徑（公里）
-        final double EPSILON = 1E-12; // 計算精度
+        final double EARTH_RADIUS = 6371.0; // Earth's radius in kilometers
+        final double EPSILON = 1E-12; // Calculation precision
 
-        // 經緯度轉為弧度
+        // Convert latitude and longitude to radians
         double radLat1 = Math.toRadians(lat1);
         double radLon1 = Math.toRadians(lon1);
         double radLat2 = Math.toRadians(lat2);
         double radLon2 = Math.toRadians(lon2);
 
+        // Earth's semi-major and semi-minor axes
         double a = EARTH_RADIUS;
         double b = EARTH_RADIUS;
 
-        double f = 1 / 298.257223563; // 地球扁率
+        // Earth's flattening
+        double f = 1 / 298.257223563;
         double L = radLon2 - radLon1;
         double tanU1 = (1 - f) * Math.tan(radLat1);
         double cosU1 = 1 / Math.sqrt(1 + tanU1 * tanU1);
@@ -128,10 +142,9 @@ public class LocationService extends Service {
             sinLambda = Math.sin(lambda);
             cosLambda = Math.cos(lambda);
             double v = cosU1 * sinU2 - sinU1 * cosU2 * cosLambda;
-            sinSigma = Math.sqrt((cosU2 * sinLambda) * (cosU2 * sinLambda)
-                    + v * v);
+            sinSigma = Math.sqrt((cosU2 * sinLambda) * (cosU2 * sinLambda) + v * v);
             if (sinSigma == 0) {
-                return 0.0; // 兩點重疊
+                return 0.0; // Points overlap
             }
             cosSigma = sinU1 * sinU2 + cosU1 * cosU2 * cosLambda;
             sigma = Math.atan2(sinSigma, cosSigma);
@@ -141,10 +154,9 @@ public class LocationService extends Service {
             C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha));
 
             double lambdaP = lambda;
-            lambda = L + (1 - C) * f * sinAlpha
-                    * (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)));
+            lambda = L + (1 - C) * f * sinAlpha * (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)));
 
-            // 檢查迭代誤差是否小於預設精度
+            // Check if the iteration error is less than the predefined precision
             if (Math.abs(lambda - lambdaP) < EPSILON) {
                 break;
             }
@@ -153,9 +165,7 @@ public class LocationService extends Service {
         double uSq = cosSqAlpha * (a * a - b * b) / (b * b);
         double A = 1 + uSq / 16384 * (4096 + uSq * (-768 + uSq * (320 - 175 * uSq)));
         double B = uSq / 1024 * (256 + uSq * (-128 + uSq * (74 - 47 * uSq)));
-        double deltaSigma = B * sinSigma
-                * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)
-                - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
+        double deltaSigma = B * sinSigma * (cos2SigmaM + B / 4 * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) * (-3 + 4 * cos2SigmaM * cos2SigmaM)));
 
         return b * A * (sigma - deltaSigma);
     }
